@@ -176,22 +176,48 @@ header.scrolled {
 /* ===== HERO ===== */
 .hero {
   min-height: 100vh;
-  padding: calc(56px + var(--safe-top)) 0 0;
+  padding: 0;
   background: var(--bg);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.hero-bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 68%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    #F2F2F2 30%,
+    rgba(242, 242, 242, 0.90) 52%,
+    rgba(242, 242, 242, 0.25) 74%,
+    transparent 100%
+  );
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 32px var(--safe-left) 40px;
-  gap: 32px;
+  padding: calc(56px + var(--safe-top) + 28px) var(--safe-left) 40px;
+  gap: 0;
   max-width: 100%;
 }
 
@@ -237,7 +263,7 @@ header.scrolled {
 .hero-features {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 24px;
   width: 100%;
 }
@@ -246,10 +272,12 @@ header.scrolled {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 12px;
+  background: rgba(242, 242, 242, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .hero-feature-icon {
@@ -1228,6 +1256,8 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
+  <img class="hero-bg" src="https://i.ibb.co.com/9kfp7Wpm/IMG-9651.jpg" alt="Мерч для команди">
+  <div class="hero-bg-overlay"></div>
   <div class="hero-inner">
     <div class="hero-left fade-up">
       <div class="hero-title">
@@ -1241,8 +1271,8 @@ footer {
             <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8L6 7h12l-2-4z"/></svg>
           </div>
           <div>
-            <div class="hero-feature-title">Одяг</div>
-            <div class="hero-feature-text">На будь-який смак</div>
+            <div class="hero-feature-title">Одяг на будь-який смак</div>
+            <div class="hero-feature-text">Підберіть те, що пасує вашій команді</div>
           </div>
         </div>
         <div class="hero-feature fade-up">
@@ -1250,8 +1280,8 @@ footer {
             <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
           </div>
           <div>
-            <div class="hero-feature-title">Лого</div>
-            <div class="hero-feature-text">За 1 клік</div>
+            <div class="hero-feature-title">Ваше лого за 1 клік</div>
+            <div class="hero-feature-text">Завантажте лого та перегляньте результат</div>
           </div>
         </div>
         <div class="hero-feature fade-up">
@@ -1259,12 +1289,12 @@ footer {
             <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <div>
-            <div class="hero-feature-title">Ціна</div>
-            <div class="hero-feature-text">Одразу</div>
+            <div class="hero-feature-title">Ціна та термін одразу</div>
+            <div class="hero-feature-text">Прозоро і без очікувань</div>
           </div>
         </div>
       </div>
-      <a href="#catalog" class="btn btn-primary">СТВОРИТИ МЕРЧ</a>
+      <a href="#catalog" class="btn btn-primary">СТВОРИТИ МЕРЧ →</a>
     </div>
   </div>
 </section>
