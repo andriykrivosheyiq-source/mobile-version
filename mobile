@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1A56DB">
+<title>LoomiQ — Мерч для команди</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --white: #ffffff;
+  --bg: #F2F2F2;
+  --bg2: #EAEAEA;
+  --black: #0D0D0D;
+  --blue: #1A56DB;
+  --blue-dark: #1340B0;
+  --blue-light: #EEF4FF;
+  --muted: #777;
+  --border: #DEDEDE;
+  --safe-top: max(20px, env(safe-area-inset-top));
+  --safe-bottom: max(20px, env(safe-area-inset-bottom));
+  --safe-left: max(16px, env(safe-area-inset-left));
+  --safe-right: max(16px, env(safe-area-inset-right));
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-user-select: none;
+}
+
+body {
+  background: var(--bg);
+  color: var(--black);
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.fade-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-up:nth-child(3) { animation-delay: 0.3s; }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--safe-left) 0 var(--safe-left);
+  background: rgba(242, 242, 242, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+  padding-top: var(--safe-top);
+}
+
+header.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.header-center {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Onest', sans-serif;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s;
+  padding: 10px 16px;
+  font-size: 12px;
+  flex-shrink: 0;
+  min-height: 40px;
+  touch-action: manipulation;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(26, 86, 219, 0.2);
+}
+
+.btn-primary:active {
+  background: var(--blue-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid var(--border);
+}
+
+.btn-ghost:active {
+  border-color: var(--black);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  padding: calc(56px + var(--safe-top)) 0 0;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px var(--safe-left) 40px;
+  gap: 32px;
+  max-width: 100%;
+}
+
+.hero-left {
+  width: 100%;
+  padding: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(32px, 8vw, 48px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.hero-title-accent {
+  color: var(--blue);
+  display: block;
+  margin-top: 4px;
+}
+
+.hero-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 16px 0 24px;
+  max-width: 100%;
+}
+
+.hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.hero-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.hero-feature-icon {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--white);
+}
+
+.hero-feature-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-feature-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--black);
+  margin-bottom: 2px;
+}
+
+.hero-feature-text {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.hero-right {
+  display: none;
+}
+
+.hero .btn-primary {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* ===== LOGOS SECTION ===== */
+.logos-section {
+  background: var(--white);
+  padding: 24px var(--safe-left);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.logos-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.logos-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.logos-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.marquee-item {
+  padding: 0 12px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #BBBBBB;
+  letter-spacing: 0.08em;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ===== STATS ===== */
+.stats-section {
+  padding: 32px var(--safe-left) 32px;
+  background: var(--bg);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.stat-item {
+  background: var(--white);
+  padding: 24px 16px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: background 0.25s;
+}
+
+.stat-item:active {
+  background: var(--blue-light);
+}
+
+.stat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+
+.stat-num span {
+  color: var(--blue);
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== SECTION STYLES ===== */
+.sec-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.sec-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 40px var(--safe-left);
+}
+
+/* ===== HOW SECTION ===== */
+.how-section {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.how-section h2,
+.how-section .sec-label {
+  color: #fff;
+}
+
+.how-section .sec-sub {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 24px 16px;
+  transition: all 0.3s;
+}
+
+.step-card:active {
+  background: rgba(26, 86, 219, 0.1);
+  border-color: rgba(26, 86, 219, 0.35);
+  transform: translateY(-2px);
+}
+
+.step-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(26, 86, 219, 0.12);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 1px solid rgba(26, 86, 219, 0.2);
+}
+
+.step-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.step-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+}
+
+/* ===== HOOK SECTION ===== */
+.hook-section {
+  background: var(--blue);
+  text-align: center;
+  padding: 40px var(--safe-left);
+}
+
+.hook-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(22px, 5vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.hook-title span {
+  opacity: 0.7;
+}
+
+/* ===== CATALOG ===== */
+.catalog-section {
+  background: var(--bg);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.cat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.cat-card:active {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--blue);
+}
+
+.cat-visual {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cat-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 86, 219, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 3;
+}
+
+.cat-card:active .cat-overlay {
+  opacity: 1;
+}
+
+.cat-overlay-btn {
+  color: #fff;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.cat-info {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.cat-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cat-price {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.cv-tshirt { background: linear-gradient(160deg, #E8E8EE, #D8D8E4); }
+.cv-hoodie { background: linear-gradient(160deg, #1a1a2e, #2a2a40); }
+.cv-cap { background: linear-gradient(160deg, #1a2a1a, #2a3a2a); }
+.cv-bag { background: linear-gradient(160deg, #2a1a3a, #3a2a50); }
+.cv-socks { background: linear-gradient(160deg, #2a1a1a, #3a2020); }
+.cv-all { background: linear-gradient(160deg, var(--blue), #3b6fd4); }
+
+/* ===== ADVANTAGES ===== */
+.adv-section {
+  background: var(--white);
+}
+
+.adv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.adv-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  transition: all 0.3s;
+}
+
+.adv-card:active {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+}
+
+.adv-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--blue-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 1px solid rgba(26, 86, 219, 0.1);
+}
+
+.adv-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.adv-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.adv-text {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===== GUARANTEE ===== */
+.guarantee-section {
+  background: var(--white);
+}
+
+.guarantee-card {
+  background: linear-gradient(135deg, #FFF8F5, #FFF2EC);
+  border: 1px solid #FFCFB8;
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.g-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #FF7A45, #FF5520);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.g-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.g-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.g-sub {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* ===== COMPARISON ===== */
+.comparison-section {
+  background: var(--bg);
+}
+
+.comp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.comp-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+.comp-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.comp-visual {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.comp-card.dtf .comp-visual {
+  background: linear-gradient(145deg, #1A56DB, #3B70EE);
+}
+
+.comp-card.emb .comp-visual {
+  background: linear-gradient(145deg, #1a2a1a, #2a4a2a);
+}
+
+.comp-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 16px;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.comp-body {
+  padding: 20px 16px;
+}
+
+.comp-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.comp-text {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.comp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.comp-tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+/* ===== CASES ===== */
+.cases-section {
+  background: var(--black);
+}
+
+.cases-section h2,
+.cases-section .sec-label {
+  color: #fff;
+}
+
+.cases-section .sec-sub {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.cases-mosaic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.case-tile {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  min-height: 180px;
+}
+
+.ct1 { background: linear-gradient(145deg, #0D1B4B, #1A56DB); }
+.ct2 { background: linear-gradient(145deg, #0D2B0D, #1A6B1A); }
+.ct3 { background: linear-gradient(145deg, #1B0D4B, #5B1ADB); }
+.ct4 { background: linear-gradient(145deg, #2B0D0D, #8B1A1A); }
+
+.case-tile-info {
+  position: relative;
+  z-index: 2;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
+  width: 100%;
+}
+
+.case-tile-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.07em;
+  margin-bottom: 2px;
+}
+
+.case-tile-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== REVIEWS ===== */
+.review-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 24px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 16px;
+}
+
+.review-q {
+  font-size: 40px;
+  color: var(--blue);
+  font-family: Georgia, serif;
+  line-height: 0.8;
+  margin-bottom: 12px;
+}
+
+.review-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 16px;
+}
+
+.review-text strong {
+  color: #fff;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), #3B70EE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.review-role {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===== FOR WHO ===== */
+.forwho-section {
+  background: var(--bg);
+}
+
+.forwho-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.forwho-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.forwho-card:active {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+}
+
+.forwho-visual {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fv-biz { background: linear-gradient(145deg, #0D1B4B, #1A56DB); }
+.fv-event { background: linear-gradient(145deg, #0D2B0D, #1A6B1A); }
+.fv-sport { background: linear-gradient(145deg, #2B0D0D, #8B1A1A); }
+
+.forwho-body {
+  padding: 16px;
+}
+
+.forwho-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.forwho-text {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ===== FAQ ===== */
+.faq-section {
+  background: var(--white);
+}
+
+.faq-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.faq-left h2 {
+  margin-bottom: 12px;
+}
+
+.faq-left p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  text-align: left;
+  gap: 12px;
+  transition: color 0.2s;
+  touch-action: manipulation;
+}
+
+.faq-q:active {
+  color: var(--blue);
+}
+
+.faq-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.25s;
+}
+
+.faq-item.open .faq-icon {
+  background: var(--blue);
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding-bottom 0.3s;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding-bottom: 16px;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  background: var(--black);
+  text-align: center;
+  padding: 40px var(--safe-left);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: calc(40px + var(--safe-bottom));
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.3);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.cta-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(20px, 5vw, 36px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+}
+
+.cta-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.cta-sub strong {
+  color: #fff;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.cta-actions .btn {
+  width: 100%;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #080808;
+  padding: 32px var(--safe-left) calc(32px + var(--safe-bottom));
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footer-logo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.footer-desc {
+  font-size: 12px;
+  color: #3a3a3a;
+  line-height: 1.6;
+}
+
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #2a2a2a;
+  margin-bottom: 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: #3a3a3a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:active {
+  color: #fff;
+}
+
+.footer-bottom {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: #252525;
+}
+
+/* ===== UTILITIES ===== */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hidden-mobile {
+  display: none;
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="header-inner">
+    <a href="#" class="logo">LOOMIQ</a>
+    <div class="header-center">Мерч для команд</div>
+    <a href="#catalog" class="btn btn-primary">Створити</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left fade-up">
+      <div class="hero-title">
+        МЕРЧ<br>ДЛЯ<br>КОМАНДИ
+        <em class="hero-title-accent">ЗА 1 ХВИЛИНУ</em>
+      </div>
+      <p class="hero-desc">Оберіть одяг, завантажте лого, оберіть кількість — і одразу бачите вартість та термін.</p>
+      <div class="hero-features">
+        <div class="hero-feature fade-up">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8L6 7h12l-2-4z"/></svg>
+          </div>
+          <div>
+            <div class="hero-feature-title">Одяг</div>
+            <div class="hero-feature-text">На будь-який смак</div>
+          </div>
+        </div>
+        <div class="hero-feature fade-up">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+          </div>
+          <div>
+            <div class="hero-feature-title">Лого</div>
+            <div class="hero-feature-text">За 1 клік</div>
+          </div>
+        </div>
+        <div class="hero-feature fade-up">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="hero-feature-title">Ціна</div>
+            <div class="hero-feature-text">Одразу</div>
+          </div>
+        </div>
+      </div>
+      <a href="#catalog" class="btn btn-primary">СТВОРИТИ МЕРЧ</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos-section">
+  <div class="logos-inner">
+    <span class="logos-label">Партнери</span>
+    <span class="marquee-item">ПроектАльфа</span>
+    <span class="marquee-item">DevTeam</span>
+    <span class="marquee-item">StartupHub</span>
+    <span class="marquee-item">TechCrew</span>
+    <span class="marquee-item">DreamTeam</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section section">
+  <div class="stats-grid">
+    <div class="stat-item fade-up">
+      <div class="stat-num"><span>500+</span></div>
+      <div class="stat-label">Команд вже замовили</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num"><span>1000+</span></div>
+      <div class="stat-label">Одиниць мерчу</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-num"><span>15</span></div>
+      <div class="stat-label">Днів на доставку</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how-section section">
+  <div class="sec-label">КАК ЦЕ ПРАЦЮЄ</div>
+  <h2>3 кроки до ідеального мерчу</h2>
+  <p class="sec-sub">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
+  <div class="steps-grid">
+    <div class="step-card fade-up">
+      <div class="step-num">1</div>
+      <div class="step-title">Виберіть товар</div>
+      <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+    </div>
+    <div class="step-card fade-up">
+      <div class="step-num">2</div>
+      <div class="step-title">Завантажте дизайн</div>
+      <div class="step-text">Додайте логотип вашої команди</div>
+    </div>
+    <div class="step-card fade-up">
+      <div class="step-num">3</div>
+      <div class="step-title">Підтвердіть замовлення</div>
+      <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOOK -->
+<section class="hook-section section">
+  <h2 class="hook-title">Мерч, який говорить <span>про вашу команду</span></h2>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section section" id="catalog">
+  <div class="sec-label">КАТАЛОГ</div>
+  <h2>Що замовити?</h2>
+  <p class="sec-sub">Виберіть товар, який найбільше підходить вашій команді</p>
+  <div class="catalog-grid">
+    <div class="cat-card fade-up">
+      <div class="cat-visual cv-tshirt">
+        <div class="cat-overlay">
+          <button class="cat-overlay-btn">Переглянути</button>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="cat-name">Футболка</div>
+        <div class="cat-price">від 99 грн</div>
+      </div>
+    </div>
+    <div class="cat-card fade-up">
+      <div class="cat-visual cv-hoodie">
+        <div class="cat-overlay">
+          <button class="cat-overlay-btn">Переглянути</button>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="cat-name">Худі</div>
+        <div class="cat-price">від 299 грн</div>
+      </div>
+    </div>
+    <div class="cat-card fade-up">
+      <div class="cat-visual cv-cap">
+        <div class="cat-overlay">
+          <button class="cat-overlay-btn">Переглянути</button>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="cat-name">Кепка</div>
+        <div class="cat-price">від 149 грн</div>
+      </div>
+    </div>
+    <div class="cat-card fade-up">
+      <div class="cat-visual cv-bag">
+        <div class="cat-overlay">
+          <button class="cat-overlay-btn">Переглянути</button>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="cat-name">Сумка</div>
+        <div class="cat-price">від 199 грн</div>
+      </div>
+    </div>
+    <div class="cat-card fade-up">
+      <div class="cat-visual cv-socks">
+        <div class="cat-overlay">
+          <button class="cat-overlay-btn">Переглянути</button>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="cat-name">Шкарпетки</div>
+        <div class="cat-price">від 49 грн</div>
+      </div>
+    </div>
+    <div class="cat-card fade-up">
+      <div class="cat-visual cv-all">
+        <div class="cat-overlay">
+          <button class="cat-overlay-btn">Переглянути</button>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="cat-name">Комбо</div>
+        <div class="cat-price">від 599 грн</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="adv-section section">
+  <div class="sec-label">ПЕРЕВАГИ</div>
+  <h2>Чому LoomiQ?</h2>
+  <p class="sec-sub">Ми робимо мерч простим, дешевим і швидким</p>
+  <div class="adv-grid">
+    <div class="adv-card fade-up">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="adv-title">Швидко</div>
+      <div class="adv-text">Замовлення за лічені хвилини, доставка за 15 днів</div>
+    </div>
+    <div class="adv-card fade-up">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="adv-title">Дешево</div>
+      <div class="adv-text">Прямі ціни без посередників і надбавок</div>
+    </div>
+    <div class="adv-card fade-up">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="adv-title">Легко</div>
+      <div class="adv-text">Інтуїтивний интерфейс для кожного</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section section">
+  <div class="guarantee-card">
+    <div class="g-icon">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    </div>
+    <div>
+      <div class="g-title">100% гарантія якості</div>
+      <div class="g-sub">Якщо вам не сподобалось, повернемо всі гроші без питань</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison-section section">
+  <div class="sec-label">СПОСОБИ</div>
+  <h2>DTF vs Вишивка</h2>
+  <p class="sec-sub">Виберіть оптимальний метод нанесення для вашого проекту</p>
+  <div class="comp-grid">
+    <div class="comp-card dtf fade-up">
+      <div class="comp-visual"></div>
+      <div class="comp-badge">Популярно</div>
+      <div class="comp-body">
+        <div class="comp-title">DTF Принт</div>
+        <div class="comp-text">Яскраві кольори, детальні зображення, довговічність</div>
+        <div class="comp-tags">
+          <span class="comp-tag">Прямо на тканину</span>
+          <span class="comp-tag">Ярко</span>
+        </div>
+      </div>
+    </div>
+    <div class="comp-card emb fade-up">
+      <div class="comp-visual"></div>
+      <div class="comp-body">
+        <div class="comp-title">Вишивка</div>
+        <div class="comp-text">Класичний вид, об'єм, преміум відчуття</div>
+        <div class="comp-tags">
+          <span class="comp-tag">3D ефект</span>
+          <span class="comp-tag">Преміум</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases-section section">
+  <div class="sec-label">ПОРТФОЛІО</div>
+  <h2>Наші роботи</h2>
+  <p class="sec-sub">Дивіться приклади проектів, які ми вже завершили</p>
+  <div class="cases-mosaic">
+    <div class="case-tile ct1 fade-up">
+      <div class="case-tile-info">
+        <div class="case-tile-label">ПРОЕКТ</div>
+        <div class="case-tile-sub">ПроектАльфа</div>
+      </div>
+    </div>
+    <div class="case-tile ct2 fade-up">
+      <div class="case-tile-info">
+        <div class="case-tile-label">ПРОЕКТ</div>
+        <div class="case-tile-sub">DevTeam</div>
+      </div>
+    </div>
+    <div class="case-tile ct3 fade-up">
+      <div class="case-tile-info">
+        <div class="case-tile-label">ПРОЕКТ</div>
+        <div class="case-tile-sub">StartupHub</div>
+      </div>
+    </div>
+    <div class="case-tile ct4 fade-up">
+      <div class="case-tile-info">
+        <div class="case-tile-label">ПРОЕКТ</div>
+        <div class="case-tile-sub">TechCrew</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-card fade-up">
+    <div class="review-q">"</div>
+    <div class="review-text"><strong>LoomiQ</strong> — це саме те, що нам потрібно було! Якість мерчу відмінна, а процес замовлення дуже простий.</div>
+    <div class="review-author">
+      <div class="review-avatar">АВ</div>
+      <div>
+        <div class="review-name">Андрій Бережний</div>
+        <div class="review-role">Керівник ПроектАльфа</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho-section section">
+  <div class="sec-label">ДЛЯ КОГО</div>
+  <h2>Це для вас?</h2>
+  <p class="sec-sub">Мерч LoomiQ підходить для будь-яких команд</p>
+  <div class="forwho-grid">
+    <div class="forwho-card fade-up">
+      <div class="forwho-visual fv-biz"></div>
+      <div class="forwho-body">
+        <div class="forwho-title">Стартапи</div>
+        <div class="forwho-text">Укріпіть корпоративну культуру з якісним мерчем</div>
+      </div>
+    </div>
+    <div class="forwho-card fade-up">
+      <div class="forwho-visual fv-event"></div>
+      <div class="forwho-body">
+        <div class="forwho-title">События</div>
+        <div class="forwho-text">Запам'ятайте учасників пам'ятним мерчем</div>
+      </div>
+    </div>
+    <div class="forwho-card fade-up">
+      <div class="forwho-visual fv-sport"></div>
+      <div class="forwho-body">
+        <div class="forwho-title">Спортивні команди</div>
+        <div class="forwho-text">Підтримайте командний дух якісним екіпіруванням</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section section">
+  <div class="faq-wrap">
+    <div class="faq-left">
+      <h2>Питання та відповіді</h2>
+      <p>Знайдіть відповіді на найпоширеніші запитання про LoomiQ</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Які розміри доступні?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Ми пропонуємо розміри XS, S, M, L, XL, XXL для більшості товарів. Всі розміри розраховані за міжнародними стандартами.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Як довго обробляється замовлення?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Замовлення обробляється 1-3 дні, доставка займає 10-15 днів залежно від регіону України.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Який мінімальний замовлення?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Мінімальне замовлення — 5 одиниць. Але ми можемо розглянути менші замовлення за спеціальною ціною.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Як завантажити дизайн?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Просто натисніть кнопку «Завантажити» на нашому сайті й виберіть файл у форматі PNG, JPG або SVG.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section section">
+  <div class="cta-inner">
+    <span class="cta-tag">Готові почати?</span>
+    <h2 class="cta-title">Створіть мерч своєї команди сьогодні</h2>
+    <p class="cta-sub">Це займе всього <strong>1 хвилину</strong></p>
+    <div class="cta-actions">
+      <a href="#catalog" class="btn btn-primary">Розпочати</a>
+      <a href="#" class="btn btn-ghost">Дізнатися більше</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">LOOMIQ</div>
+      <p class="footer-desc">Мерч для команд — просто, дешево, швидко</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Компанія</div>
+      <div class="footer-links">
+        <a href="#">Про нас</a>
+        <a href="#">Блог</a>
+        <a href="#">Кар'єра</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Допомога</div>
+      <div class="footer-links">
+        <a href="#">Контакти</a>
+        <a href="#">FAQ</a>
+        <a href="#">Доставка</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Слідкуйте</div>
+      <div class="footer-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 LoomiQ. Всі права захищені</p>
+    <p class="footer-copy">Політика конфіденційності</p>
+  </div>
+</footer>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('hdr');
+  const headerObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { threshold: 0 });
+
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    headerObserver.observe(heroSection);
+  }
+
+  // Fade up animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-up').forEach(el => {
+    observer.observe(el);
+  });
+
+  // FAQ accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-q');
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      
+      faqItems.forEach(el => el.classList.remove('open'));
+      
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const headerHeight = 56;
+          const targetPosition = target.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+
+  // Prevent zoom on input focus (iOS)
+  document.addEventListener('touchstart', function() {});
+  
+  // Disable double-tap zoom
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, false);
+
+  // Handle viewport changes
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  window.addEventListener('resize', () => {
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+</script>
+
+</body>
+</html>
