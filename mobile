@@ -256,12 +256,12 @@ header.scrolled {
 
 /* Two spacers sandwich the desc — centers it between title and button */
 .hero-spacer-top {
-  flex: 1;
-  min-height: 24px;
+  flex: 0.6;
+  min-height: 16px;
 }
 
 .hero-spacer-bottom {
-  flex: 0.55;
+  flex: 1;
   min-height: 16px;
 }
 
