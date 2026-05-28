@@ -404,103 +404,220 @@ h2 {
   padding: 40px var(--safe-left);
 }
 
-/* ===== HOW SECTION ===== */
+/* ===== HOW SECTION — premium white ===== */
 .how-section {
-  background: var(--black);
+  background: #fff;
   position: relative;
   overflow: hidden;
+  padding: 40px 20px 0;
 }
 
-.how-section::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(26, 86, 219, 0.1) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.how-section h2,
 .how-section .sec-label {
-  color: #fff;
+  color: #2563FF;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.how-section .sec-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: #2563FF;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.how-section h2 {
+  color: var(--black);
+  font-size: clamp(22px, 6vw, 30px);
+  margin-bottom: 6px;
 }
 
 .how-section .sec-sub {
-  color: rgba(255, 255, 255, 0.4);
+  color: #666;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+/* Step cards list */
+.steps-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .step-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 24px 16px;
-  transition: all 0.3s;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 18px 0 18px 18px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s;
 }
 
 .step-card:active {
-  background: rgba(26, 86, 219, 0.1);
-  border-color: rgba(26, 86, 219, 0.35);
-  transform: translateY(-2px);
+  transform: scale(0.99);
 }
 
-.step-num {
+.step-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 12px;
+}
+
+.step-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(37, 99, 255, 0.08);
+  color: #2563FF;
   font-family: 'Unbounded', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--blue);
-  background: rgba(26, 86, 219, 0.12);
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
-  border: 1px solid rgba(26, 86, 219, 0.2);
+  flex-shrink: 0;
 }
 
 .step-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: #fff;
+  color: var(--black);
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .step-text {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
-  line-height: 1.6;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.55;
 }
 
-/* ===== HOOK SECTION ===== */
-.hook-section {
-  background: var(--blue);
+.step-image {
+  width: 130px;
+  height: 110px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 0 18px 18px 0;
+}
+
+.step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Dashed arrow connector between cards */
+.step-arrow {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 4px 28px;
+}
+
+/* ===== CTA BLOCK (replacing old hook) ===== */
+.steps-cta-wrap {
+  padding: 28px 20px 40px;
+  background: #fff;
+}
+
+.steps-cta-card {
+  background: linear-gradient(135deg, #f0f5ff 0%, #f8f9ff 100%);
+  border-radius: 20px;
+  padding: 24px 20px;
+  border: 1px solid rgba(37, 99, 255, 0.1);
+}
+
+.steps-cta-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.steps-cta-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 3px solid #2563FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(37,99,255,0.15);
+}
+
+.steps-cta-icon-inner {
   text-align: center;
-  padding: 40px var(--safe-left);
+  line-height: 1;
 }
 
-.hook-title {
+.steps-cta-num {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(22px, 5vw, 36px);
+  font-size: 22px;
   font-weight: 900;
-  letter-spacing: -0.025em;
-  margin-bottom: 16px;
-  line-height: 1.2;
-  color: #fff;
+  color: #2563FF;
+  display: block;
+  line-height: 1.1;
 }
 
-.hook-title span {
-  opacity: 0.7;
+.steps-cta-unit {
+  font-size: 10px;
+  color: #2563FF;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.steps-cta-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.35;
+}
+
+.steps-cta-title em {
+  color: #2563FF;
+  font-style: normal;
+}
+
+.steps-cta-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 14px;
+  background: #2563FF;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Onest', sans-serif;
+  letter-spacing: 0.01em;
+  transition: background 0.2s;
+}
+
+.steps-cta-btn:active {
+  background: #1d4ed8;
 }
 
 /* ===== CATALOG ===== */
@@ -1277,34 +1394,87 @@ footer {
   </div>
 </section>
 
-<!-- HOW -->
-<section class="how-section section">
-  <div class="sec-label">КАК ЦЕ ПРАЦЮЄ</div>
+<!-- HOW — redesigned premium white -->
+<section class="how-section">
+  <div class="sec-label">ЯК ЦЕ ПРАЦЮЄ</div>
   <h2>3 кроки до ідеального мерчу</h2>
   <p class="sec-sub">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
-  <div class="steps-grid">
+
+  <div class="steps-list">
+    <!-- Card 1 -->
     <div class="step-card fade-up">
-      <div class="step-num">1</div>
-      <div class="step-title">Виберіть товар</div>
-      <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+      <div class="step-card-left">
+        <div class="step-badge">1</div>
+        <div class="step-title">Виберіть товар</div>
+        <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+      </div>
+      <div class="step-image">
+        <img src="IMG_9702.PNG" alt="Виберіть товар">
+      </div>
     </div>
-    <div class="step-card fade-up">
-      <div class="step-num">2</div>
-      <div class="step-title">Завантажте дизайн</div>
-      <div class="step-text">Додайте логотип вашої команди</div>
+
+    <!-- Arrow -->
+    <div class="step-arrow">
+      <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#2563FF" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
+
+    <!-- Card 2 -->
     <div class="step-card fade-up">
-      <div class="step-num">3</div>
-      <div class="step-title">Підтвердіть замовлення</div>
-      <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+      <div class="step-card-left">
+        <div class="step-badge">2</div>
+        <div class="step-title">Завантажте дизайн</div>
+        <div class="step-text">Додайте логотип вашої команди</div>
+      </div>
+      <div class="step-image">
+        <img src="IMG_9703.PNG" alt="Завантажте дизайн">
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="step-arrow">
+      <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#2563FF" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="step-card fade-up">
+      <div class="step-card-left">
+        <div class="step-badge">3</div>
+        <div class="step-title">Підтвердіть замовлення</div>
+        <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+      </div>
+      <div class="step-image">
+        <img src="IMG_9704.PNG" alt="Підтвердіть замовлення">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HOOK -->
-<section class="hook-section section">
-  <h2 class="hook-title">Мерч, який говорить <span>про вашу команду</span></h2>
-</section>
+<!-- CTA block — replaces old hook -->
+<div class="steps-cta-wrap">
+  <div class="steps-cta-card">
+    <div class="steps-cta-top">
+      <div class="steps-cta-icon">
+        <div class="steps-cta-icon-inner">
+          <span class="steps-cta-num">60</span>
+          <span class="steps-cta-unit">сек</span>
+        </div>
+      </div>
+      <div class="steps-cta-title">
+        Мерч, який говорить<br>про <em>вашу команду</em>
+      </div>
+    </div>
+    <a href="#catalog" class="steps-cta-btn">
+      Перейти до каталогу
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- CATALOG -->
 <section class="catalog-section section" id="catalog">
