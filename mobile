@@ -660,7 +660,7 @@ h2 {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  border: 1px solid rgba(0,0,0,0.04);
+  border: 1.5px solid #E8E8E8;
 }
 
 .cat-card:active {
