@@ -190,7 +190,7 @@ header.scrolled {
   right: 0;
   top: 0;
   height: 100%;
-  width: 68%;
+  width: 75%;
   object-fit: cover;
   object-position: center top;
   display: block;
@@ -202,9 +202,9 @@ header.scrolled {
   z-index: 1;
   background: linear-gradient(
     to right,
-    #F2F2F2 30%,
-    rgba(242, 242, 242, 0.90) 52%,
-    rgba(242, 242, 242, 0.25) 74%,
+    #F2F2F2 28%,
+    rgba(242, 242, 242, 0.88) 48%,
+    rgba(242, 242, 242, 0.15) 70%,
     transparent 100%
   );
 }
@@ -1226,12 +1226,7 @@ footer {
   display: none;
 }
 
-@supports (padding: max(0px)) {
-  body {
-    padding-left: var(--safe-left);
-    padding-right: var(--safe-right);
-  }
-}
+/* safe-area padding only on sections, not body — keeps hero full-width */
 
 /* ===== ANIMATIONS ===== */
 @media (prefers-reduced-motion: reduce) {
@@ -1256,7 +1251,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="https://i.ibb.co.com/9kfp7Wpm/IMG-9651.jpg" alt="Мерч для команди">
+  <img class="hero-bg" src="https://i.ibb.co/9kfp7Wpm/IMG-9651.jpg" alt="Мерч для команди">
   <div class="hero-bg-overlay"></div>
   <div class="hero-inner">
     <div class="hero-left fade-up">
