@@ -254,26 +254,27 @@ header.scrolled {
   margin-top: 4px;
 }
 
-/* Spacer grows to push bottom content down — photo shows through */
-.hero-spacer {
+/* Two spacers sandwich the desc — centers it between title and button */
+.hero-spacer-top {
   flex: 1;
-  min-height: 32px;
+  min-height: 24px;
 }
 
-/* Desc + button anchored at bottom */
-.hero-bottom {
-  padding-bottom: calc(24px + var(--safe-bottom, 20px));
+.hero-spacer-bottom {
+  flex: 0.55;
+  min-height: 16px;
 }
 
 .hero-desc {
   font-size: 15px;
   color: #333;
   line-height: 1.65;
-  margin-bottom: 20px;
   width: 70%;
+  margin: 0;
+  flex-shrink: 0;
 }
 
-.hero .btn-primary {
+.hero-cta {
   width: 100%;
   padding: 16px;
   font-size: 15px;
@@ -281,6 +282,8 @@ header.scrolled {
   border-radius: 14px;
   box-sizing: border-box;
   letter-spacing: 0.01em;
+  margin-bottom: calc(24px + var(--safe-bottom, 20px));
+  flex-shrink: 0;
 }
 
 /* ===== LOGOS SECTION ===== */
@@ -1228,16 +1231,19 @@ footer {
     </div>
     <!-- Spacer: photo shows through this area -->
     <div class="hero-spacer"></div>
-    <!-- Description + button at bottom -->
-    <div class="hero-bottom">
-      <p class="hero-desc">
-        Завантажте лого,<br>
-        оберіть одяг,<br>
-        кількість — і одразу<br>
-        бачите ціну та термін
-      </p>
-      <a href="#catalog" class="btn btn-primary">Створити мерч</a>
-    </div>
+    <!-- Spacer top: grows to push desc toward center -->
+    <div class="hero-spacer-top"></div>
+    <!-- Description centered between title and button -->
+    <p class="hero-desc">
+      Завантажте лого,<br>
+      оберіть одяг,<br>
+      кількість — і одразу<br>
+      бачите ціну та термін
+    </p>
+    <!-- Spacer bottom: breathing room above button -->
+    <div class="hero-spacer-bottom"></div>
+    <!-- Button anchored at bottom -->
+    <a href="#catalog" class="btn btn-primary hero-cta">Створити мерч</a>
   </div>
 </section>
 
