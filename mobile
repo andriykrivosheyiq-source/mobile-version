@@ -621,91 +621,145 @@ h2 {
 }
 
 /* ===== CATALOG ===== */
+/* ===== CATALOG — premium minimal ===== */
 .catalog-section {
-  background: var(--bg);
+  background: #fff;
+  padding: 40px 20px 40px;
+}
+
+.catalog-section .sec-label {
+  color: #2563FF;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 8px;
+}
+
+.catalog-section h2 {
+  font-size: clamp(26px, 7vw, 36px);
+  margin-bottom: 6px;
+}
+
+.catalog-section .sec-sub {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 24px;
 }
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
 
 .cat-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: #fff;
+  border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .cat-card:active {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: var(--blue);
+  transform: scale(0.98);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
 }
 
-.cat-visual {
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.cat-photo {
+  background: #F4F4F5;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  position: relative;
 }
 
-.cat-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 86, 219, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s;
-  z-index: 3;
-}
-
-.cat-card:active .cat-overlay {
-  opacity: 1;
-}
-
-.cat-overlay-btn {
-  color: #fff;
-  font-family: 'Unbounded', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  padding: 8px 16px;
-  border-radius: 6px;
+.cat-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .cat-info {
-  padding: 12px;
-  border-top: 1px solid var(--border);
+  padding: 12px 12px 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cat-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .cat-name {
   font-family: 'Unbounded', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  margin-bottom: 4px;
+  color: #0D0D0D;
+  line-height: 1.3;
 }
 
 .cat-price {
-  font-size: 12px;
-  color: var(--muted);
+  font-size: 11px;
+  color: #888;
+  font-weight: 400;
 }
 
-.cv-tshirt { background: linear-gradient(160deg, #E8E8EE, #D8D8E4); }
-.cv-hoodie { background: linear-gradient(160deg, #1a1a2e, #2a2a40); }
-.cv-cap { background: linear-gradient(160deg, #1a2a1a, #2a3a2a); }
-.cv-bag { background: linear-gradient(160deg, #2a1a3a, #3a2a50); }
-.cv-socks { background: linear-gradient(160deg, #2a1a1a, #3a2020); }
-.cv-all { background: linear-gradient(160deg, var(--blue), #3b6fd4); }
+.cat-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F4F4F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.cat-card:active .cat-arrow {
+  background: #2563FF;
+  color: #fff;
+}
+
+.cat-arrow svg {
+  width: 14px;
+  height: 14px;
+  color: #333;
+}
+
+.cat-card:active .cat-arrow svg {
+  color: #fff;
+}
+
+/* Catalog footer link */
+.catalog-more {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #E8E8E8;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+  background: #fff;
+}
+
+.catalog-more:active {
+  background: #F4F4F5;
+}
 
 /* ===== ADVANTAGES ===== */
 .adv-section {
@@ -1476,79 +1530,83 @@ footer {
   </div>
 </div>
 
-<!-- CATALOG -->
-<section class="catalog-section section" id="catalog">
+<!-- CATALOG — premium minimal -->
+<section class="catalog-section" id="catalog">
   <div class="sec-label">КАТАЛОГ</div>
   <h2>Що замовити?</h2>
   <p class="sec-sub">Виберіть товар, який найбільше підходить вашій команді</p>
+
   <div class="catalog-grid">
+    <!-- 1 — Футболка -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-tshirt">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="1.png" alt="Футболка">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Футболка</div>
-        <div class="cat-price">від 99 грн</div>
+        <div class="cat-info-text">
+          <div class="cat-name">Футболка</div>
+          <div class="cat-price">від 99 грн</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
+
+    <!-- 2 — Світшот -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-hoodie">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="2.png" alt="Світшот">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Худі</div>
-        <div class="cat-price">від 299 грн</div>
+        <div class="cat-info-text">
+          <div class="cat-name">Світшот</div>
+          <div class="cat-price">від 199 грн</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
+
+    <!-- 3 — Худі -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-cap">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="3.png" alt="Худі">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Кепка</div>
-        <div class="cat-price">від 149 грн</div>
+        <div class="cat-info-text">
+          <div class="cat-name">Худі</div>
+          <div class="cat-price">від 299 грн</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
+
+    <!-- 4 — Кепка -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-bag">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="4.png" alt="Кепка">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Сумка</div>
-        <div class="cat-price">від 199 грн</div>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="cat-visual cv-socks">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
+        <div class="cat-info-text">
+          <div class="cat-name">Кепка</div>
+          <div class="cat-price">від 149 грн</div>
         </div>
-      </div>
-      <div class="cat-info">
-        <div class="cat-name">Шкарпетки</div>
-        <div class="cat-price">від 49 грн</div>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="cat-visual cv-all">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
-      </div>
-      <div class="cat-info">
-        <div class="cat-name">Комбо</div>
-        <div class="cat-price">від 599 грн</div>
       </div>
     </div>
   </div>
+
+  <!-- Footer link -->
+  <a href="#" class="catalog-more">
+    Перейти до каталогу
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
 </section>
 
 <!-- ADVANTAGES -->
