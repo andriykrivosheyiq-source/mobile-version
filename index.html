@@ -673,18 +673,19 @@ h2 {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .cat-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
   display: block;
-  padding: 0;
-  margin: 0;
 }
 
 .cat-info {
