@@ -1545,7 +1545,7 @@ footer {
     <!-- 1 — Футболка -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="1.png" alt="Футболка">
+        <img src="1.jpg" alt="Футболка">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
@@ -1561,7 +1561,7 @@ footer {
     <!-- 2 — Світшот -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="2.png" alt="Світшот">
+        <img src="2.jpg" alt="Світшот">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
@@ -1577,7 +1577,7 @@ footer {
     <!-- 3 — Худі -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="3.png" alt="Худі">
+        <img src="3.jpg" alt="Худі">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
@@ -1593,7 +1593,7 @@ footer {
     <!-- 4 — Кепка -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="4.png" alt="Кепка">
+        <img src="4.jpg" alt="Кепка">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
