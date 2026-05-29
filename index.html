@@ -673,16 +673,19 @@ h2 {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
-  display: block;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cat-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
   display: block;
+  box-sizing: border-box;
 }
 
 .cat-info {
@@ -1542,7 +1545,7 @@ footer {
     <!-- 1 — Футболка -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="1.jpg" alt="Футболка">
+        <img src="p1.png" alt="Футболка">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
@@ -1558,7 +1561,7 @@ footer {
     <!-- 2 — Світшот -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="2.jpg" alt="Світшот">
+        <img src="p2.png" alt="Світшот">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
@@ -1574,7 +1577,7 @@ footer {
     <!-- 3 — Худі -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="3.jpg" alt="Худі">
+        <img src="p3.png" alt="Худі">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
@@ -1590,7 +1593,7 @@ footer {
     <!-- 4 — Кепка -->
     <div class="cat-card fade-up">
       <div class="cat-photo">
-        <img src="4.jpg" alt="Кепка">
+        <img src="p4.png" alt="Кепка">
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
