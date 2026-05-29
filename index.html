@@ -1586,6 +1586,593 @@ footer {
   flex-shrink: 0;
 }
 .cat-modal-chevron svg { width: 13px; height: 13px; color: #555; }
+
+/* ===== PRODUCT PAGE ===== */
+.pp-page {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: #F8F9FB;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.pp-page.open {
+  transform: translateX(0);
+}
+.pp-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.pp-header {
+  height: calc(56px + var(--safe-top));
+  padding-top: var(--safe-top);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: #F8F9FB;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  z-index: 1;
+}
+.pp-header-logo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  flex: 1;
+  text-align: center;
+}
+.pp-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+.pp-icon-btn:active { background: #eee; }
+.pp-icon-btn.pp-back { border-color: var(--border); }
+.pp-icon-btn.pp-hamburger {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.pp-icon-btn.pp-hamburger svg { color: #fff; }
+.pp-header-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+/* Mockup area */
+.pp-mockup {
+  background: #EDEDED;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pp-mockup-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+  box-sizing: border-box;
+  display: block;
+}
+.pp-design-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.pp-design-box {
+  border: 2px dashed rgba(255,255,255,0.8);
+  border-radius: 6px;
+  width: 46%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.pp-design-plus {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #555;
+  line-height: 1;
+}
+.pp-design-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+.pp-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0 6px;
+  background: #EDEDED;
+}
+.pp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C8C8C8;
+  transition: all 0.2s;
+}
+.pp-dot.active {
+  width: 22px;
+  border-radius: 4px;
+  background: var(--blue);
+}
+/* Tool tabs */
+.pp-tool-tabs {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.pp-tool-tabs::-webkit-scrollbar { display: none; }
+.pp-tool-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #EEF4FF;
+  border: none;
+  cursor: pointer;
+  font-family: 'Onest', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--blue);
+  white-space: nowrap;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+.pp-tool-tab:not(.active) {
+  background: #F4F4F5;
+  color: #555;
+}
+.pp-tool-tab svg {
+  width: 16px;
+  height: 16px;
+}
+/* Type selector */
+.pp-types-scroll {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #fff;
+}
+.pp-types-scroll::-webkit-scrollbar { display: none; }
+.pp-type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  width: 80px;
+}
+.pp-type-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  border: 2px solid transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+.pp-type-card.active .pp-type-thumb {
+  border-color: var(--blue);
+}
+.pp-type-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.pp-type-thumb svg {
+  width: 44px;
+  height: 44px;
+}
+.pp-type-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  line-height: 1.3;
+}
+.pp-type-card.active .pp-type-label {
+  color: var(--blue);
+  font-weight: 700;
+}
+/* Product info block */
+.pp-info {
+  background: #fff;
+  padding: 16px 16px 0;
+  border-top: 1px solid var(--border);
+}
+.pp-prod-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.pp-price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.pp-price-num {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1;
+}
+.pp-price-unit {
+  font-size: 14px;
+  color: #777;
+  font-weight: 400;
+}
+.pp-delivery-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: #F4F4F5;
+  border-radius: 20px;
+  font-size: 11px;
+  color: #555;
+  font-weight: 500;
+  margin-left: auto;
+}
+/* Add to cart button */
+.pp-cart-btn {
+  width: calc(100% - 32px);
+  margin: 0 16px 16px;
+  padding: 16px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.01em;
+  touch-action: manipulation;
+  transition: background 0.2s;
+}
+.pp-cart-btn:active { background: var(--blue-dark); }
+/* Chevron rows */
+.pp-chevron-rows {
+  background: #fff;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.pp-chevron-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.pp-chevron-row:last-child { border-bottom: none; }
+.pp-chevron-row-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+}
+.pp-chevron-row svg {
+  width: 16px;
+  height: 16px;
+  color: #AAA;
+  flex-shrink: 0;
+}
+/* Photo gallery */
+.pp-gallery {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 10px;
+  padding: 16px;
+}
+.pp-gallery::-webkit-scrollbar { display: none; }
+.pp-gallery-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: #E0E0E0;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pp-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Tab switcher */
+.pp-tab-switcher {
+  display: flex;
+  gap: 0;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+.pp-tab-btn {
+  flex: 1;
+  padding: 12px 8px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: color 0.2s, border-color 0.2s;
+}
+.pp-tab-btn.active {
+  color: var(--black);
+  border-bottom-color: var(--blue);
+}
+/* Spec card */
+.pp-spec-card {
+  background: #fff;
+  border-radius: 14px;
+  margin: 12px 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.pp-spec-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.pp-spec-row:last-child { border-bottom: none; }
+.pp-spec-l {
+  font-size: 12px;
+  color: #888;
+  font-weight: 400;
+  flex-shrink: 0;
+  min-width: 90px;
+}
+.pp-spec-v {
+  font-size: 12px;
+  color: var(--black);
+  font-weight: 600;
+  text-align: right;
+  flex: 1;
+}
+/* Help card */
+.pp-help-card {
+  background: #fff;
+  border-radius: 20px;
+  margin: 0 16px 16px;
+  padding: 18px 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pp-help-text {
+  flex: 1;
+}
+.pp-help-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 3px;
+}
+.pp-help-sub {
+  font-size: 12px;
+  color: #888;
+}
+.pp-help-btn {
+  padding: 10px 16px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+.pp-help-btn:active { background: var(--blue-dark); }
+/* Related / upsell */
+.pp-section-heading {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  padding: 16px 16px 8px;
+}
+.pp-related-scroll {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 12px;
+  padding: 0 16px 16px;
+}
+.pp-related-scroll::-webkit-scrollbar { display: none; }
+.pp-related-card {
+  flex-shrink: 0;
+  width: 120px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+}
+.pp-related-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #EDEDED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pp-related-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.pp-related-info {
+  padding: 8px;
+}
+.pp-related-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+.pp-related-price {
+  font-size: 11px;
+  color: var(--blue);
+  font-weight: 700;
+}
+/* FAQ section in product page */
+.pp-faq-list {
+  margin: 0 16px 16px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.pp-faq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  gap: 12px;
+  touch-action: manipulation;
+}
+.pp-faq-row:last-child { border-bottom: none; }
+.pp-faq-q {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.4;
+}
+.pp-faq-plus {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #F4F4F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #555;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+/* CTA design card */
+.pp-cta-card {
+  background: #fff;
+  border-radius: 20px;
+  margin: 0 16px calc(24px + var(--safe-bottom, 20px));
+  padding: 20px 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.pp-cta-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.pp-cta-sub {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.pp-cta-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.2s;
+}
+.pp-cta-btn:active { background: var(--blue-dark); }
 </style>
 </head>
 <body>
@@ -2114,6 +2701,221 @@ footer {
     <p class="footer-copy">Політика конфіденційності</p>
   </div>
 </footer>
+
+<!-- PRODUCT DETAIL PAGE -->
+<div class="pp-page" id="ppPage">
+  <!-- Header -->
+  <div class="pp-header">
+    <button class="pp-icon-btn pp-back" onclick="closeProdPage()" aria-label="Назад">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="pp-header-logo">Loomiq</div>
+    <div class="pp-header-right">
+      <button class="pp-icon-btn" aria-label="Кошик">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+      <button class="pp-icon-btn pp-hamburger" aria-label="Меню">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scrollable content -->
+  <div class="pp-scroll">
+
+    <!-- Mockup image -->
+    <div class="pp-mockup">
+      <img class="pp-mockup-img" id="ppMockupImg" src="" alt="Продукт">
+      <div class="pp-design-overlay">
+        <div class="pp-design-box">
+          <div class="pp-design-plus">+</div>
+          <div class="pp-design-label">Додайте свій дизайн</div>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination dots -->
+    <div class="pp-dots">
+      <div class="pp-dot active"></div>
+      <div class="pp-dot"></div>
+      <div class="pp-dot"></div>
+      <div class="pp-dot"></div>
+    </div>
+
+    <!-- Tool tabs -->
+    <div class="pp-tool-tabs">
+      <button class="pp-tool-tab active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Фото
+      </button>
+      <button class="pp-tool-tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H7v10c0 1.1.9 2 2 2h6a2 2 0 002-2V10h3.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+        Тип одягу
+      </button>
+      <button class="pp-tool-tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        Колір
+      </button>
+      <button class="pp-tool-tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        Тип нанесення
+      </button>
+      <button class="pp-tool-tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3"/><path d="M10 12H3"/><path d="M10 18H3"/><circle cx="17" cy="15" r="3"/><path d="M20 18l2 2"/></svg>
+        Розмір та кількість
+      </button>
+    </div>
+
+    <!-- Clothing type selector -->
+    <div class="pp-types-scroll">
+      <div class="pp-type-card active" data-key="футболки" onclick="switchProdType(this,'футболки')">
+        <div class="pp-type-thumb">
+          <img src="p3.png" alt="Футболка">
+        </div>
+        <div class="pp-type-label">Футболка</div>
+      </div>
+      <div class="pp-type-card" data-key="худі" onclick="switchProdType(this,'худі')">
+        <div class="pp-type-thumb">
+          <img src="p2.png" alt="Худі">
+        </div>
+        <div class="pp-type-label">Худі</div>
+      </div>
+      <div class="pp-type-card" data-key="світшоти" onclick="switchProdType(this,'світшоти')">
+        <div class="pp-type-thumb">
+          <img src="p1.png" alt="Світшот">
+        </div>
+        <div class="pp-type-label">Світшот</div>
+      </div>
+      <div class="pp-type-card" data-key="поло" onclick="switchProdType(this,'поло')">
+        <div class="pp-type-thumb">
+          <svg viewBox="0 0 50 50" fill="none" stroke="#ABABAB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9l-12 8 5 3 2-2V42h20V18l2 2 5-3-12-8-3 4c-1 2-2 2-3 2s-2 0-3-2l-3-4z"/><path d="M22 9c0 1.8 1.3 3 3 3s3-1.2 3-3"/></svg>
+        </div>
+        <div class="pp-type-label">Поло</div>
+      </div>
+    </div>
+
+    <!-- Product info -->
+    <div class="pp-info">
+      <div class="pp-prod-name" id="ppName">Футболка оверсайз</div>
+      <div class="pp-price-row">
+        <div class="pp-price-num" id="ppPrice">520</div>
+        <div class="pp-price-unit">грн/шт</div>
+        <div class="pp-delivery-chip"><span id="ppDelivery">2–4</span>&nbsp;роб. дні</div>
+      </div>
+    </div>
+    <!-- Add to cart button -->
+    <button class="pp-cart-btn">
+      🛒 Додати в кошик
+    </button>
+
+    <!-- Chevron rows -->
+    <div class="pp-chevron-rows">
+      <div class="pp-chevron-row">
+        <span class="pp-chevron-row-label">Розміри</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+      <div class="pp-chevron-row">
+        <span class="pp-chevron-row-label">Доставка та терміни</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+      <div class="pp-chevron-row">
+        <span class="pp-chevron-row-label">Відгуки ★★★★★</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </div>
+
+    <!-- Photo gallery -->
+    <div class="pp-gallery">
+      <div class="pp-gallery-thumb"></div>
+      <div class="pp-gallery-thumb"></div>
+      <div class="pp-gallery-thumb"></div>
+      <div class="pp-gallery-thumb"></div>
+      <div class="pp-gallery-thumb"></div>
+    </div>
+
+    <!-- Tab switcher + spec card -->
+    <div class="pp-tab-switcher">
+      <button class="pp-tab-btn active">Про товар</button>
+      <button class="pp-tab-btn">Типи нанесення</button>
+    </div>
+    <div class="pp-spec-card">
+      <div id="ppSpecsBody">
+        <div class="pp-spec-row"><span class="pp-spec-l">Склад</span><span class="pp-spec-v">100% бавовна</span></div>
+        <div class="pp-spec-row"><span class="pp-spec-l">Щільність</span><span class="pp-spec-v">180 г/м²</span></div>
+        <div class="pp-spec-row"><span class="pp-spec-l">Крій</span><span class="pp-spec-v">оверсайз</span></div>
+        <div class="pp-spec-row"><span class="pp-spec-l">Формат</span><span class="pp-spec-v">унісекс</span></div>
+        <div class="pp-spec-row"><span class="pp-spec-l">Підходить для нанесення</span><span class="pp-spec-v">DTF друк та вишивка</span></div>
+      </div>
+    </div>
+
+    <!-- Help card -->
+    <div class="pp-help-card">
+      <div class="pp-help-text">
+        <div class="pp-help-title">Потрібна допомога?</div>
+        <div class="pp-help-sub">Наш менеджер відповість на всі запитання</div>
+      </div>
+      <button class="pp-help-btn">Консультація</button>
+    </div>
+
+    <!-- Related products -->
+    <div class="pp-section-heading">Вам також може сподобатись</div>
+    <div class="pp-related-scroll">
+      <div class="pp-related-card" onclick="openProdPage('худі')">
+        <div class="pp-related-photo"><img src="p2.png" alt="Худі"></div>
+        <div class="pp-related-info">
+          <div class="pp-related-name">Худі преміум</div>
+          <div class="pp-related-price">890 грн</div>
+        </div>
+      </div>
+      <div class="pp-related-card" onclick="openProdPage('світшоти')">
+        <div class="pp-related-photo"><img src="p1.png" alt="Світшот"></div>
+        <div class="pp-related-info">
+          <div class="pp-related-name">Світшот класик</div>
+          <div class="pp-related-price">650 грн</div>
+        </div>
+      </div>
+      <div class="pp-related-card" onclick="openProdPage('кепки')">
+        <div class="pp-related-photo"><img src="p4.png" alt="Кепка"></div>
+        <div class="pp-related-info">
+          <div class="pp-related-name">Кепка базова</div>
+          <div class="pp-related-price">350 грн</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ accordion -->
+    <div class="pp-section-heading">Питання/відповіді</div>
+    <div class="pp-faq-list">
+      <div class="pp-faq-row">
+        <span class="pp-faq-q">Які розміри доступні?</span>
+        <div class="pp-faq-plus">+</div>
+      </div>
+      <div class="pp-faq-row">
+        <span class="pp-faq-q">Як замовити нанесення?</span>
+        <div class="pp-faq-plus">+</div>
+      </div>
+      <div class="pp-faq-row">
+        <span class="pp-faq-q">Мінімальна кількість замовлення?</span>
+        <div class="pp-faq-plus">+</div>
+      </div>
+      <div class="pp-faq-row">
+        <span class="pp-faq-q">Як замовити з доставкою?</span>
+        <div class="pp-faq-plus">+</div>
+      </div>
+      <div class="pp-faq-row">
+        <span class="pp-faq-q">Чи можна повернути товар?</span>
+        <div class="pp-faq-plus">+</div>
+      </div>
+    </div>
+
+    <!-- CTA design card -->
+    <div class="pp-cta-card">
+      <div class="pp-cta-title">Створіть дизайн</div>
+      <div class="pp-cta-sub">Завантажте своє лого та отримайте мерч мрії</div>
+      <button class="pp-cta-btn">Створити дизайн</button>
+    </div>
+
+  </div><!-- /.pp-scroll -->
+</div><!-- /#ppPage -->
 
 <!-- CATALOG MODAL -->
 <div class="cat-modal" id="catModal">
