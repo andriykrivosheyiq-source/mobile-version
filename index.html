@@ -781,105 +781,160 @@ h2 {
   background: #F4F4F5;
 }
 
-/* ===== ADVANTAGES ===== */
+/* ===== ADVANTAGES — premium redesign ===== */
 .adv-section {
-  background: var(--white);
+  background: #fff;
+  padding: 0;
 }
 
-.adv-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.adv-header {
+  display: flex;
+  align-items: flex-start;
+  padding: 40px 20px 0;
+  overflow: hidden;
+}
+
+.adv-header-text {
+  flex: 1;
+  padding-right: 8px;
+}
+
+.adv-header-text h2 {
+  font-size: clamp(22px, 6.5vw, 32px);
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+
+.adv-header-text .sec-sub {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 0;
+  color: #777;
+}
+
+.adv-header-img {
+  width: 44%;
+  flex-shrink: 0;
+  margin-top: -40px;
+  margin-right: -20px;
+}
+
+.adv-header-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.adv-list {
+  padding: 20px 20px 32px;
+  background: #F8F9FB;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
-.adv-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px 16px;
-  transition: all 0.3s;
-}
-
-.adv-card:active {
-  transform: translateY(-2px);
-  border-color: var(--blue);
-}
-
-.adv-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--blue-light);
-  border-radius: 10px;
+.adv-item {
+  background: #fff;
+  border: 1px solid #EBEBEB;
+  border-radius: 16px;
+  padding: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  border: 1px solid rgba(26, 86, 219, 0.1);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s;
 }
 
-.adv-icon svg {
-  width: 20px;
-  height: 20px;
+.adv-item:active {
+  transform: scale(0.99);
 }
 
-.adv-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  line-height: 1.3;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.adv-text {
-  font-size: 12px;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* ===== GUARANTEE ===== */
-.guarantee-section {
-  background: var(--white);
-}
-
-.guarantee-card {
-  background: linear-gradient(135deg, #FFF8F5, #FFF2EC);
-  border: 1px solid #FFCFB8;
-  border-radius: 12px;
-  padding: 20px 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.g-icon {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #FF7A45, #FF5520);
-  border-radius: 12px;
+.adv-icon-box {
+  width: 54px;
+  height: 54px;
+  background: #EEF4FF;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
+.adv-icon-box svg {
+  width: 26px;
+  height: 26px;
+}
+
+.adv-divider {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #2563FF 20%, #2563FF 80%, transparent);
+  border-radius: 1px;
+  margin: 0 14px;
+  flex-shrink: 0;
+}
+
+.adv-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0D0D0D;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.adv-text {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.55;
+}
+
+/* ===== GUARANTEE — dark navy card ===== */
+.guarantee-section {
+  background: #F8F9FB;
+  padding: 0 20px 40px;
+}
+
+.guarantee-card {
+  background: linear-gradient(135deg, #0B1E40 0%, #122F60 100%);
+  border-radius: 20px;
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 8px 24px rgba(11, 30, 64, 0.3);
+  border: none;
+}
+
+.g-icon {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border-radius: 0;
+}
+
 .g-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 72px;
+  height: 72px;
 }
 
 .g-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 4px;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 6px;
 }
 
 .g-sub {
   font-size: 12px;
-  color: #888;
-  line-height: 1.5;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
 }
 
 /* ===== COMPARISON ===== */
@@ -1630,40 +1685,85 @@ footer {
 </section>
 
 <!-- ADVANTAGES -->
-<section class="adv-section section">
-  <div class="sec-label">ПЕРЕВАГИ</div>
-  <h2>Чому LoomiQ?</h2>
-  <p class="sec-sub">Ми робимо мерч простим, дешевим і швидким</p>
-  <div class="adv-grid">
-    <div class="adv-card fade-up">
-      <div class="adv-icon">
-        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      </div>
-      <div class="adv-title">Швидко</div>
-      <div class="adv-text">Замовлення за лічені хвилини, доставка за 15 днів</div>
+<section class="adv-section">
+  <div class="adv-header">
+    <div class="adv-header-text">
+      <div class="sec-label">ПЕРЕВАГИ</div>
+      <h2>Чому LoomiQ?</h2>
+      <p class="sec-sub">Робимо мерч простим, дешевим і швидким</p>
     </div>
-    <div class="adv-card fade-up">
-      <div class="adv-icon">
-        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      </div>
-      <div class="adv-title">Дешево</div>
-      <div class="adv-text">Прямі ціни без посередників і надбавок</div>
+    <div class="adv-header-img">
+      <img src="adv-hero.png" alt="LoomiQ мерч">
     </div>
-    <div class="adv-card fade-up">
-      <div class="adv-icon">
-        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  </div>
+
+  <div class="adv-list">
+    <div class="adv-item fade-up">
+      <div class="adv-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="2"/>
+          <path d="M16 8h4l3 3v5h-7V8z"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
       </div>
-      <div class="adv-title">Легко</div>
-      <div class="adv-text">Інтуїтивний интерфейс для кожного</div>
+      <div class="adv-divider"></div>
+      <div>
+        <div class="adv-title">Швидко</div>
+        <div class="adv-text">Оформлення замовлення за лічені хвилини, доставка за 15 днів</div>
+      </div>
+    </div>
+
+    <div class="adv-item fade-up">
+      <div class="adv-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+          <circle cx="7" cy="7" r="1.2" fill="#2563FF" stroke="none"/>
+        </svg>
+      </div>
+      <div class="adv-divider"></div>
+      <div>
+        <div class="adv-title">Дешево</div>
+        <div class="adv-text">Прямі ціни без посередників і надбавок</div>
+      </div>
+    </div>
+
+    <div class="adv-item fade-up">
+      <div class="adv-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+      </div>
+      <div class="adv-divider"></div>
+      <div>
+        <div class="adv-title">Легко</div>
+        <div class="adv-text">Інтуїтивний інтерфейс для кожного</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- GUARANTEE -->
-<section class="guarantee-section section">
+<section class="guarantee-section">
   <div class="guarantee-card">
     <div class="g-icon">
-      <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <svg viewBox="0 0 72 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#5B9EFF"/>
+            <stop offset="100%" stop-color="#1A56DB"/>
+          </linearGradient>
+          <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
+            <stop offset="65%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+        </defs>
+        <path d="M36 4L8 16v20c0 17 11.5 31.5 28 36 16.5-4.5 28-19 28-36V16L36 4z" fill="url(#sg1)"/>
+        <path d="M36 6L10 17.5V36c0 15 10 28 26 32.5C57.5 64 68 51 68 36V17.5L36 6z" fill="url(#sg2)"/>
+        <path d="M23 39l10 10 16-17" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
     <div>
       <div class="g-title">100% гарантія якості</div>
