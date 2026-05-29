@@ -2933,28 +2933,28 @@ footer {
     <div class="cat-modal-list">
 
       <!-- Футболки -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('футболки')">
         <div class="cat-modal-photo"><img src="p3.png" alt="Футболки"></div>
         <div class="cat-modal-name">Футболки</div>
         <div class="cat-modal-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
       </div>
 
       <!-- Худі -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('худі')">
         <div class="cat-modal-photo"><img src="p2.png" alt="Худі"></div>
         <div class="cat-modal-name">Худі</div>
         <div class="cat-modal-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
       </div>
 
       <!-- Світшоти -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('світшоти')">
         <div class="cat-modal-photo"><img src="p1.png" alt="Світшоти"></div>
         <div class="cat-modal-name">Світшоти</div>
         <div class="cat-modal-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
       </div>
 
       <!-- Поло -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('поло')">
         <div class="cat-modal-photo">
           <svg viewBox="0 0 50 50" fill="none" stroke="#ABABAB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 9l-12 8 5 3 2-2V42h20V18l2 2 5-3-12-8-3 4c-1 2-2 2-3 2s-2 0-3-2l-3-4z"/>
@@ -2967,14 +2967,14 @@ footer {
       </div>
 
       <!-- Кепки -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('кепки')">
         <div class="cat-modal-photo"><img src="p4.png" alt="Кепки"></div>
         <div class="cat-modal-name">Кепки</div>
         <div class="cat-modal-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
       </div>
 
       <!-- Шопери -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('шопери')">
         <div class="cat-modal-photo">
           <svg viewBox="0 0 50 50" fill="none" stroke="#ABABAB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <rect x="10" y="22" width="30" height="21" rx="2"/>
@@ -2988,7 +2988,7 @@ footer {
       </div>
 
       <!-- Рубашки з довгим рукавом -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('рубашки-довгий')">
         <div class="cat-modal-photo">
           <svg viewBox="0 0 50 50" fill="none" stroke="#ABABAB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 8l-13 9 6 3 2-3V42h20V17l2 3 6-3-13-9-3 5a3 3 0 01-2 1 3 3 0 01-2-1l-3-5z"/>
@@ -3003,7 +3003,7 @@ footer {
       </div>
 
       <!-- Рубашки з коротким рукавом -->
-      <div class="cat-modal-item">
+      <div class="cat-modal-item" onclick="openProdPage('рубашки-короткий')">
         <div class="cat-modal-photo">
           <svg viewBox="0 0 50 50" fill="none" stroke="#ABABAB" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 8l-9 8 4 2 2-3V42h16V15l2 3 4-2-9-8-3 5a3 3 0 01-2 1 3 3 0 01-2-1l-3-5z"/>
@@ -3111,6 +3111,44 @@ footer {
   function closeCatModal() {
     document.getElementById('catModal').classList.remove('open');
     document.body.style.overflow = '';
+  }
+
+  // Product detail page
+  const PRODUCTS = {
+    'футболки':        { name:'Футболка оверсайз',   price:520,  delivery:'2–4', img:'p3.png', specs:[['Склад','100% бавовна'],['Щільність','180 г/м²'],['Крій','оверсайз'],['Формат','унісекс'],['Підходить для нанесення','DTF друк та вишивка']] },
+    'худі':            { name:'Худі преміум',          price:890,  delivery:'3–5', img:'p2.png', specs:[['Склад','80% бавовна, 20% поліестер'],['Щільність','320 г/м²'],['Крій','оверсайз'],['Формат','унісекс'],['Підходить для нанесення','DTF друк та вишивка']] },
+    'світшоти':        { name:'Світшот класик',        price:650,  delivery:'2–4', img:'p1.png', specs:[['Склад','80% бавовна, 20% поліестер'],['Щільність','280 г/м²'],['Крій','regular fit'],['Формат','унісекс'],['Підходить для нанесення','DTF друк та вишивка']] },
+    'поло':            { name:'Поло стандарт',          price:480,  delivery:'2–4', img:null,     specs:[['Склад','100% бавовна'],['Щільність','220 г/м²'],['Крій','slim fit'],['Формат','унісекс'],['Підходить для нанесення','DTF друк та вишивка']] },
+    'кепки':           { name:'Кепка базова',           price:350,  delivery:'2–3', img:'p4.png', specs:[['Склад','100% бавовна'],['Тип','5-панельна'],['Розмір','регульований'],['Підходить для нанесення','вишивка']] },
+    'шопери':          { name:'Шопер бавовна',          price:280,  delivery:'2–3', img:null,     specs:[['Склад','100% бавовна'],['Щільність','220 г/м²'],['Ручки','довгі'],['Підходить для нанесення','DTF друк та вишивка']] },
+    'рубашки-довгий':  { name:'Рубашка з довгим рукавом', price:580, delivery:'3–5', img:null,    specs:[['Склад','100% бавовна'],['Щільність','140 г/м²'],['Рукав','довгий'],['Формат','унісекс'],['Підходить для нанесення','DTF друк та вишивка']] },
+    'рубашки-короткий':{ name:'Рубашка з коротким рукавом',price:520,delivery:'2–4',img:null,    specs:[['Склад','100% бавовна'],['Щільність','140 г/м²'],['Рукав','короткий'],['Формат','унісекс'],['Підходить для нанесення','DTF друк та вишивка']] },
+  };
+
+  function openProdPage(key) {
+    const p = PRODUCTS[key];
+    if (!p) return;
+    document.getElementById('ppName').textContent = p.name;
+    document.getElementById('ppPrice').textContent = p.price;
+    document.getElementById('ppDelivery').textContent = p.delivery;
+    const img = document.getElementById('ppMockupImg');
+    img.src = p.img || '';
+    img.style.opacity = p.img ? '1' : '0';
+    document.getElementById('ppSpecsBody').innerHTML = p.specs.map(([l,v])=>`<div class="pp-spec-row"><span class="pp-spec-l">${l}</span><span class="pp-spec-v">${v}</span></div>`).join('');
+    document.querySelectorAll('.pp-type-card').forEach(el => el.classList.toggle('active', el.dataset.key === key));
+    // close catalog modal
+    document.getElementById('catModal').classList.remove('open');
+    document.getElementById('ppPage').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProdPage() {
+    document.getElementById('ppPage').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function switchProdType(el, key) {
+    openProdPage(key);
   }
 
   // Handle viewport changes
