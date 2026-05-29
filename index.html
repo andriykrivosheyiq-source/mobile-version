@@ -212,11 +212,11 @@ header.scrolled {
   background: linear-gradient(
     to right,
     #F2F2F2 0%,
-    #F2F2F2 10%,
-    rgba(242, 242, 242, 0.85) 28%,
-    rgba(242, 242, 242, 0.38) 52%,
-    rgba(242, 242, 242, 0.05) 75%,
-    transparent 100%
+    #F2F2F2 7%,
+    rgba(242, 242, 242, 0.88) 20%,
+    rgba(242, 242, 242, 0.18) 37%,
+    rgba(242, 242, 242, 0.03) 50%,
+    transparent 60%
   );
 }
 
@@ -254,24 +254,20 @@ header.scrolled {
   margin-top: 4px;
 }
 
-/* Two spacers sandwich the desc — centers it between title and button */
-.hero-spacer-top {
-  flex: 0.6;
-  min-height: 16px;
-}
-
-.hero-spacer-bottom {
+.hero-spacer {
   flex: 1;
-  min-height: 16px;
+  min-height: 24px;
 }
 
 .hero-desc {
-  font-size: 15px;
-  color: #333;
+  font-size: 13px;
+  color: #444;
   line-height: 1.65;
-  width: 70%;
-  margin: 0;
+  width: 62%;
+  margin: 18px 0 0;
   flex-shrink: 0;
+  border-left: 2.5px solid var(--blue);
+  padding-left: 12px;
 }
 
 .hero-cta {
@@ -333,23 +329,29 @@ header.scrolled {
 
 /* ===== STATS ===== */
 .stats-section {
-  padding: 32px var(--safe-left) 32px;
+  padding: 20px var(--safe-left);
   background: var(--bg);
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+  display: flex;
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .stat-item {
-  background: var(--white);
-  padding: 24px 16px;
+  flex: 1;
+  padding: 16px 6px;
   text-align: center;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  transition: background 0.25s;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.stat-item:last-child {
+  border-right: none;
 }
 
 .stat-item:active {
@@ -358,10 +360,10 @@ header.scrolled {
 
 .stat-num {
   font-family: 'Unbounded', sans-serif;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 900;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   color: var(--black);
 }
 
@@ -370,8 +372,9 @@ header.scrolled {
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 10px;
   color: var(--muted);
+  line-height: 1.3;
 }
 
 /* ===== SECTION STYLES ===== */
@@ -1613,19 +1616,15 @@ footer {
         <em class="hero-title-accent">ЗА 1 ХВИЛИНУ</em>
       </div>
     </div>
-    <!-- Spacer: photo shows through this area -->
-    <div class="hero-spacer"></div>
-    <!-- Spacer top: grows to push desc toward center -->
-    <div class="hero-spacer-top"></div>
-    <!-- Description centered between title and button -->
+    <!-- Description right below title -->
     <p class="hero-desc">
       Завантажте лого,<br>
       оберіть одяг,<br>
       кількість — і одразу<br>
       бачите ціну та термін
     </p>
-    <!-- Spacer bottom: breathing room above button -->
-    <div class="hero-spacer-bottom"></div>
+    <!-- Spacer fills center so photo shows through -->
+    <div class="hero-spacer"></div>
     <!-- Button anchored at bottom -->
     <a href="#catalog" class="btn btn-primary hero-cta">Створити мерч</a>
   </div>
