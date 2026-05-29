@@ -1959,6 +1959,35 @@ footer {
   justify-content: center; gap: 10px;
 }
 .cart-checkout-btn:active { background: var(--blue-dark); }
+.cart-empty {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 32px; text-align: center;
+}
+.cart-empty-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: #EDEDEE;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.cart-empty-title {
+  font-size: 18px; font-weight: 700;
+  color: var(--black); margin-bottom: 8px;
+}
+.cart-empty-sub {
+  font-size: 14px; color: #999;
+  line-height: 1.5; margin-bottom: 24px;
+}
+.cart-empty-btn {
+  background: var(--blue); color: #fff; border: none;
+  border-radius: 12px; padding: 13px 28px;
+  font-family: 'Onest', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; touch-action: manipulation;
+}
+.pp-cart-btn.added {
+  background: #22C55E;
+}
 /* Reviews */
 .reviews-back-bar {
   padding: calc(var(--safe-top) + 10px) 16px 6px;
@@ -3530,7 +3559,7 @@ footer {
       </div>
     </div>
     <!-- Add to cart button -->
-    <button class="pp-cart-btn">
+    <button class="pp-cart-btn" id="ppCartBtn" onclick="addToCart()">
       🛒 Додати в кошик
     </button>
 
@@ -3755,80 +3784,26 @@ footer {
     </button>
     Корзина
   </div>
-  <div class="sub-page-scroll">
+  <div class="sub-page-scroll" id="cartScroll">
     <div style="height:12px"></div>
 
-    <!-- Item 1 -->
-    <div class="cart-item-card">
-      <div class="cart-item-top">
-        <div class="cart-item-photo"><img src="p3.png" alt="Футболка"></div>
-        <div class="cart-item-info">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
-            <div class="cart-item-name">Футболка<br>oversize</div>
-            <div class="cart-item-check">✓</div>
-          </div>
-          <div class="cart-item-meta">Колір: <b>Чорний</b><span class="cart-color-dot"></span></div>
-          <div class="cart-item-meta">Тип нанесення: <b>Вишивка</b></div>
-          <div class="cart-item-meta">Розміри: <b>S/10</b>&nbsp; <b>M/25</b>&nbsp; <b>L/5</b></div>
-        </div>
+    <!-- Empty state -->
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#AAAAAA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.97 1.61H19a2 2 0 001.97-1.68l1.38-7.7H5.46"/></svg>
       </div>
-      <div class="cart-price-row">
-        <span class="cart-price-total">Ціна: 16 200 грн</span>
-        <span class="cart-price-per">(590 грн/шт)</span>
-      </div>
-      <div class="cart-actions">
-        <button class="cart-edit-btn">Редагувати</button>
-        <button class="cart-icon-btn" aria-label="Видалити">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-        </button>
-        <button class="cart-icon-btn" aria-label="Дублювати">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-        </button>
-      </div>
+      <div class="cart-empty-title">Корзина порожня</div>
+      <div class="cart-empty-sub">Оберіть товар, налаштуйте колір, розмір та натисніть «Додати в кошик»</div>
+      <button class="cart-empty-btn" onclick="closeSubPage('cartPage'); openCatModal()">Перейти до каталогу</button>
     </div>
 
-    <!-- Item 2 -->
-    <div class="cart-item-card">
-      <div class="cart-item-top">
-        <div class="cart-item-photo"><img src="p3.png" alt="Футболка"></div>
-        <div class="cart-item-info">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
-            <div class="cart-item-name">Футболка<br>oversize</div>
-            <div class="cart-item-check">✓</div>
-          </div>
-          <div class="cart-item-meta">Колір: <b>Чорний</b><span class="cart-color-dot"></span></div>
-          <div class="cart-item-meta">Тип нанесення: <b>Вишивка</b></div>
-          <div class="cart-item-meta">Розміри: <b>S/10</b>&nbsp; <b>M/25</b>&nbsp; <b>L/5</b></div>
-        </div>
-      </div>
-      <div class="cart-price-row">
-        <span class="cart-price-total">Ціна: 16 200 грн</span>
-        <span class="cart-price-per">(590 грн/шт)</span>
-      </div>
-      <div class="cart-actions">
-        <button class="cart-edit-btn">Редагувати</button>
-        <button class="cart-icon-btn" aria-label="Видалити">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-        </button>
-        <button class="cart-icon-btn" aria-label="Дублювати">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-        </button>
-      </div>
-    </div>
+    <!-- Dynamic items -->
+    <div id="cartItems"></div>
 
-    <!-- Summary -->
-    <div class="cart-summary-section">
-      <div class="cart-summary-row">
-        <span class="cart-summary-label">Загальна сума</span>
-        <span class="cart-summary-val">16 200 грн</span>
-      </div>
-      <div class="cart-summary-row">
-        <span class="cart-summary-label">Термін виготовлення</span>
-        <span class="cart-summary-val">1–2 робочих днів</span>
-      </div>
-    </div>
+    <!-- Dynamic summary -->
+    <div id="cartSummary" class="cart-summary-section" style="display:none"></div>
   </div>
-  <div class="cart-checkout-wrap">
+  <div class="cart-checkout-wrap" id="cartCheckoutWrap" style="display:none">
     <button class="cart-checkout-btn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.97 1.61H19a2 2 0 001.97-1.68l1.38-7.7H5.46"/></svg>
       Оформити замовлення
@@ -4199,6 +4174,133 @@ footer {
 
   function switchProdType(el, key) {
     openProdPage(key);
+  }
+
+  /* ---- CART STATE ---- */
+  let cart = [];
+
+  function addToCart() {
+    const typeCard = document.querySelector('.pp-type-card.active');
+    const key = typeCard ? typeCard.dataset.key : null;
+    const p = key ? PRODUCTS[key] : null;
+    if (!p) return;
+
+    const colorSwatch = document.querySelector('#ppPanel2 .pp-color-swatch.active');
+    const colorName = colorSwatch ? (colorSwatch.getAttribute('aria-label') || 'Без кольору') : 'Без кольору';
+    const colorHex  = colorSwatch ? colorSwatch.style.background : '#fff';
+
+    const printLabelEl = document.querySelector('#ppPanel3 .pp-print-card.active .pp-print-label');
+    const printType = printLabelEl ? printLabelEl.textContent.trim() : 'Без нанесення';
+
+    const sizes = [];
+    document.querySelectorAll('#ppPanel4 .pp-size-col').forEach(col => {
+      const circle = col.querySelector('.pp-size-circle');
+      const qty = parseInt(col.querySelector('.pp-size-qty-display').textContent) || 0;
+      if (qty > 0) sizes.push({ size: circle.textContent.trim(), qty });
+    });
+
+    if (sizes.length === 0) {
+      switchConfigTab(document.querySelectorAll('.pp-tool-tab')[4], 4);
+      document.getElementById('ppPanel4').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const totalQty   = sizes.reduce((s, x) => s + x.qty, 0);
+    const totalPrice = p.price * totalQty;
+
+    cart.push({ id: Date.now(), key, name: p.name, img: p.img, price: p.price,
+                colorName, colorHex, printType, sizes, totalQty, totalPrice });
+    renderCart();
+
+    const btn = document.getElementById('ppCartBtn');
+    btn.textContent = '✓ Додано в кошик!';
+    btn.classList.add('added');
+    setTimeout(() => {
+      btn.innerHTML = '🛒 Додати в кошик';
+      btn.classList.remove('added');
+      closeProdPage();
+      openSubPage('cartPage');
+    }, 900);
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    renderCart();
+  }
+
+  function duplicateCartItem(id) {
+    const item = cart.find(item => item.id === id);
+    if (item) cart.push(Object.assign({}, item, { id: Date.now() }));
+    renderCart();
+  }
+
+  function renderCart() {
+    const itemsEl    = document.getElementById('cartItems');
+    const summaryEl  = document.getElementById('cartSummary');
+    const checkoutEl = document.getElementById('cartCheckoutWrap');
+    const emptyEl    = document.getElementById('cartEmpty');
+
+    if (cart.length === 0) {
+      emptyEl.style.display  = 'flex';
+      itemsEl.innerHTML      = '';
+      summaryEl.style.display  = 'none';
+      checkoutEl.style.display = 'none';
+      return;
+    }
+
+    emptyEl.style.display    = 'none';
+    summaryEl.style.display  = 'block';
+    checkoutEl.style.display = 'block';
+
+    const trashSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>`;
+    const copySvg  = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+
+    itemsEl.innerHTML = cart.map(item => {
+      const sizesStr = item.sizes.map(s => `<b>${s.size}/${s.qty}</b>`).join('&nbsp; ');
+      const imgHtml  = item.img
+        ? `<img src="${item.img}" alt="${item.name}">`
+        : `<svg style="width:44px;height:44px" viewBox="0 0 50 50" fill="none" stroke="#CCC" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9l-12 8 5 3 2-2V42h20V18l2 2 5-3-12-8-3 4c-1 2-2 2-3 2s-2 0-3-2l-3-4z"/></svg>`;
+      const isWhite  = item.colorHex === 'rgb(255, 255, 255)' || item.colorHex === '#FFFFFF' || item.colorHex === 'white';
+      const dotStyle = isWhite
+        ? `background:${item.colorHex};border:1px solid #DDD`
+        : `background:${item.colorHex}`;
+      const total    = item.totalPrice.toLocaleString('uk-UA');
+      return `
+      <div class="cart-item-card">
+        <div class="cart-item-top">
+          <div class="cart-item-photo">${imgHtml}</div>
+          <div class="cart-item-info">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-check">✓</div>
+            </div>
+            <div class="cart-item-meta">Колір: <b>${item.colorName}</b>&nbsp;<span class="cart-color-dot" style="${dotStyle}"></span></div>
+            <div class="cart-item-meta">Тип нанесення: <b>${item.printType}</b></div>
+            <div class="cart-item-meta">Розміри: ${sizesStr}</div>
+          </div>
+        </div>
+        <div class="cart-price-row">
+          <span class="cart-price-total">Ціна: ${total} грн</span>
+          <span class="cart-price-per">(${item.price} грн/шт)</span>
+        </div>
+        <div class="cart-actions">
+          <button class="cart-edit-btn">Редагувати</button>
+          <button class="cart-icon-btn" onclick="removeFromCart(${item.id})" aria-label="Видалити">${trashSvg}</button>
+          <button class="cart-icon-btn" onclick="duplicateCartItem(${item.id})" aria-label="Дублювати">${copySvg}</button>
+        </div>
+      </div>`;
+    }).join('');
+
+    const totalSum = cart.reduce((s, item) => s + item.totalPrice, 0);
+    summaryEl.innerHTML = `
+      <div class="cart-summary-row">
+        <span class="cart-summary-label">Загальна сума</span>
+        <span class="cart-summary-val">${totalSum.toLocaleString('uk-UA')} грн</span>
+      </div>
+      <div class="cart-summary-row">
+        <span class="cart-summary-label">Термін виготовлення</span>
+        <span class="cart-summary-val">2–4 робочих днів</span>
+      </div>`;
   }
 
   function openSubPage(id) {
