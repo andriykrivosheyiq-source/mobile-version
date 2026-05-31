@@ -2341,32 +2341,32 @@ footer {
 }
 /* Panel 3 – Print type */
 .pp-print-panel { padding: 16px 16px 20px; background: #fff; }
-.pp-print-cards { display: flex; gap: 12px; }
+.pp-print-cards { display: flex; flex-direction: column; gap: 10px; }
 .pp-print-card {
-  flex: 1; border-radius: 14px; overflow: hidden;
-  border: 2px solid #EBEBEB; cursor: pointer;
-  transition: border-color 0.2s; position: relative;
-  touch-action: manipulation;
+  display: flex; align-items: center; gap: 14px;
+  border-radius: 14px; border: 1.5px solid #E4E4E4;
+  padding: 14px; cursor: pointer; position: relative;
+  transition: border-color 0.2s; touch-action: manipulation;
+  background: #fff;
 }
-.pp-print-card.active { border-color: var(--blue); }
-.pp-print-photo { width: 100%; aspect-ratio: 1/1; overflow: hidden; }
-.pp-print-photo-bg {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-}
-.pp-print-label {
-  padding: 8px; text-align: center;
-  font-size: 13px; font-weight: 600; color: #AAA;
-}
-.pp-print-card.active .pp-print-label { color: var(--black); }
+.pp-print-card.active { border-color: var(--blue); border-width: 2px; }
 .pp-print-check {
-  position: absolute; top: 8px; left: 8px;
+  position: absolute; top: 10px; right: 10px;
   width: 22px; height: 22px; background: var(--blue);
   border-radius: 50%; display: none; align-items: center;
   justify-content: center; color: #fff;
-  font-size: 13px; font-weight: 700; line-height: 1;
+  font-size: 12px; font-weight: 700; line-height: 1;
 }
 .pp-print-card.active .pp-print-check { display: flex; }
+.pp-print-icon {
+  width: 52px; height: 52px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.pp-print-text { flex: 1; min-width: 0; }
+.pp-print-title {
+  font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 3px;
+}
+.pp-print-desc { font-size: 12px; color: #888; line-height: 1.4; }
 /* Panel 4 – Size */
 .pp-size-panel { padding: 16px 16px 20px; background: #fff; }
 .pp-size-header {
@@ -3482,23 +3482,31 @@ footer {
       <div class="pp-print-panel">
         <div class="pp-panel-title">Оберіть тип нанесення</div>
         <div class="pp-print-cards">
+          <!-- DTF принт -->
           <div class="pp-print-card active" onclick="selectPrintType(this)">
             <div class="pp-print-check">✓</div>
-            <div class="pp-print-photo">
-              <div class="pp-print-photo-bg" style="background:linear-gradient(145deg,#1C2B3A 0%,#2D4A6A 50%,#1A3A5C 100%)">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-              </div>
+            <div class="pp-print-icon">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#AAAAAA" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </div>
-            <div class="pp-print-label">Вишивка</div>
+            <div class="pp-print-text">
+              <div class="pp-print-title">DTF принт</div>
+              <div class="pp-print-desc">Яскраві деталі та<br>складні дизайни</div>
+            </div>
           </div>
+          <!-- Вишивка -->
           <div class="pp-print-card" onclick="selectPrintType(this)">
             <div class="pp-print-check">✓</div>
-            <div class="pp-print-photo">
-              <div class="pp-print-photo-bg" style="background:linear-gradient(145deg,#667EEA 0%,#F093FB 50%,#F5576C 100%)">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              </div>
+            <div class="pp-print-icon">
+              <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#AAAAAA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M32 6 C34 8 34 12 32 14 L16 30 C14 32 10 32 8 34 C6 36 6 40 8 42" />
+                <circle cx="32" cy="10" r="3" fill="none"/>
+                <path d="M10 38 Q14 34 18 38 Q22 42 26 38" stroke-dasharray="3 3"/>
+              </svg>
             </div>
-            <div class="pp-print-label">DTF друк</div>
+            <div class="pp-print-text">
+              <div class="pp-print-title">Вишивка</div>
+              <div class="pp-print-desc">Преміальний вигляд<br>та об'ємна текстура</div>
+            </div>
           </div>
         </div>
       </div>
@@ -4206,7 +4214,7 @@ footer {
     const colorName = colorSwatch ? (colorSwatch.getAttribute('aria-label') || 'Без кольору') : 'Без кольору';
     const colorHex  = colorSwatch ? colorSwatch.style.background : '#fff';
 
-    const printLabelEl = document.querySelector('#ppPanel3 .pp-print-card.active .pp-print-label');
+    const printLabelEl = document.querySelector('#ppPanel3 .pp-print-card.active .pp-print-title');
     const printType = printLabelEl ? printLabelEl.textContent.trim() : 'Без нанесення';
 
     const sizes = [];
