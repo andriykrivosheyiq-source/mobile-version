@@ -1109,6 +1109,127 @@ h2 {
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* ===== CLIENT CASES ===== */
+.client-cases-section { padding: 32px 16px 40px; background: #fff; }
+.case-detail-card { background: #fff; border-radius: 20px; border: 1px solid var(--border); overflow: hidden; }
+.case-detail-photo { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; }
+.case-detail-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.case-company-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: #fff; border-radius: 12px; padding: 8px 12px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.18);
+}
+.case-badge-icon {
+  width: 30px; height: 30px; background: #FC6D26;
+  border-radius: 7px; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.case-badge-name { font-size: 13px; font-weight: 700; color: var(--black); }
+.case-badge-size { font-size: 11px; color: #888; }
+.case-detail-body { padding: 18px 16px; }
+.case-detail-title { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 900; color: var(--black); line-height: 1.3; margin-bottom: 10px; }
+.case-rating-row { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+.case-rating-star { font-size: 16px; }
+.case-rating-num { font-size: 16px; font-weight: 700; color: var(--black); }
+.case-rating-label { font-size: 12px; color: #888; }
+.case-quote { font-size: 14px; color: var(--black); line-height: 1.6; margin-bottom: 4px; }
+.case-quote-author { font-size: 12px; color: #999; margin-bottom: 18px; }
+.case-stats-row {
+  display: flex; padding: 14px 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.case-stat-col { flex: 1; text-align: center; border-right: 1px solid var(--border); padding: 2px 8px; }
+.case-stat-col:last-child { border-right: none; }
+.case-stat-col-label { font-size: 10px; color: #888; line-height: 1.3; margin-bottom: 6px; }
+.case-stat-col-val { font-size: 14px; font-weight: 700; color: var(--black); }
+.case-items-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 10px; }
+.case-items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
+.case-item-chip {
+  display: flex; align-items: center; gap: 7px;
+  background: #F4F4F5; border-radius: 10px;
+  padding: 9px 10px; font-size: 12px; font-weight: 500; color: var(--black);
+}
+.case-more-btn {
+  width: 100%; background: var(--blue); color: #fff; border: none;
+  border-radius: 14px; padding: 16px;
+  font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700;
+  cursor: pointer; touch-action: manipulation;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.case-more-btn:active { background: var(--blue-dark); }
+
+/* ===== ABOUT SECTION ===== */
+.about-section { padding: 40px 16px 32px; background: #fff; }
+.about-label {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700; color: #E67E22;
+  letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 12px;
+}
+.about-title {
+  font-family: 'Unbounded', sans-serif; font-size: 30px;
+  font-weight: 900; color: var(--black); line-height: 1.2; margin-bottom: 10px;
+}
+.about-underline { width: 40px; height: 3px; background: #E67E22; border-radius: 2px; margin-bottom: 18px; }
+.about-desc { font-size: 15px; color: #444; line-height: 1.65; margin-bottom: 24px; }
+.about-photo-wrap { position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 20px; }
+.about-photo-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.about-photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(10,10,10,0.82); padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.about-caption-icon {
+  width: 36px; height: 36px; background: rgba(255,255,255,0.12);
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.about-caption-main { font-size: 13px; font-weight: 700; color: #fff; }
+.about-caption-sub { font-size: 11px; color: rgba(255,255,255,0.6); }
+.about-stats-card {
+  background: #F8F9FB; border-radius: 20px;
+  padding: 20px 12px; display: flex; margin-bottom: 20px;
+}
+.about-stat { flex: 1; text-align: center; border-right: 1px solid #E4E4E4; padding: 0 6px; }
+.about-stat:last-child { border-right: none; }
+.about-stat-icon {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+.about-stat-val {
+  font-family: 'Unbounded', sans-serif; font-size: 17px;
+  font-weight: 900; color: var(--black); line-height: 1.2; margin-bottom: 4px;
+}
+.about-stat-label { font-size: 10px; color: #888; line-height: 1.35; }
+.about-quote-bar {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 16px; background: #FFF8F0;
+  border-radius: 14px; border-left: 4px solid #E67E22;
+}
+.about-quote-text { font-size: 14px; color: var(--black); line-height: 1.55; }
+.about-quote-text b { color: #E67E22; font-weight: 700; }
+
+/* ===== FOR WHO SECTION ===== */
+.for-who-section { padding: 40px 16px 40px; background: #fff; border-top: 1px solid var(--border); }
+.for-who-title {
+  font-family: 'Unbounded', sans-serif; font-size: 22px;
+  font-weight: 900; color: var(--black); line-height: 1.3; margin-bottom: 8px;
+}
+.for-who-sub { font-size: 14px; color: #666; line-height: 1.55; margin-bottom: 24px; }
+.for-who-list { display: flex; flex-direction: column; gap: 20px; }
+.for-who-item { display: flex; gap: 14px; align-items: flex-start; }
+.for-who-photo {
+  width: 130px; height: 96px; border-radius: 14px;
+  overflow: hidden; flex-shrink: 0;
+}
+.for-who-photo img { width: 100%; height: 100%; object-fit: cover; }
+.for-who-photo-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.for-who-text { flex: 1; padding-top: 2px; }
+.for-who-item-title { font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 5px; line-height: 1.25; }
+.for-who-item-desc { font-size: 13px; color: #666; line-height: 1.5; }
+
 /* ===== REVIEWS ===== */
 .review-card {
   background: rgba(255, 255, 255, 0.04);
@@ -3125,6 +3246,180 @@ footer {
       <div>
         <div class="adv-title">Для ФОП та ТОВ</div>
         <div class="adv-text">Рахунок, документи та безготівкова оплата</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT CASES SECTION -->
+<section class="client-cases-section">
+  <div class="sec-label" style="color:var(--blue);margin-bottom:6px">КЕЙСИ КЛІЄНТІВ</div>
+  <h2 style="font-family:'Unbounded',sans-serif;font-size:22px;font-weight:900;color:var(--black);margin-bottom:20px;line-height:1.3">Реальні результати<br>наших клієнтів</h2>
+
+  <div class="case-detail-card">
+    <div class="case-detail-photo">
+      <img src="IMG_7211.JPEG" alt="GitLab Ukraine">
+      <div class="case-company-badge">
+        <div class="case-badge-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L4.5 9.5 2 17l10 5 10-5-2.5-7.5L12 2z" fill="#fff" stroke="#fff" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="case-badge-name">GitLab Ukraine</div>
+          <div class="case-badge-size">120+ співробітників</div>
+        </div>
+      </div>
+    </div>
+    <div class="case-detail-body">
+      <div class="case-detail-title">Корпоративний мерч<br>для команди</div>
+      <div class="case-rating-row">
+        <span class="case-rating-star">⭐</span>
+        <span class="case-rating-num">4.9</span>
+        <span class="case-rating-label">на основі відгуку клієнта</span>
+      </div>
+      <div class="case-quote">"Все з логотипом, якість відмінна, тканина приємна. Команда задоволена результатом!"</div>
+      <div class="case-quote-author">Маркетинг-менеджер GitLab Ukraine</div>
+
+      <div class="case-stats-row">
+        <div class="case-stat-col">
+          <div style="font-size:18px;margin-bottom:4px">⏱</div>
+          <div class="case-stat-col-label">Термін<br>виготовлення</div>
+          <div class="case-stat-col-val">7 днів</div>
+        </div>
+        <div class="case-stat-col">
+          <div style="font-size:18px;margin-bottom:4px">👥</div>
+          <div class="case-stat-col-label">Тираж</div>
+          <div class="case-stat-col-val">275 шт</div>
+        </div>
+        <div class="case-stat-col">
+          <div style="font-size:18px;margin-bottom:4px">👕</div>
+          <div class="case-stat-col-label">Нанесення</div>
+          <div class="case-stat-col-val">Вишивка<br>+ DTF</div>
+        </div>
+      </div>
+
+      <div class="case-items-title">Що замовили</div>
+      <div class="case-items-grid">
+        <div class="case-item-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H7v10c0 1.1.9 2 2 2h6a2 2 0 002-2V10h3.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+          Худії — 50 шт
+        </div>
+        <div class="case-item-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H7v10c0 1.1.9 2 2 2h6a2 2 0 002-2V10h3.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+          Футболки — 70 шт
+        </div>
+        <div class="case-item-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Блокноти — 30 шт
+        </div>
+        <div class="case-item-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          Термопляшки — 25 шт
+        </div>
+      </div>
+
+      <button class="case-more-btn">
+        Дивитись інші кейси
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section">
+  <div class="about-label">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+    ПРО НАС
+  </div>
+  <div class="about-title">Наша команда</div>
+  <div class="about-underline"></div>
+  <p class="about-desc">Ми — команда професіоналів, які створюють якісний мерч та допомагають бізнесам і командам досягати своїх цілей.</p>
+
+  <div class="about-photo-wrap">
+    <img src="IMG_7211.JPEG" alt="Команда Loomiq" class="about-photo-img" style="aspect-ratio:4/3;width:100%;object-fit:cover">
+    <div class="about-photo-caption">
+      <div class="about-caption-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div>
+        <div class="about-caption-main">Створюємо якісний мерч</div>
+        <div class="about-caption-sub">для тих, хто змінює світ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-stats-card">
+    <div class="about-stat">
+      <div class="about-stat-icon" style="background:#FFF0E8">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="about-stat-val">120+</div>
+      <div class="about-stat-label">працівників</div>
+    </div>
+    <div class="about-stat">
+      <div class="about-stat-icon" style="background:#EEF4FF">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="about-stat-val">5+ років</div>
+      <div class="about-stat-label">досвіду у сфері мерчу</div>
+    </div>
+    <div class="about-stat">
+      <div class="about-stat-icon" style="background:#FFF0F3">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E05" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <div class="about-stat-val">1000+</div>
+      <div class="about-stat-label">успішних проєктів</div>
+    </div>
+  </div>
+
+  <div class="about-quote-bar">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M12 2L15 8l6 1-4.5 4 1 6L12 18l-5.5 3 1-6L3 9l6-1 3-6z"/></svg>
+    <div class="about-quote-text">Працюємо <b>з любов'ю</b> до деталей та орієнтацією на результат</div>
+  </div>
+</section>
+
+<!-- FOR WHO SECTION -->
+<section class="for-who-section">
+  <div class="for-who-title">Для кого ми<br>створюємо мерч</div>
+  <p class="for-who-sub">Створюємо корпоративний мерч та формений одяг для компаній різних сфер і масштабів.</p>
+
+  <div class="for-who-list">
+    <div class="for-who-item">
+      <div class="for-who-photo">
+        <img src="p2.png" alt="IT-компанії" style="background:#1a1a1a">
+      </div>
+      <div class="for-who-text">
+        <div class="for-who-item-title">IT-компанії</div>
+        <div class="for-who-item-desc">Онбординг, корпоративна культура, подарунки співробітникам</div>
+      </div>
+    </div>
+    <div class="for-who-item">
+      <div class="for-who-photo">
+        <img src="p3.png" alt="Ресторани" style="background:#1a1a1a">
+      </div>
+      <div class="for-who-text">
+        <div class="for-who-item-title">Ресторани та кав'ярні</div>
+        <div class="for-who-item-desc">Футболки, фартухи, кепки, форма для команди</div>
+      </div>
+    </div>
+    <div class="for-who-item">
+      <div class="for-who-photo">
+        <img src="p1.png" alt="Виробничі компанії" style="background:#1a1a1a">
+      </div>
+      <div class="for-who-text">
+        <div class="for-who-item-title">Виробничі компанії</div>
+        <div class="for-who-item-desc">Робочий одяг та корпоративна айдентика</div>
+      </div>
+    </div>
+    <div class="for-who-item">
+      <div class="for-who-photo">
+        <img src="p4.png" alt="Маркетинг та івенти" style="background:#1a1a1a">
+      </div>
+      <div class="for-who-text">
+        <div class="for-who-item-title">Маркетинг та івенти</div>
+        <div class="for-who-item-desc">Промоодяг, виставки, конференції, фестивалі</div>
       </div>
     </div>
   </div>
