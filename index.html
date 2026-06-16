@@ -143,7 +143,7 @@ header.scrolled {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid #DEDEDE;
+  border: 1.5px solid #cfcfcf;
   background: #f0f0f0;
   display: flex;
   align-items: center;
@@ -652,12 +652,12 @@ h2 {
 /* ===== CATALOG ===== */
 /* ===== CATALOG — premium minimal ===== */
 .catalog-section {
-  background: #F7F4F0;
+  background: #f4f4f4;
   padding: 40px 20px 40px;
 }
 
 .catalog-section .sec-label {
-  color: #2563FF;
+  color: #0000ff;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -683,13 +683,13 @@ h2 {
 }
 
 .cat-card {
-  background: #EDE9E3;
-  border-radius: 18px;
+  background: #ffffff;
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  border: 1px solid #E2DDD7;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border: 1px solid #e8e8e8;
 }
 
 .cat-card:active {
@@ -734,7 +734,7 @@ h2 {
 
 .cat-info {
   padding: 12px 12px 12px;
-  background: #FAF8F5;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -751,13 +751,14 @@ h2 {
   font-family: 'Unbounded', sans-serif;
   font-size: 11px;
   font-weight: 700;
-  color: #0D0D0D;
+  color: #000000;
   line-height: 1.3;
 }
 
 .cat-price {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: #888;
+  color: #999999;
   font-weight: 400;
 }
 
@@ -774,7 +775,7 @@ h2 {
 }
 
 .cat-card:active .cat-arrow {
-  background: #2563FF;
+  background: #0000ff;
   color: #fff;
 }
 
@@ -857,7 +858,7 @@ h2 {
 
 .adv-list {
   padding: 20px 20px 32px;
-  background: #F8F9FB;
+  background: #f4f4f4;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -874,6 +875,20 @@ h2 {
   transition: transform 0.2s;
 }
 
+.adv-item.adv-item-yellow {
+  background: #fffc52;
+  border-color: #000000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.adv-item.adv-item-yellow .adv-title {
+  color: #000000;
+}
+
+.adv-item.adv-item-yellow .adv-text {
+  color: #333333;
+}
+
 .adv-item:active {
   transform: scale(0.99);
 }
@@ -881,7 +896,7 @@ h2 {
 .adv-icon-box {
   width: 54px;
   height: 54px;
-  background: #EEF4FF;
+  background: #e8e8ff;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -897,7 +912,7 @@ h2 {
 .adv-divider {
   width: 2px;
   height: 40px;
-  background: linear-gradient(to bottom, transparent, #2563FF 20%, #2563FF 80%, transparent);
+  background: linear-gradient(to bottom, transparent, #0000ff 20%, #0000ff 80%, transparent);
   border-radius: 1px;
   margin: 0 14px;
   flex-shrink: 0;
@@ -907,7 +922,7 @@ h2 {
   font-family: 'Unbounded', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: #0D0D0D;
+  color: #000000;
   margin-bottom: 3px;
   line-height: 1.3;
 }
@@ -918,21 +933,21 @@ h2 {
   line-height: 1.55;
 }
 
-/* ===== GUARANTEE — dark navy card ===== */
+/* ===== GUARANTEE — dark carbon card ===== */
 .guarantee-section {
-  background: #F8F9FB;
-  padding: 0 20px 40px;
+  background: #121212;
+  padding: 40px 20px 40px;
 }
 
 .guarantee-card {
-  background: linear-gradient(135deg, #0B1E40 0%, #122F60 100%);
+  background: #1e1e1e;
   border-radius: 20px;
   padding: 24px 20px;
   display: flex;
   align-items: center;
   gap: 18px;
-  box-shadow: 0 8px 24px rgba(11, 30, 64, 0.3);
-  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .g-icon {
@@ -999,7 +1014,7 @@ h2 {
 }
 
 .comp-card.dtf .comp-visual {
-  background: linear-gradient(145deg, #1A56DB, #3B70EE);
+  background: linear-gradient(145deg, #0000cc, #3333ff);
 }
 
 .comp-card.emb .comp-visual {
@@ -1085,7 +1100,7 @@ h2 {
   min-height: 180px;
 }
 
-.ct1 { background: linear-gradient(145deg, #0D1B4B, #1A56DB); }
+.ct1 { background: linear-gradient(145deg, #000033, #0000cc); }
 .ct2 { background: linear-gradient(145deg, #0D2B0D, #1A6B1A); }
 .ct3 { background: linear-gradient(145deg, #1B0D4B, #5B1ADB); }
 .ct4 { background: linear-gradient(145deg, #2B0D0D, #8B1A1A); }
@@ -1156,8 +1171,8 @@ h2 {
 }
 .case-item-chip img { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; flex-shrink: 0; }
 .case-more-btn {
-  width: 100%; background: var(--blue); color: #fff; border: none;
-  border-radius: 14px; padding: 16px;
+  width: 100%; background: #0000ff; color: #fff; border: none;
+  border-radius: 18px; padding: 16px;
   font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700;
   cursor: pointer; touch-action: manipulation;
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -1192,7 +1207,7 @@ h2 {
 .about-caption-main { font-size: 13px; font-weight: 700; color: #fff; }
 .about-caption-sub { font-size: 11px; color: rgba(255,255,255,0.6); }
 .about-stats-card {
-  background: #F8F9FB; border-radius: 20px;
+  background: #f4f4f4; border-radius: 20px;
   padding: 20px 12px; display: flex; margin-bottom: 20px;
 }
 .about-stat { flex: 1; text-align: center; border-right: 1px solid #E4E4E4; padding: 0 6px; }
@@ -1272,7 +1287,7 @@ h2 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), #3B70EE);
+  background: linear-gradient(135deg, var(--blue), #3333ff);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1326,7 +1341,7 @@ h2 {
   justify-content: center;
 }
 
-.fv-biz { background: linear-gradient(145deg, #0D1B4B, #1A56DB); }
+.fv-biz { background: linear-gradient(145deg, #000033, #0000cc); }
 .fv-event { background: linear-gradient(145deg, #0D2B0D, #1A6B1A); }
 .fv-sport { background: linear-gradient(145deg, #2B0D0D, #8B1A1A); }
 
@@ -1454,7 +1469,7 @@ h2 {
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(26, 86, 219, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(0, 0, 255, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -1618,7 +1633,7 @@ footer {
 .cat-modal-sheet {
   position: absolute;
   inset: 0;
-  background: #F8F9FB;
+  background: #f4f4f4;
   transform: translateY(100%);
   transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
   display: flex;
@@ -1644,14 +1659,14 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #2563FF;
+  color: #0000ff;
   margin-bottom: 6px;
 }
 .cat-modal-heading {
   font-family: 'Unbounded', sans-serif;
   font-size: clamp(17px, 5vw, 22px);
   font-weight: 900;
-  color: #0D0D0D;
+  color: #000000;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -1659,7 +1674,7 @@ footer {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #F2F2F2;
+  background: #efefef;
   border: none;
   cursor: pointer;
   display: flex;
@@ -1681,8 +1696,8 @@ footer {
 }
 .cat-modal-item {
   background: #fff;
-  border-radius: 16px;
-  border: 1px solid #EBEBEB;
+  border-radius: 20px;
+  border: 1px solid #e8e8e8;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1704,6 +1719,7 @@ footer {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-radius: 16px 0 0 16px;
 }
 .cat-modal-photo img {
   width: 100%;
@@ -1718,7 +1734,7 @@ footer {
   font-family: 'Unbounded', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: #0D0D0D;
+  color: #000000;
   padding: 0 14px;
   line-height: 1.35;
 }
@@ -1782,7 +1798,7 @@ footer {
   font-family: 'Unbounded', sans-serif;
   font-size: 20px;
   font-weight: 900;
-  color: #0D0D0D;
+  color: #000000;
   letter-spacing: -0.02em;
 }
 .nav-drawer-sub {
@@ -1794,7 +1810,7 @@ footer {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #F2F2F2;
+  background: #efefef;
   border: none;
   display: flex;
   align-items: center;
@@ -1834,23 +1850,23 @@ footer {
 }
 .nav-drawer-icon svg { width: 20px; height: 20px; }
 .nav-drawer-item.active .nav-drawer-icon {
-  background: #EEF4FF;
+  background: #e8e8ff;
 }
-.nav-drawer-item.active .nav-drawer-icon svg { color: #1A56DB; }
+.nav-drawer-item.active .nav-drawer-icon svg { color: #0000ff; }
 .nav-drawer-item-label {
   font-family: 'Onest', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0D0D0D;
+  color: #000000;
 }
-.nav-drawer-item.active .nav-drawer-item-label { color: #1A56DB; }
+.nav-drawer-item.active .nav-drawer-item-label { color: #0000ff; }
 .nav-drawer-footer {
   padding: 12px 16px calc(16px + var(--safe-bottom, 0px));
 }
 .nav-drawer-cta {
   width: 100%;
   padding: 16px;
-  background: #1A56DB;
+  background: #0000ff;
   color: #fff;
   border: none;
   border-radius: 14px;
@@ -1864,14 +1880,14 @@ footer {
   cursor: pointer;
   transition: background 0.2s;
 }
-.nav-drawer-cta:active { background: #1340B0; }
+.nav-drawer-cta:active { background: #0000cc; }
 
 /* ===== SUB-PAGES (Contacts / Cart / Reviews) ===== */
 .sub-page {
   position: fixed;
   inset: 0;
   z-index: 4500;
-  background: #F8F9FB;
+  background: #f4f4f4;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
   display: flex;
@@ -1929,7 +1945,7 @@ footer {
 .contact-icon-circle {
   width: 46px; height: 46px;
   border-radius: 50%;
-  background: #EEF4FF;
+  background: #e8e8ff;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -1937,7 +1953,7 @@ footer {
 .contact-card-desc { font-size: 13px; color: #888; line-height: 1.4; }
 .contact-phone-row {
   display: flex;
-  border: 1.5px solid #DEDEDE;
+  border: 1.5px solid #cfcfcf;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 12px;
@@ -1946,8 +1962,8 @@ footer {
 .contact-phone-prefix {
   padding: 14px 12px;
   font-size: 14px; font-weight: 600; color: var(--black);
-  border-right: 1.5px solid #DEDEDE;
-  background: #F8F9FB; white-space: nowrap;
+  border-right: 1.5px solid #cfcfcf;
+  background: #f4f4f4; white-space: nowrap;
 }
 .contact-phone-input {
   flex: 1; padding: 14px 12px;
@@ -1969,7 +1985,7 @@ footer {
   justify-content: center; font-size: 11px; color: #BBBBBB;
 }
 .contact-tg-card {
-  background: #EEF4FF; border-radius: 16px;
+  background: #e8e8ff; border-radius: 16px;
   padding: 18px; margin: 0 16px 12px;
 }
 .contact-tg-head {
@@ -1996,7 +2012,7 @@ footer {
 /* Cart */
 .cart-header {
   padding: calc(var(--safe-top) + 16px) 16px 12px;
-  background: #F8F9FB;
+  background: #f4f4f4;
   font-family: 'Unbounded', sans-serif;
   font-size: 24px; font-weight: 900; color: var(--black);
 }
@@ -2039,8 +2055,8 @@ footer {
   background: #1A1A1A; display: inline-block;
 }
 .cart-price-row { margin-bottom: 10px; }
-.cart-price-total { font-size: 16px; font-weight: 700; color: var(--black); }
-.cart-price-per { font-size: 14px; font-weight: 600; color: var(--blue); margin-left: 4px; }
+.cart-price-total { font-size: 16px; font-weight: 700; color: var(--black); font-family: 'JetBrains Mono', monospace; }
+.cart-price-per { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; color: var(--blue); margin-left: 4px; }
 .cart-actions { display: flex; align-items: center; gap: 8px; }
 .cart-edit-btn {
   background: var(--black); color: #fff; border: none;
@@ -2068,7 +2084,7 @@ footer {
 .cart-summary-val { font-size: 14px; font-weight: 700; color: var(--black); }
 .cart-checkout-wrap {
   padding: 12px 16px calc(var(--safe-bottom) + 12px);
-  background: #F8F9FB;
+  background: #f4f4f4;
 }
 .cart-checkout-btn {
   width: 100%; background: var(--blue); color: #fff; border: none;
@@ -2088,7 +2104,7 @@ footer {
   font-size: 15px; font-weight: 700;
   cursor: pointer; touch-action: manipulation;
 }
-.cart-add-order-btn:active { background: #EEF4FF; }
+.cart-add-order-btn:active { background: #e8e8ff; }
 .cart-empty {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -2144,7 +2160,7 @@ footer {
 .reviews-count { font-size: 12px; color: #888; }
 .reviews-leave-btn {
   display: flex; align-items: center; gap: 7px;
-  border: 1.5px solid #DEDEDE; background: #fff;
+  border: 1.5px solid #cfcfcf; background: #fff;
   border-radius: 12px; padding: 10px 14px;
   font-family: 'Onest', sans-serif;
   font-size: 13px; font-weight: 600; color: var(--black);
@@ -2190,7 +2206,7 @@ footer {
   position: fixed;
   inset: 0;
   z-index: 3000;
-  background: #F8F9FB;
+  background: #f4f4f4;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
   display: flex;
@@ -2213,7 +2229,7 @@ footer {
   justify-content: space-between;
   padding-left: 12px;
   padding-right: 12px;
-  background: #F8F9FB;
+  background: #f4f4f4;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   z-index: 1;
@@ -2347,7 +2363,7 @@ footer {
   gap: 4px;
   padding: 8px 12px;
   border-radius: 10px;
-  background: #EEF4FF;
+  background: #e8e8ff;
   border: none;
   cursor: pointer;
   font-family: 'Onest', sans-serif;
@@ -2435,7 +2451,7 @@ footer {
   align-items: center; gap: 8px; text-align: center;
 }
 .pp-photo-upload-icon {
-  width: 48px; height: 48px; background: #EEF4FF;
+  width: 48px; height: 48px; background: #e8e8ff;
   border-radius: 12px; display: flex; align-items: center;
   justify-content: center; margin-bottom: 4px;
 }
@@ -2459,10 +2475,10 @@ footer {
   flex-shrink: 0; touch-action: manipulation;
 }
 .pp-color-swatch:active { transform: scale(0.88); }
-.pp-color-swatch.white-swatch { border-color: #DEDEDE; }
+.pp-color-swatch.white-swatch { border-color: #cfcfcf; }
 .pp-color-swatch.active {
   border-color: var(--blue);
-  box-shadow: 0 0 0 2px rgba(26,86,219,0.18);
+  box-shadow: 0 0 0 2px rgba(0,0,255,0.18);
 }
 /* Panel 3 – Print type */
 .pp-print-panel { padding: 16px 16px 20px; background: #fff; }
@@ -2532,7 +2548,7 @@ footer {
 .pp-qty-controls {
   display: none; align-items: center;
   justify-content: center; gap: 20px;
-  padding: 14px; background: #F8F9FB;
+  padding: 14px; background: #f4f4f4;
   border-radius: 14px;
 }
 .pp-qty-btn {
@@ -2568,7 +2584,7 @@ footer {
   margin-bottom: 16px;
 }
 .pp-price-num {
-  font-family: 'Unbounded', sans-serif;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 26px;
   font-weight: 900;
   color: var(--black);
@@ -2815,6 +2831,7 @@ footer {
   line-height: 1.3;
 }
 .pp-related-price {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--blue);
   font-weight: 700;
@@ -2996,8 +3013,8 @@ footer {
     <!-- Arrow -->
     <div class="step-arrow">
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
-        <line x1="10" y1="0" x2="10" y2="22" stroke="#2563FF" stroke-width="2" stroke-dasharray="4 3"/>
-        <path d="M4 18 L10 25 L16 18" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#0000ff" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#0000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
@@ -3016,8 +3033,8 @@ footer {
     <!-- Arrow -->
     <div class="step-arrow">
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
-        <line x1="10" y1="0" x2="10" y2="22" stroke="#2563FF" stroke-width="2" stroke-dasharray="4 3"/>
-        <path d="M4 18 L10 25 L16 18" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#0000ff" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#0000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
@@ -3149,18 +3166,18 @@ footer {
   </div>
 
   <div class="adv-list">
-    <div class="adv-item fade-up">
-      <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <div class="adv-item adv-item-yellow fade-up">
+      <div class="adv-icon-box" style="background: rgba(0,0,0,0.07);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="4" y="2" width="16" height="20" rx="2"/>
           <line x1="8" y1="6" x2="16" y2="6"/>
           <line x1="8" y1="10" x2="16" y2="10"/>
           <line x1="8" y1="14" x2="12" y2="14"/>
-          <circle cx="17" cy="19" r="3" fill="#EEF4FF" stroke="#2563FF"/>
-          <polyline points="15.5 19 16.5 20 18.5 18" stroke="#2563FF" stroke-width="1.5"/>
+          <circle cx="17" cy="19" r="3" fill="rgba(255,252,82,0.5)" stroke="#000000"/>
+          <polyline points="15.5 19 16.5 20 18.5 18" stroke="#000000" stroke-width="1.5"/>
         </svg>
       </div>
-      <div class="adv-divider"></div>
+      <div class="adv-divider" style="background: linear-gradient(to bottom, transparent, #000000 20%, #000000 80%, transparent);"></div>
       <div>
         <div class="adv-title">Ціна та терміни одразу онлайн</div>
         <div class="adv-text">Вартість і терміни розраховуються миттєво</div>
@@ -3169,7 +3186,7 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2"/>
           <path d="M8 3v14"/>
           <path d="M2 7h6"/>
@@ -3188,11 +3205,11 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
           <line x1="3.27" y1="6.96" x2="12" y2="12.01"/>
           <line x1="12" y1="22.08" x2="12" y2="12"/>
-          <path d="M20.73 6.96L12 12.01" stroke="#2563FF" stroke-width="3"/>
+          <path d="M20.73 6.96L12 12.01" stroke="#0000ff" stroke-width="3"/>
         </svg>
       </div>
       <div class="adv-divider"></div>
@@ -3204,7 +3221,7 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 6 2 18 2 18 9"/>
           <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
           <rect x="6" y="14" width="12" height="8" rx="1"/>
@@ -3220,7 +3237,7 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="9"/>
           <polyline points="12 7 12 12 15 15"/>
           <line x1="5" y1="12" x2="3" y2="12"/>
@@ -3237,13 +3254,13 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2563FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
           <polyline points="14 2 14 8 20 8"/>
           <line x1="8" y1="13" x2="16" y2="13"/>
           <line x1="8" y1="17" x2="13" y2="17"/>
-          <circle cx="17" cy="19" r="3" fill="#EEF4FF" stroke="#2563FF"/>
-          <polyline points="15.5 19 16.5 20 18.5 18" stroke="#2563FF" stroke-width="1.5"/>
+          <circle cx="17" cy="19" r="3" fill="#e8e8ff" stroke="#0000ff"/>
+          <polyline points="15.5 19 16.5 20 18.5 18" stroke="#0000ff" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="adv-divider"></div>
@@ -3363,7 +3380,7 @@ footer {
       <div class="about-stat-label">працівників</div>
     </div>
     <div class="about-stat">
-      <div class="about-stat-icon" style="background:#EEF4FF">
+      <div class="about-stat-icon" style="background:#e8e8ff">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
       <div class="about-stat-val">5+ років</div>
@@ -3437,7 +3454,7 @@ footer {
         <defs>
           <linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#5B9EFF"/>
-            <stop offset="100%" stop-color="#1A56DB"/>
+            <stop offset="100%" stop-color="#0000ff"/>
           </linearGradient>
           <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
