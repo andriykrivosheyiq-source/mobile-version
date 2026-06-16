@@ -304,70 +304,82 @@ header.scrolled {
 
 .hero-emb {
   position: absolute;
-  top: 35%;
+  top: 32%;
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
-  white-space: nowrap;
+  width: 64%;
+  max-width: 232px;
 }
 
-.emb-logo,
-.emb-sheen {
+.emb-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5));
+  animation: embWipe 6.4s ease-in-out 0.5s infinite;
+}
+
+.emb-fill,
+.emb-stitch {
   font-family: 'Unbounded', sans-serif;
   font-weight: 900;
-  font-size: clamp(17px, 5.2vw, 25px);
+  font-size: 58px;
   letter-spacing: -0.02em;
-  line-height: 1;
 }
 
-.emb-logo {
-  color: #3a54ff;
-  text-shadow:
-    0 1px 0 rgba(0,0,0,0.55),
-    0 -0.5px 0 rgba(255,255,255,0.14),
-    0 0 7px rgba(58,84,255,0.45);
-  clip-path: inset(0 100% 0 0);
-  animation: stitchIn 1.4s cubic-bezier(0.6,0,0.2,1) 0.7s forwards;
+/* satin thread body */
+.emb-fill { fill: url(#satin); }
+
+/* fine stitches laid on top */
+.emb-stitch {
+  fill: none;
+  stroke: #8ea0ff;
+  stroke-width: 1.5;
+  stroke-dasharray: 2.4 2.6;
+  stroke-linecap: round;
 }
 
-.emb-sheen {
-  position: absolute;
-  inset: 0;
-  color: transparent;
-  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.95) 50%, transparent 62%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-size: 280% 100%;
-  background-position: 200% 0;
-  opacity: 0;
-  animation: embReveal 0.01s linear 2.15s forwards, embSheen 3.2s ease-in-out 2.3s infinite;
+/* shimmer sweeping across the finished embroidery */
+.emb-glint {
+  fill: url(#glintGrad);
+  transform: translateX(-150px);
+  animation: embGlint 6.4s ease-in-out 0.5s infinite;
 }
 
+/* needle following the stitch front */
 .emb-needle {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 13px;
-  height: 13px;
-  margin-top: -6.5px;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
   border-radius: 50%;
   background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
-  box-shadow: 0 0 9px rgba(255,255,255,0.95);
+  box-shadow: 0 0 11px rgba(255,255,255,0.95);
   opacity: 0;
-  animation: needleRun 1.4s cubic-bezier(0.6,0,0.2,1) 0.7s forwards;
+  animation: needleRun 6.4s ease-in-out 0.5s infinite;
 }
 
-@keyframes stitchIn { to { clip-path: inset(0 0 0 0); } }
-@keyframes embReveal { to { opacity: 1; } }
-@keyframes embSheen {
-  0% { background-position: 200% 0; }
-  55%, 100% { background-position: -90% 0; }
+@keyframes embWipe {
+  0%   { clip-path: inset(-35% 102% -35% -5%); opacity: 1; }
+  40%  { clip-path: inset(-35% -5% -35% -5%); opacity: 1; }
+  82%  { clip-path: inset(-35% -5% -35% -5%); opacity: 1; }
+  92%  { clip-path: inset(-35% -5% -35% -5%); opacity: 0; }
+  100% { clip-path: inset(-35% 102% -35% -5%); opacity: 0; }
 }
 @keyframes needleRun {
-  0%   { opacity: 0; left: -8%; }
-  12%  { opacity: 1; }
-  88%  { opacity: 1; left: 106%; }
-  100% { opacity: 0; left: 112%; }
+  0%   { opacity: 0; left: 2%; }
+  5%   { opacity: 1; }
+  40%  { opacity: 1; left: 96%; }
+  47%  { opacity: 0; left: 96%; }
+  100% { opacity: 0; left: 96%; }
+}
+@keyframes embGlint {
+  0%, 45%  { transform: translateX(-150px); }
+  64%      { transform: translateX(380px); }
+  100%     { transform: translateX(380px); }
 }
 @keyframes heroFloat {
   0%, 100% { transform: translateY(0); }
@@ -393,12 +405,13 @@ header.scrolled {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-eyebrow, .hero-title, .hero-desc, .hero-hoodie, .hero-cta,
-  .emb-logo, .emb-sheen, .emb-needle, .hero-stage {
+  .emb-svg, .emb-glint, .emb-needle, .hero-stage {
     animation: none !important;
     opacity: 1 !important;
     clip-path: none !important;
-    transform: none !important;
   }
+  .emb-needle { display: none !important; }
+  .emb-glint { transform: translateX(380px) !important; }
   .hero-emb { transform: translateX(-50%) !important; }
 }
 
@@ -3117,9 +3130,28 @@ footer {
       <div class="hero-stage">
         <img class="hero-hoodie" src="p2.png" alt="Худі з вишитим лого">
         <div class="hero-emb">
-          <div class="emb-needle"></div>
-          <span class="emb-logo">Loomiq</span>
-          <span class="emb-sheen" aria-hidden="true">Loomiq</span>
+          <svg class="emb-svg" viewBox="0 0 340 110" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <pattern id="satin" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(48)">
+                <rect width="7" height="7" fill="#2236ff"/>
+                <rect width="2.7" height="7" fill="#5d75ff"/>
+              </pattern>
+              <linearGradient id="glintGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#fff" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="embClip">
+                <text x="170" y="78" text-anchor="middle" class="emb-fill">Loomiq</text>
+              </clipPath>
+            </defs>
+            <text x="170" y="78" text-anchor="middle" class="emb-fill">Loomiq</text>
+            <text x="170" y="78" text-anchor="middle" class="emb-stitch">Loomiq</text>
+            <g clip-path="url(#embClip)">
+              <rect class="emb-glint" x="0" y="0" width="74" height="110"/>
+            </g>
+          </svg>
+          <span class="emb-needle"></span>
         </div>
       </div>
     </div>
