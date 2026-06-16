@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0000ff">
+<meta name="theme-color" content="#ffffff">
 <title>LoomiQ — Мерч для команди</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -371,10 +371,8 @@ header.scrolled {
 
 /* ===== LOGOS SECTION ===== */
 .logos-section {
-  background: var(--white);
+  background: var(--fog);
   padding: 24px var(--safe-left);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
 
@@ -396,7 +394,7 @@ header.scrolled {
   font-family: var(--font-text);
   font-size: 10px;
   font-weight: 600;
-  color: #aaa;
+  color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   white-space: nowrap;
@@ -407,61 +405,55 @@ header.scrolled {
   padding: 0 12px;
   font-family: var(--font-text);
   font-size: 11px;
-  font-weight: 700;
-  color: #BBBBBB;
+  font-weight: 600;
+  color: var(--muted);
   letter-spacing: 0.08em;
-  border-right: 1px solid var(--border);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 /* ===== STATS ===== */
 .stats-section {
-  padding: 20px var(--safe-left);
-  background: #121212;
+  padding: 28px var(--safe-left);
+  background: var(--white);
 }
 
 .stats-grid {
   display: flex;
-  background: #121212;
-  border-radius: 20px;
-  border: 1px solid #2a2a2a;
+  background: var(--fog);
+  border-radius: 28px;
   overflow: hidden;
 }
 
 .stat-item {
   flex: 1;
-  padding: 16px 6px;
+  padding: 20px 6px;
   text-align: center;
-  background: #121212;
-  border-right: 1px solid #2a2a2a;
+  background: var(--fog);
   transition: background 0.2s;
 }
 
-.stat-item:last-child {
-  border-right: none;
-}
-
 .stat-item:active {
-  background: #1e1e1e;
+  background: #ededf0;
 }
 
 .stat-num {
-  font-family: var(--font-text);
-  font-size: 22px;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 5px;
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .stat-num span {
-  color: #5b5bff;
+  color: var(--ink);
 }
 
 .stat-label {
   font-size: 10px;
-  color: #999999;
+  color: var(--muted);
   line-height: 1.3;
 }
 
@@ -472,16 +464,16 @@ header.scrolled {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--blue);
+  color: var(--ink);
   margin-bottom: 8px;
 }
 
 h2 {
   font-family: var(--font-display);
   font-size: clamp(24px, 5vw, 36px);
-  font-weight: 900;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
   margin-bottom: 8px;
 }
 
@@ -505,7 +497,7 @@ h2 {
 }
 
 .how-section .sec-label {
-  color: #0000ff;
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -516,22 +508,22 @@ h2 {
   content: '';
   width: 7px;
   height: 7px;
-  background: #0000ff;
+  background: var(--ink);
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
 }
 
 .how-section h2 {
-  color: var(--black);
+  color: var(--ink);
   font-size: clamp(22px, 6vw, 30px);
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1.08;
   margin-bottom: 6px;
 }
 
 .how-section .sec-sub {
-  color: #666;
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
   margin-bottom: 0;
@@ -545,10 +537,10 @@ h2 {
 }
 
 .step-card {
-  background: #fff;
-  border-radius: 24px;
+  background: var(--fog);
+  border-radius: 28px;
   box-shadow: none;
-  border: 1px solid #000000;
+  border: none;
   padding: 18px 0 18px 18px;
   display: flex;
   align-items: center;
@@ -573,8 +565,8 @@ h2 {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(0, 0, 255, 0.08);
-  color: #0000ff;
+  background: var(--white);
+  color: var(--ink);
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
@@ -589,14 +581,14 @@ h2 {
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
-  color: var(--black);
+  color: var(--ink);
   margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .step-text {
   font-size: 12px;
-  color: #888;
+  color: var(--muted);
   line-height: 1.55;
 }
 
@@ -630,10 +622,10 @@ h2 {
 }
 
 .steps-cta-card {
-  background: linear-gradient(135deg, #f0f0ff 0%, #f8f8ff 100%);
-  border-radius: 20px;
+  background: var(--fog);
+  border-radius: 28px;
   padding: 24px 20px;
-  border: 1px solid rgba(0, 0, 255, 0.1);
+  border: none;
 }
 
 .steps-cta-top {
@@ -647,13 +639,13 @@ h2 {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  border: 3px solid #0000ff;
+  border: 3px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,255,0.15);
+  box-shadow: none;
 }
 
 .steps-cta-icon-inner {
@@ -664,15 +656,15 @@ h2 {
 .steps-cta-num {
   font-family: var(--font-display);
   font-size: 22px;
-  font-weight: 900;
-  color: #0000ff;
+  font-weight: 700;
+  color: var(--ink);
   display: block;
   line-height: 1.1;
 }
 
 .steps-cta-unit {
   font-size: 10px;
-  color: #0000ff;
+  color: var(--ink);
   font-weight: 600;
   letter-spacing: 0.05em;
 }
@@ -686,7 +678,7 @@ h2 {
 }
 
 .steps-cta-title em {
-  color: #0000ff;
+  color: var(--blue);
   font-style: normal;
 }
 
@@ -695,8 +687,8 @@ h2 {
   padding: 16px;
   font-size: 15px;
   font-weight: 700;
-  border-radius: 18px;
-  background: #0000ff;
+  border-radius: 999px;
+  background: var(--blue);
   color: #fff;
   border: none;
   display: flex;
@@ -711,19 +703,19 @@ h2 {
 }
 
 .steps-cta-btn:active {
-  background: #0000cc;
+  background: var(--blue-dark);
 }
 
 /* ===== CATALOG ===== */
 /* ===== CATALOG — premium minimal ===== */
 .catalog-section {
-  background: #f4f4f4;
+  background: var(--fog);
   padding: 40px 20px 40px;
 }
 
 .catalog-section .sec-label {
   font-family: var(--font-text);
-  color: #0000ff;
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -740,7 +732,7 @@ h2 {
 
 .catalog-section .sec-sub {
   font-size: 13px;
-  color: #777;
+  color: var(--muted);
   margin-bottom: 24px;
 }
 
@@ -752,21 +744,20 @@ h2 {
 
 .cat-card {
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: none;
-  border: 1px solid #000000;
+  border: none;
 }
 
 .cat-card:active {
   transform: scale(0.98);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
 .cat-photo {
-  background: #EDEDED;
+  background: var(--fog);
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
@@ -808,7 +799,7 @@ h2 {
   top: 10px; left: 12px; z-index: 4;
   font-family: var(--font-text);
   font-size: 11px; font-weight: 600;
-  color: #000; letter-spacing: 0.05em;
+  color: var(--muted); letter-spacing: 0.05em;
 }
 .cat-tag {
   position: absolute;
@@ -816,8 +807,8 @@ h2 {
   font-family: var(--font-text);
   font-size: 9px; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.07em;
-  background: #fffc52; color: #000;
-  padding: 4px 8px; border-radius: 6px;
+  background: #fff; color: var(--ink);
+  padding: 4px 8px; border-radius: 999px;
 }
 .cat-sheen {
   position: absolute; inset: 0; z-index: 3; pointer-events: none;
@@ -852,7 +843,7 @@ h2 {
   right: 16px; top: 50%; margin-top: -16px;
 }
 .cat-sub {
-  font-size: 11px; color: #777;
+  font-size: 11px; color: var(--muted);
   font-family: var(--font-text);
   margin: 2px 0 9px;
 }
@@ -876,7 +867,7 @@ h2 {
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
-  color: #000000;
+  color: var(--ink);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -884,15 +875,15 @@ h2 {
 .cat-price {
   font-family: var(--font-text);
   font-size: 11px;
-  color: #999999;
-  font-weight: 400;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .cat-arrow {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #F4F4F5;
+  background: var(--fog);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -901,14 +892,14 @@ h2 {
 }
 
 .cat-card:active .cat-arrow {
-  background: #0000ff;
+  background: var(--blue);
   color: #fff;
 }
 
 .cat-arrow svg {
   width: 14px;
   height: 14px;
-  color: #333;
+  color: var(--ink);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -925,19 +916,19 @@ h2 {
   justify-content: center;
   gap: 8px;
   padding: 16px;
-  border: 1.5px solid #000000;
-  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
   font-size: 14px;
   font-weight: 600;
-  color: #000000;
+  color: var(--ink);
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
-  background: transparent;
+  background: var(--white);
 }
 
 .catalog-more:active {
-  background: #000000;
-  color: #ffffff;
+  background: var(--fog);
+  color: var(--ink);
 }
 
 /* ===== ADVANTAGES — premium redesign ===== */
@@ -969,7 +960,7 @@ h2 {
   font-size: 13px;
   line-height: 1.55;
   margin-bottom: 0;
-  color: #777;
+  color: var(--muted);
 }
 
 .adv-header-img {
@@ -988,16 +979,16 @@ h2 {
 
 .adv-list {
   padding: 20px 20px 32px;
-  background: #f4f4f4;
+  background: var(--fog);
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 .adv-item {
-  background: #fff;
-  border: 1px solid #000000;
-  border-radius: 16px;
+  background: var(--white);
+  border: none;
+  border-radius: 28px;
   padding: 16px;
   display: flex;
   align-items: center;
@@ -1006,17 +997,16 @@ h2 {
 }
 
 .adv-item.adv-item-yellow {
-  background: #fffc52;
-  border-color: #000000;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  background: var(--white);
+  box-shadow: none;
 }
 
 .adv-item.adv-item-yellow .adv-title {
-  color: #000000;
+  color: var(--ink);
 }
 
 .adv-item.adv-item-yellow .adv-text {
-  color: #333333;
+  color: var(--muted);
 }
 
 .adv-item:active {
@@ -1026,12 +1016,13 @@ h2 {
 .adv-icon-box {
   width: 54px;
   height: 54px;
-  background: #e8e8ff;
+  background: var(--fog);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--ink);
 }
 
 .adv-icon-box svg {
@@ -1040,9 +1031,9 @@ h2 {
 }
 
 .adv-divider {
-  width: 2px;
+  width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, transparent, #0000ff 20%, #0000ff 80%, transparent);
+  background: var(--border);
   border-radius: 1px;
   margin: 0 14px;
   flex-shrink: 0;
@@ -1052,32 +1043,32 @@ h2 {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 700;
-  color: #000000;
+  color: var(--ink);
   margin-bottom: 3px;
   line-height: 1.3;
 }
 
 .adv-text {
   font-size: 12px;
-  color: #777;
+  color: var(--muted);
   line-height: 1.55;
 }
 
 /* ===== GUARANTEE — dark carbon card ===== */
 .guarantee-section {
-  background: #121212;
+  background: var(--fog);
   padding: 40px 20px 40px;
 }
 
 .guarantee-card {
-  background: #1e1e1e;
-  border-radius: 20px;
+  background: var(--white);
+  border-radius: 28px;
   padding: 24px 20px;
   display: flex;
   align-items: center;
   gap: 18px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  border: 1px solid #2a2a2a;
+  box-shadow: none;
+  border: none;
 }
 
 .g-icon {
@@ -1100,20 +1091,20 @@ h2 {
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: var(--ink);
   line-height: 1.25;
   margin-bottom: 6px;
 }
 
 .g-sub {
   font-size: 12px;
-  color: rgba(255,255,255,0.55);
+  color: var(--muted);
   line-height: 1.55;
 }
 
 /* ===== COMPARISON ===== */
 .comparison-section {
-  background: var(--bg);
+  background: var(--white);
 }
 
 .comp-grid {
@@ -1123,16 +1114,15 @@ h2 {
 }
 
 .comp-card {
-  border-radius: 16px;
+  border-radius: 28px;
   overflow: hidden;
-  border: 1px solid #000000;
-  background: var(--white);
+  border: none;
+  background: var(--fog);
   transition: all 0.3s;
 }
 
 .comp-card:active {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .comp-visual {
@@ -1144,11 +1134,11 @@ h2 {
 }
 
 .comp-card.dtf .comp-visual {
-  background: linear-gradient(145deg, #0000cc, #3333ff);
+  background: var(--fog);
 }
 
 .comp-card.emb .comp-visual {
-  background: linear-gradient(145deg, #1a2a1a, #2a4a2a);
+  background: #ededf0;
 }
 
 .comp-badge {
@@ -1159,11 +1149,11 @@ h2 {
   font-size: 9px;
   font-weight: 700;
   padding: 4px 12px;
-  border-radius: 16px;
+  border-radius: 999px;
   letter-spacing: 0.08em;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--white);
+  color: var(--ink);
+  border: none;
 }
 
 .comp-body {
@@ -1179,7 +1169,7 @@ h2 {
 
 .comp-text {
   font-size: 12px;
-  color: #555;
+  color: var(--muted);
   line-height: 1.6;
   margin-bottom: 12px;
 }
@@ -1193,25 +1183,28 @@ h2 {
 .comp-tag {
   font-family: var(--font-text);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--ink);
   padding: 4px 12px;
-  border-radius: 16px;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--white);
+  border: none;
 }
 
 /* ===== CASES ===== */
 .cases-section {
-  background: var(--black);
+  background: var(--fog);
 }
 
-.cases-section h2,
+.cases-section h2 {
+  color: var(--ink);
+}
 .cases-section .sec-label {
-  color: #fff;
+  color: var(--ink);
 }
 
 .cases-section .sec-sub {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--muted);
 }
 
 .cases-mosaic {
@@ -1222,25 +1215,22 @@ h2 {
 }
 
 .case-tile {
-  border-radius: 12px;
+  border-radius: 28px;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: flex-end;
   cursor: pointer;
   min-height: 180px;
+  background: var(--white);
 }
 
-.ct1 { background: linear-gradient(145deg, #000033, #0000cc); }
-.ct2 { background: linear-gradient(145deg, #0D2B0D, #1A6B1A); }
-.ct3 { background: linear-gradient(145deg, #1B0D4B, #5B1ADB); }
-.ct4 { background: linear-gradient(145deg, #2B0D0D, #8B1A1A); }
+.ct1, .ct2, .ct3, .ct4 { background: var(--white); }
 
 .case-tile-info {
   position: relative;
   z-index: 2;
   padding: 16px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 100%);
   width: 100%;
 }
 
@@ -1248,19 +1238,20 @@ h2 {
   font-family: var(--font-display);
   font-size: 10px;
   font-weight: 700;
-  color: #fff;
+  color: var(--muted);
   letter-spacing: 0.07em;
   margin-bottom: 2px;
 }
 
 .case-tile-sub {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* ===== CLIENT CASES ===== */
-.client-cases-section { padding: 32px 16px 40px; background: #fff; }
-.case-detail-card { background: #fff; border-radius: 24px; border: 1px solid #000000; box-shadow: none; overflow: hidden; }
+.client-cases-section { padding: 32px 16px 40px; background: var(--white); }
+.case-detail-card { background: var(--fog); border-radius: 28px; border: none; box-shadow: none; overflow: hidden; }
 .case-detail-photo { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; }
 .case-detail-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .case-company-badge {
@@ -1277,7 +1268,7 @@ h2 {
 .case-badge-name { font-size: 13px; font-weight: 700; color: var(--black); }
 .case-badge-size { font-size: 11px; color: #888; }
 .case-detail-body { padding: 18px 16px; }
-.case-detail-title { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--black); line-height: 1.3; margin-bottom: 10px; }
+.case-detail-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--black); line-height: 1.3; margin-bottom: 10px; }
 .case-rating-row { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
 .case-rating-star { font-size: 16px; }
 .case-rating-num { font-size: 16px; font-weight: 700; color: var(--black); }
@@ -1297,13 +1288,13 @@ h2 {
 .case-items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
 .case-item-chip {
   display: flex; align-items: center; gap: 7px;
-  background: #F4F4F5; border-radius: 10px;
-  padding: 7px 10px; font-size: 12px; font-weight: 500; color: var(--black);
+  background: var(--white); border-radius: 12px;
+  padding: 7px 10px; font-size: 12px; font-weight: 500; color: var(--ink);
 }
 .case-item-chip img { width: 28px; height: 28px; border-radius: 6px; object-fit: cover; flex-shrink: 0; }
 .case-more-btn {
-  width: 100%; background: #0000ff; color: #fff; border: none;
-  border-radius: 18px; padding: 16px;
+  width: 100%; background: var(--blue); color: #fff; border: none;
+  border-radius: 999px; padding: 16px;
   font-family: var(--font-text); font-size: 15px; font-weight: 700;
   cursor: pointer; touch-action: manipulation;
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -1315,15 +1306,15 @@ h2 {
 .about-label {
   display: flex; align-items: center; gap: 7px;
   font-family: var(--font-text);
-  font-size: 11px; font-weight: 600; color: #0000ff;
+  font-size: 11px; font-weight: 600; color: var(--ink);
   letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;
 }
 .about-title {
   font-family: var(--font-display); font-size: 30px;
-  font-weight: 900; color: var(--black); line-height: 1.2; margin-bottom: 10px;
+  font-weight: 700; letter-spacing: -0.03em; color: var(--ink); line-height: 1.08; margin-bottom: 10px;
 }
-.about-underline { width: 40px; height: 3px; background: #0000ff; border-radius: 2px; margin-bottom: 18px; }
-.about-desc { font-size: 15px; color: #444; line-height: 1.65; margin-bottom: 24px; }
+.about-underline { width: 40px; height: 3px; background: var(--ink); border-radius: 2px; margin-bottom: 18px; }
+.about-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; }
 .about-photo-wrap { position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 20px; }
 .about-photo-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 .about-photo-caption {
@@ -1339,11 +1330,11 @@ h2 {
 .about-caption-main { font-size: 13px; font-weight: 700; color: #fff; }
 .about-caption-sub { font-size: 11px; color: rgba(255,255,255,0.6); }
 .about-stats-card {
-  background: #fff; border-radius: 20px;
-  border: 1px solid #000000; box-shadow: none;
+  background: var(--fog); border-radius: 28px;
+  border: none; box-shadow: none;
   padding: 20px 12px; display: flex; margin-bottom: 20px;
 }
-.about-stat { flex: 1; text-align: center; border-right: 1px solid #E4E4E4; padding: 0 6px; }
+.about-stat { flex: 1; text-align: center; border-right: 1px solid var(--border); padding: 0 6px; }
 .about-stat:last-child { border-right: none; }
 .about-stat-icon {
   width: 42px; height: 42px; border-radius: 50%;
@@ -1351,49 +1342,49 @@ h2 {
   margin: 0 auto 10px;
 }
 .about-stat-val {
-  font-family: var(--font-display); font-size: 17px;
-  font-weight: 900; color: var(--black); line-height: 1.2; margin-bottom: 4px;
+  font-family: var(--font-display); font-size: 18px;
+  font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.2; margin-bottom: 4px;
 }
-.about-stat-label { font-size: 10px; color: #888; line-height: 1.35; }
+.about-stat-label { font-size: 10px; color: var(--muted); line-height: 1.35; }
 .about-quote-bar {
   display: flex; gap: 12px; align-items: flex-start;
-  padding: 24px 20px; background: #fffc52;
-  border-radius: 20px; border: none;
+  padding: 24px 20px; background: var(--fog);
+  border-radius: 28px; border: none;
 }
-.about-quote-text { font-size: 14px; color: #000000; line-height: 1.55; }
-.about-quote-text b { color: #000000; font-weight: 700; }
+.about-quote-text { font-size: 14px; color: var(--ink); line-height: 1.55; }
+.about-quote-text b { color: var(--ink); font-weight: 700; }
 
 /* ===== FOR WHO SECTION ===== */
-.for-who-section { padding: 40px 16px 40px; background: #fff; border-top: 1px solid var(--border); }
+.for-who-section { padding: 40px 16px 40px; background: var(--fog); }
 .for-who-title {
-  font-family: var(--font-display); font-size: 22px;
-  font-weight: 900; color: var(--black); line-height: 1.3; margin-bottom: 8px;
+  font-family: var(--font-display); font-size: 26px;
+  font-weight: 700; letter-spacing: -0.03em; color: var(--ink); line-height: 1.08; margin-bottom: 8px;
 }
-.for-who-sub { font-size: 14px; color: #666; line-height: 1.55; margin-bottom: 24px; }
+.for-who-sub { font-size: 14px; color: var(--muted); line-height: 1.55; margin-bottom: 24px; }
 .for-who-list { display: flex; flex-direction: column; gap: 20px; }
 .for-who-item { display: flex; gap: 14px; align-items: flex-start; }
 .for-who-photo {
-  width: 130px; height: 96px; border-radius: 14px;
+  width: 130px; height: 96px; border-radius: 20px;
   overflow: hidden; flex-shrink: 0;
 }
 .for-who-photo img { width: 100%; height: 100%; object-fit: cover; }
 .for-who-photo-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .for-who-text { flex: 1; padding-top: 2px; }
-.for-who-item-title { font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 5px; line-height: 1.25; }
-.for-who-item-desc { font-size: 13px; color: #666; line-height: 1.5; }
+.for-who-item-title { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 5px; line-height: 1.25; }
+.for-who-item-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
 /* ===== REVIEWS ===== */
 .review-card {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
+  background: var(--white);
+  border-radius: 28px;
   padding: 24px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: none;
   margin-bottom: 16px;
 }
 
 .review-q {
   font-size: 40px;
-  color: var(--blue);
+  color: var(--ink);
   font-family: Georgia, serif;
   line-height: 0.8;
   margin-bottom: 12px;
@@ -1402,12 +1393,12 @@ h2 {
 .review-text {
   font-size: 14px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--muted);
   margin-bottom: 16px;
 }
 
 .review-text strong {
-  color: #fff;
+  color: var(--ink);
 }
 
 .review-author {
@@ -1420,32 +1411,32 @@ h2 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), #3333ff);
+  background: var(--fog);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 900;
-  color: #fff;
+  font-weight: 700;
+  color: var(--ink);
   flex-shrink: 0;
 }
 
 .review-name {
   font-weight: 700;
   font-size: 13px;
-  color: #fff;
+  color: var(--ink);
   margin-bottom: 2px;
 }
 
 .review-role {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--muted);
 }
 
 /* ===== FOR WHO ===== */
 .forwho-section {
-  background: var(--bg);
+  background: var(--white);
 }
 
 .forwho-grid {
@@ -1455,16 +1446,15 @@ h2 {
 }
 
 .forwho-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: var(--fog);
+  border: none;
+  border-radius: 28px;
   overflow: hidden;
   transition: all 0.3s;
 }
 
 .forwho-card:active {
   transform: translateY(-2px);
-  border-color: var(--blue);
 }
 
 .forwho-visual {
@@ -1474,9 +1464,9 @@ h2 {
   justify-content: center;
 }
 
-.fv-biz { background: linear-gradient(145deg, #000033, #0000cc); }
-.fv-event { background: linear-gradient(145deg, #0D2B0D, #1A6B1A); }
-.fv-sport { background: linear-gradient(145deg, #2B0D0D, #8B1A1A); }
+.fv-biz { background: #ededf0; }
+.fv-event { background: #e6e6ea; }
+.fv-sport { background: #ededf0; }
 
 .forwho-body {
   padding: 16px;
@@ -1486,6 +1476,7 @@ h2 {
   font-family: var(--font-display);
   font-size: 12px;
   font-weight: 700;
+  color: var(--ink);
   margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -1499,7 +1490,7 @@ h2 {
 
 /* ===== FAQ ===== */
 .faq-section {
-  background: var(--white);
+  background: var(--fog);
 }
 
 .faq-wrap {
@@ -1519,13 +1510,15 @@ h2 {
   margin-bottom: 20px;
 }
 
+.faq-left h2 { color: var(--ink); }
+
 .faq-list {
   display: flex;
   flex-direction: column;
 }
 
 .faq-item {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid var(--border);
 }
 
 .faq-q {
@@ -1548,14 +1541,15 @@ h2 {
 }
 
 .faq-q:active {
-  color: var(--blue);
+  color: var(--ink);
 }
 
 .faq-icon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  background: var(--bg);
+  background: var(--white);
+  color: var(--ink);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1565,7 +1559,7 @@ h2 {
 }
 
 .faq-item.open .faq-icon {
-  background: var(--blue);
+  background: var(--ink);
   color: #fff;
   transform: rotate(45deg);
 }
@@ -1575,7 +1569,7 @@ h2 {
   overflow: hidden;
   transition: max-height 0.3s ease, padding-bottom 0.3s;
   font-size: 13px;
-  color: #666;
+  color: var(--muted);
   line-height: 1.7;
 }
 
@@ -1586,7 +1580,7 @@ h2 {
 
 /* ===== CTA ===== */
 .cta-section {
-  background: var(--black);
+  background: var(--carbon);
   text-align: center;
   padding: 40px var(--safe-left);
   position: relative;
@@ -1602,7 +1596,7 @@ h2 {
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 0, 255, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -1658,9 +1652,9 @@ h2 {
 
 /* ===== FOOTER ===== */
 footer {
-  background: #080808;
+  background: var(--fog);
   padding: 32px var(--safe-left) calc(32px + var(--safe-bottom));
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
 }
 
 .footer-inner {
@@ -1673,14 +1667,15 @@ footer {
 .footer-logo {
   font-family: var(--font-display);
   font-size: 18px;
-  font-weight: 900;
-  color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
   margin-bottom: 8px;
 }
 
 .footer-desc {
   font-size: 12px;
-  color: #3a3a3a;
+  color: var(--muted);
   line-height: 1.6;
 }
 
@@ -1689,7 +1684,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #2a2a2a;
+  color: var(--ink);
   margin-bottom: 12px;
 }
 
@@ -1701,18 +1696,18 @@ footer {
 
 .footer-links a {
   font-size: 12px;
-  color: #3a3a3a;
+  color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-links a:active {
-  color: #fff;
+  color: var(--ink);
 }
 
 .footer-bottom {
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1722,7 +1717,7 @@ footer {
 
 .footer-copy {
   font-size: 11px;
-  color: #252525;
+  color: var(--muted);
 }
 
 /* ===== UTILITIES ===== */
@@ -1793,7 +1788,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #0000ff;
+  color: var(--ink);
   margin-bottom: 6px;
 }
 .cat-modal-heading {
@@ -1984,26 +1979,26 @@ footer {
 }
 .nav-drawer-icon svg { width: 20px; height: 20px; }
 .nav-drawer-item.active .nav-drawer-icon {
-  background: #e8e8ff;
+  background: var(--blue-light);
 }
-.nav-drawer-item.active .nav-drawer-icon svg { color: #0000ff; }
+.nav-drawer-item.active .nav-drawer-icon svg { color: var(--blue); }
 .nav-drawer-item-label {
   font-family: var(--font-text);
   font-size: 16px;
   font-weight: 600;
   color: #000000;
 }
-.nav-drawer-item.active .nav-drawer-item-label { color: #0000ff; }
+.nav-drawer-item.active .nav-drawer-item-label { color: var(--blue); }
 .nav-drawer-footer {
   padding: 12px 16px calc(16px + var(--safe-bottom, 0px));
 }
 .nav-drawer-cta {
   width: 100%;
   padding: 16px;
-  background: #0000ff;
+  background: var(--blue);
   color: #fff;
   border: none;
-  border-radius: 14px;
+  border-radius: 999px;
   font-family: var(--font-text);
   font-size: 15px;
   font-weight: 700;
@@ -2014,7 +2009,7 @@ footer {
   cursor: pointer;
   transition: background 0.2s;
 }
-.nav-drawer-cta:active { background: #0000cc; }
+.nav-drawer-cta:active { background: var(--blue-dark); }
 
 /* ===== SUB-PAGES (Contacts / Cart / Reviews) ===== */
 .sub-page {
@@ -2612,7 +2607,7 @@ footer {
 .pp-color-swatch.white-swatch { border-color: #cfcfcf; }
 .pp-color-swatch.active {
   border-color: var(--blue);
-  box-shadow: 0 0 0 2px rgba(0,0,255,0.18);
+  box-shadow: 0 0 0 2px rgba(0,113,227,0.22);
 }
 /* Panel 3 – Print type */
 .pp-print-panel { padding: 16px 16px 20px; background: #fff; }
@@ -3122,7 +3117,7 @@ footer {
 
 <!-- STATS -->
 <section class="stats-section section">
-  <div class="stats-grid">
+  <div class="stats-grid" data-stagger="0.08">
     <div class="stat-item fade-up">
       <div class="stat-num"><span>500+</span></div>
       <div class="stat-label">Команд вже замовили</div>
@@ -3140,11 +3135,11 @@ footer {
 
 <!-- HOW — redesigned premium white -->
 <section class="how-section">
-  <div class="sec-label">ЯК ЦЕ ПРАЦЮЄ</div>
-  <h2>3 кроки до ідеального мерчу</h2>
-  <p class="sec-sub">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
+  <div class="sec-label reveal r-still">ЯК ЦЕ ПРАЦЮЄ</div>
+  <h2 class="reveal r-still">3 кроки до ідеального мерчу</h2>
+  <p class="sec-sub reveal r-still">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
 
-  <div class="steps-list">
+  <div class="steps-list" data-stagger="0.08">
     <!-- Card 1 -->
     <div class="step-card fade-up">
       <div class="step-card-left">
@@ -3160,8 +3155,8 @@ footer {
     <!-- Arrow -->
     <div class="step-arrow">
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
-        <line x1="10" y1="0" x2="10" y2="22" stroke="#0000ff" stroke-width="2" stroke-dasharray="4 3"/>
-        <path d="M4 18 L10 25 L16 18" stroke="#0000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#1d1d1f" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
@@ -3180,8 +3175,8 @@ footer {
     <!-- Arrow -->
     <div class="step-arrow">
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
-        <line x1="10" y1="0" x2="10" y2="22" stroke="#0000ff" stroke-width="2" stroke-dasharray="4 3"/>
-        <path d="M4 18 L10 25 L16 18" stroke="#0000ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#1d1d1f" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
@@ -3222,11 +3217,11 @@ footer {
 
 <!-- CATALOG — premium minimal -->
 <section class="catalog-section" id="catalog">
-  <div class="sec-label">КАТАЛОГ</div>
-  <h2>Що замовити?</h2>
-  <p class="sec-sub">Виберіть товар, який найбільше підходить вашій команді</p>
+  <div class="sec-label reveal r-still">КАТАЛОГ</div>
+  <h2 class="reveal r-still">Що замовити?</h2>
+  <p class="sec-sub reveal r-still">Виберіть товар, який найбільше підходить вашій команді</p>
 
-  <div class="catalog-grid">
+  <div class="catalog-grid" data-stagger="0.08">
     <!-- Featured — Худі -->
     <div class="cat-card cat-feature fade-up" onclick="openProdPage('худі')">
       <div class="cat-photo">
@@ -3314,28 +3309,28 @@ footer {
 <section class="adv-section">
   <div class="adv-header">
     <div class="adv-header-text">
-      <div class="sec-label">ПЕРЕВАГИ</div>
-      <h2>Чому LoomiQ?</h2>
-      <p class="sec-sub">Робимо мерч простим, дешевим і швидким</p>
+      <div class="sec-label reveal r-still">ПЕРЕВАГИ</div>
+      <h2 class="reveal r-still">Чому LoomiQ?</h2>
+      <p class="sec-sub reveal r-still">Робимо мерч простим, дешевим і швидким</p>
     </div>
     <div class="adv-header-img">
       <img src="adv-hero.png" alt="LoomiQ мерч">
     </div>
   </div>
 
-  <div class="adv-list">
+  <div class="adv-list" data-stagger="0.08">
     <div class="adv-item adv-item-yellow fade-up">
-      <div class="adv-icon-box" style="background: rgba(0,0,0,0.07);">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <div class="adv-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="4" y="2" width="16" height="20" rx="2"/>
           <line x1="8" y1="6" x2="16" y2="6"/>
           <line x1="8" y1="10" x2="16" y2="10"/>
           <line x1="8" y1="14" x2="12" y2="14"/>
-          <circle cx="17" cy="19" r="3" fill="rgba(255,252,82,0.5)" stroke="#000000"/>
-          <polyline points="15.5 19 16.5 20 18.5 18" stroke="#000000" stroke-width="1.5"/>
+          <circle cx="17" cy="19" r="3" fill="none" stroke="currentColor"/>
+          <polyline points="15.5 19 16.5 20 18.5 18" stroke="currentColor" stroke-width="1.5"/>
         </svg>
       </div>
-      <div class="adv-divider" style="background: linear-gradient(to bottom, transparent, #000000 20%, #000000 80%, transparent);"></div>
+      <div class="adv-divider"></div>
       <div>
         <div class="adv-title">Ціна та терміни одразу онлайн</div>
         <div class="adv-text">Вартість і терміни розраховуються миттєво</div>
@@ -3344,7 +3339,7 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2"/>
           <path d="M8 3v14"/>
           <path d="M2 7h6"/>
@@ -3363,11 +3358,11 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
           <line x1="3.27" y1="6.96" x2="12" y2="12.01"/>
           <line x1="12" y1="22.08" x2="12" y2="12"/>
-          <path d="M20.73 6.96L12 12.01" stroke="#0000ff" stroke-width="3"/>
+          <path d="M20.73 6.96L12 12.01" stroke="currentColor" stroke-width="3"/>
         </svg>
       </div>
       <div class="adv-divider"></div>
@@ -3379,7 +3374,7 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 6 2 18 2 18 9"/>
           <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
           <rect x="6" y="14" width="12" height="8" rx="1"/>
@@ -3395,7 +3390,7 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="9"/>
           <polyline points="12 7 12 12 15 15"/>
           <line x1="5" y1="12" x2="3" y2="12"/>
@@ -3412,13 +3407,13 @@ footer {
 
     <div class="adv-item fade-up">
       <div class="adv-icon-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
           <polyline points="14 2 14 8 20 8"/>
           <line x1="8" y1="13" x2="16" y2="13"/>
           <line x1="8" y1="17" x2="13" y2="17"/>
-          <circle cx="17" cy="19" r="3" fill="#e8e8ff" stroke="#0000ff"/>
-          <polyline points="15.5 19 16.5 20 18.5 18" stroke="#0000ff" stroke-width="1.5"/>
+          <circle cx="17" cy="19" r="3" fill="none" stroke="currentColor"/>
+          <polyline points="15.5 19 16.5 20 18.5 18" stroke="currentColor" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="adv-divider"></div>
@@ -3432,10 +3427,10 @@ footer {
 
 <!-- CLIENT CASES SECTION -->
 <section class="client-cases-section">
-  <div class="sec-label" style="color:var(--blue);margin-bottom:6px">КЕЙСИ КЛІЄНТІВ</div>
-  <h2 style="font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--black);margin-bottom:20px;line-height:1.3">Реальні результати<br>наших клієнтів</h2>
+  <div class="sec-label" style="color:var(--ink);margin-bottom:6px">КЕЙСИ КЛІЄНТІВ</div>
+  <h2 style="font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.03em;color:var(--ink);margin-bottom:20px;line-height:1.08">Реальні результати<br>наших клієнтів</h2>
 
-  <div class="case-detail-card">
+  <div class="case-detail-card reveal r-scale">
     <div class="case-detail-photo">
       <img src="IMG_7211.JPEG" alt="GitLab Ukraine">
       <div class="case-company-badge">
@@ -3516,7 +3511,7 @@ footer {
   <div class="about-underline"></div>
   <p class="about-desc">Ми — команда професіоналів, які створюють якісний мерч та допомагають бізнесам і командам досягати своїх цілей.</p>
 
-  <div class="about-photo-wrap">
+  <div class="about-photo-wrap reveal r-scale">
     <img src="IMG_7211.JPEG" alt="Команда Loomiq" class="about-photo-img" style="aspect-ratio:4/3;width:100%;object-fit:cover">
     <div class="about-photo-caption">
       <div class="about-caption-icon">
@@ -3529,31 +3524,31 @@ footer {
     </div>
   </div>
 
-  <div class="about-stats-card">
+  <div class="about-stats-card reveal">
     <div class="about-stat">
-      <div class="about-stat-icon" style="background:#e8e8ff">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="about-stat-icon" style="background:#fff;color:var(--ink)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
       </div>
       <div class="about-stat-val">120+</div>
       <div class="about-stat-label">працівників</div>
     </div>
     <div class="about-stat">
-      <div class="about-stat-icon" style="background:#e8e8ff">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="about-stat-icon" style="background:#fff;color:var(--ink)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
       <div class="about-stat-val">5+ років</div>
       <div class="about-stat-label">досвіду у сфері мерчу</div>
     </div>
     <div class="about-stat">
-      <div class="about-stat-icon" style="background:#e8e8ff">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0000ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <div class="about-stat-icon" style="background:#fff;color:var(--ink)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
       </div>
       <div class="about-stat-val">1000+</div>
       <div class="about-stat-label">успішних проєктів</div>
     </div>
   </div>
 
-  <div class="about-quote-bar">
+  <div class="about-quote-bar reveal r-still">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px"><path d="M12 2L15 8l6 1-4.5 4 1 6L12 18l-5.5 3 1-6L3 9l6-1 3-6z"/></svg>
     <div class="about-quote-text">Працюємо <b>з любов'ю</b> до деталей та орієнтацією на результат</div>
   </div>
@@ -3561,11 +3556,11 @@ footer {
 
 <!-- FOR WHO SECTION -->
 <section class="for-who-section">
-  <div class="for-who-title">Для кого ми<br>створюємо мерч</div>
-  <p class="for-who-sub">Створюємо корпоративний мерч та формений одяг для компаній різних сфер і масштабів.</p>
+  <div class="for-who-title reveal r-still">Для кого ми<br>створюємо мерч</div>
+  <p class="for-who-sub reveal r-still">Створюємо корпоративний мерч та формений одяг для компаній різних сфер і масштабів.</p>
 
-  <div class="for-who-list">
-    <div class="for-who-item">
+  <div class="for-who-list" data-stagger="0.08">
+    <div class="for-who-item reveal r-left">
       <div class="for-who-photo">
         <img src="IMG_9805.PNG" alt="IT-компанії">
       </div>
@@ -3574,7 +3569,7 @@ footer {
         <div class="for-who-item-desc">Онбординг, корпоративна культура, подарунки співробітникам</div>
       </div>
     </div>
-    <div class="for-who-item">
+    <div class="for-who-item reveal r-left">
       <div class="for-who-photo">
         <img src="IMG_9806.PNG" alt="Ресторани">
       </div>
@@ -3583,7 +3578,7 @@ footer {
         <div class="for-who-item-desc">Футболки, фартухи, кепки, форма для команди</div>
       </div>
     </div>
-    <div class="for-who-item">
+    <div class="for-who-item reveal r-left">
       <div class="for-who-photo">
         <img src="IMG_9808.PNG" alt="Виробничі компанії">
       </div>
@@ -3592,7 +3587,7 @@ footer {
         <div class="for-who-item-desc">Робочий одяг та корпоративна айдентика</div>
       </div>
     </div>
-    <div class="for-who-item">
+    <div class="for-who-item reveal r-left">
       <div class="for-who-photo">
         <img src="IMG_9809.PNG" alt="Маркетинг та івенти">
       </div>
@@ -3606,13 +3601,13 @@ footer {
 
 <!-- GUARANTEE -->
 <section class="guarantee-section">
-  <div class="guarantee-card">
+  <div class="guarantee-card reveal r-scale">
     <div class="g-icon">
       <svg viewBox="0 0 72 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#5B9EFF"/>
-            <stop offset="100%" stop-color="#0000ff"/>
+            <stop offset="100%" stop-color="#0071e3"/>
           </linearGradient>
           <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
@@ -3633,10 +3628,10 @@ footer {
 
 <!-- COMPARISON -->
 <section class="comparison-section section">
-  <div class="sec-label">СПОСОБИ</div>
-  <h2>DTF vs Вишивка</h2>
-  <p class="sec-sub">Виберіть оптимальний метод нанесення для вашого проекту</p>
-  <div class="comp-grid">
+  <div class="sec-label reveal r-still">СПОСОБИ</div>
+  <h2 class="reveal r-still">DTF vs Вишивка</h2>
+  <p class="sec-sub reveal r-still">Виберіть оптимальний метод нанесення для вашого проекту</p>
+  <div class="comp-grid" data-stagger="0.08">
     <div class="comp-card dtf fade-up">
       <div class="comp-visual"></div>
       <div class="comp-badge">Популярно</div>
@@ -3665,10 +3660,10 @@ footer {
 
 <!-- CASES -->
 <section class="cases-section section">
-  <div class="sec-label">ПОРТФОЛІО</div>
-  <h2>Наші роботи</h2>
-  <p class="sec-sub">Дивіться приклади проектів, які ми вже завершили</p>
-  <div class="cases-mosaic">
+  <div class="sec-label reveal r-still">ПОРТФОЛІО</div>
+  <h2 class="reveal r-still">Наші роботи</h2>
+  <p class="sec-sub reveal r-still">Дивіться приклади проектів, які ми вже завершили</p>
+  <div class="cases-mosaic" data-stagger="0.08">
     <div class="case-tile ct1 fade-up">
       <div class="case-tile-info">
         <div class="case-tile-label">ПРОЕКТ</div>
@@ -3710,10 +3705,10 @@ footer {
 
 <!-- FOR WHO -->
 <section class="forwho-section section">
-  <div class="sec-label">ДЛЯ КОГО</div>
-  <h2>Це для вас?</h2>
-  <p class="sec-sub">Мерч LoomiQ підходить для будь-яких команд</p>
-  <div class="forwho-grid">
+  <div class="sec-label reveal r-still">ДЛЯ КОГО</div>
+  <h2 class="reveal r-still">Це для вас?</h2>
+  <p class="sec-sub reveal r-still">Мерч LoomiQ підходить для будь-яких команд</p>
+  <div class="forwho-grid" data-stagger="0.08">
     <div class="forwho-card fade-up">
       <div class="forwho-visual fv-biz"></div>
       <div class="forwho-body">
@@ -3742,11 +3737,11 @@ footer {
 <section class="faq-section section">
   <div class="faq-wrap">
     <div class="faq-left">
-      <h2>Питання та відповіді</h2>
-      <p>Знайдіть відповіді на найпоширеніші запитання про LoomiQ</p>
+      <h2 class="reveal r-still">Питання та відповіді</h2>
+      <p class="reveal r-still">Знайдіть відповіді на найпоширеніші запитання про LoomiQ</p>
     </div>
-    <div class="faq-list">
-      <div class="faq-item">
+    <div class="faq-list" data-stagger="0.06">
+      <div class="faq-item reveal">
         <button class="faq-q">
           <span>Які розміри доступні?</span>
           <div class="faq-icon">+</div>
@@ -3755,7 +3750,7 @@ footer {
           Ми пропонуємо розміри XS, S, M, L, XL, XXL для більшості товарів. Всі розміри розраховані за міжнародними стандартами.
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q">
           <span>Як довго обробляється замовлення?</span>
           <div class="faq-icon">+</div>
@@ -3764,7 +3759,7 @@ footer {
           Замовлення обробляється 1-3 дні, доставка займає 10-15 днів залежно від регіону України.
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q">
           <span>Який мінімальний замовлення?</span>
           <div class="faq-icon">+</div>
@@ -3773,7 +3768,7 @@ footer {
           Мінімальне замовлення — 5 одиниць. Але ми можемо розглянути менші замовлення за спеціальною ціною.
         </div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item reveal">
         <button class="faq-q">
           <span>Як завантажити дизайн?</span>
           <div class="faq-icon">+</div>
@@ -3789,10 +3784,10 @@ footer {
 <!-- CTA -->
 <section class="cta-section section">
   <div class="cta-inner">
-    <span class="cta-tag">Готові почати?</span>
-    <h2 class="cta-title">Створіть мерч своєї команди сьогодні</h2>
-    <p class="cta-sub">Це займе всього <strong>1 хвилину</strong></p>
-    <div class="cta-actions">
+    <span class="cta-tag reveal r-still">Готові почати?</span>
+    <h2 class="cta-title reveal r-still">Створіть мерч своєї команди сьогодні</h2>
+    <p class="cta-sub reveal r-still">Це займе всього <strong>1 хвилину</strong></p>
+    <div class="cta-actions reveal">
       <a href="#catalog" class="btn btn-primary">Розпочати</a>
       <a href="#" class="btn btn-ghost">Дізнатися більше</a>
     </div>
