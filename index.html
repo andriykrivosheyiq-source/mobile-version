@@ -211,90 +211,171 @@ header.scrolled {
   background: var(--bg);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Photo: large background, right-aligned, full height */
-.hero-bg-wrap {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 88%;
-  height: 100%;
-  z-index: 0;
-}
-
-.hero-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: right center;
-  display: block;
-}
-
-/* Gradient: full-width overlay, solid left → transparent right */
-.hero-bg-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to right,
-    #ffffff 0%,
-    #ffffff 7%,
-    rgba(255, 255, 255, 0.88) 20%,
-    rgba(255, 255, 255, 0.18) 37%,
-    rgba(255, 255, 255, 0.03) 50%,
-    transparent 60%
-  );
-}
-
-/* Vertical flex: title top, spacer (shows photo), desc+btn bottom */
 .hero-inner {
   position: relative;
   z-index: 2;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: calc(56px + var(--safe-top) + 20px) 20px 0;
+  padding: calc(56px + var(--safe-top) + 14px) 22px calc(18px + var(--safe-bottom, 20px));
   box-sizing: border-box;
 }
 
-.hero-title-block {
-  /* title at top */
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: heroFade 0.6s ease 0.1s forwards;
 }
 
 .hero-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(32px, 8.5vw, 48px);
+  font-size: clamp(30px, 8.6vw, 46px);
   font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   color: var(--black);
-  width: 86%;
+  opacity: 0;
+  animation: heroFade 0.6s ease 0.2s forwards;
 }
 
 .hero-title-accent {
+  display: inline-block;
   color: var(--blue);
-  display: block;
   font-style: italic;
-  margin-top: 4px;
-}
-
-.hero-spacer {
-  flex: 1;
-  min-height: 24px;
 }
 
 .hero-desc {
-  font-size: 13px;
+  font-size: 13.5px;
   color: #444;
-  line-height: 1.65;
-  width: 62%;
-  margin: 18px 0 0;
-  flex-shrink: 0;
+  line-height: 1.6;
+  margin: 13px 0 0;
+  max-width: 300px;
   border-left: 2.5px solid var(--blue);
   padding-left: 12px;
+  opacity: 0;
+  animation: heroFade 0.6s ease 0.3s forwards;
+}
+
+/* Stage: hoodie + embroidered logo */
+.hero-stage-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+.hero-stage {
+  position: relative;
+  display: inline-block;
+  animation: heroFloat 6s ease-in-out 0.9s infinite;
+}
+
+.hero-stage::before {
+  content: '';
+  position: absolute;
+  inset: -10% -14%;
+  background: radial-gradient(ellipse at 50% 44%, rgba(0,0,255,0.07), transparent 62%);
+  z-index: -1;
+}
+
+.hero-hoodie {
+  display: block;
+  height: 42svh;
+  max-height: 392px;
+  width: auto;
+  max-width: 86vw;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 38px rgba(0,0,0,0.18));
+  opacity: 0;
+  animation: heroFade 0.7s ease 0.25s forwards;
+}
+
+.hero-emb {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.emb-logo,
+.emb-sheen {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(17px, 5.2vw, 25px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.emb-logo {
+  color: #3a54ff;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.55),
+    0 -0.5px 0 rgba(255,255,255,0.14),
+    0 0 7px rgba(58,84,255,0.45);
+  clip-path: inset(0 100% 0 0);
+  animation: stitchIn 1.4s cubic-bezier(0.6,0,0.2,1) 0.7s forwards;
+}
+
+.emb-sheen {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.95) 50%, transparent 62%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 280% 100%;
+  background-position: 200% 0;
+  opacity: 0;
+  animation: embReveal 0.01s linear 2.15s forwards, embSheen 3.2s ease-in-out 2.3s infinite;
+}
+
+.emb-needle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  margin-top: -6.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
+  box-shadow: 0 0 9px rgba(255,255,255,0.95);
+  opacity: 0;
+  animation: needleRun 1.4s cubic-bezier(0.6,0,0.2,1) 0.7s forwards;
+}
+
+@keyframes stitchIn { to { clip-path: inset(0 0 0 0); } }
+@keyframes embReveal { to { opacity: 1; } }
+@keyframes embSheen {
+  0% { background-position: 200% 0; }
+  55%, 100% { background-position: -90% 0; }
+}
+@keyframes needleRun {
+  0%   { opacity: 0; left: -8%; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; left: 106%; }
+  100% { opacity: 0; left: 112%; }
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-cta {
@@ -305,8 +386,20 @@ header.scrolled {
   border-radius: 18px;
   box-sizing: border-box;
   letter-spacing: 0.01em;
-  margin-bottom: calc(24px + var(--safe-bottom, 20px));
   flex-shrink: 0;
+  opacity: 0;
+  animation: heroFade 0.6s ease 0.4s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow, .hero-title, .hero-desc, .hero-hoodie, .hero-cta,
+  .emb-logo, .emb-sheen, .emb-needle, .hero-stage {
+    animation: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+  .hero-emb { transform: translateX(-50%) !important; }
 }
 
 /* ===== LOGOS SECTION ===== */
@@ -2948,32 +3041,30 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Photo: large background, right-aligned -->
-  <div class="hero-bg-wrap">
-    <img class="hero-bg" src="IMG_7211.JPEG" alt="Мерч для команди">
-  </div>
-  <!-- Gradient: full-width, solid left → transparent right -->
-  <div class="hero-bg-overlay"></div>
-  <!-- Content: title top, spacer, desc+btn bottom -->
   <div class="hero-inner">
-    <!-- Title at top -->
-    <div class="hero-title-block">
-      <div class="hero-title">
-        МЕРЧ ДЛЯ КОМАНДИ
-        <em class="hero-title-accent">ЗА 1 ХВИЛИНУ</em>
+    <div class="hero-eyebrow">Вишивка · DTF · Корпоративний мерч</div>
+    <h1 class="hero-title">
+      МЕРЧ ДЛЯ КОМАНДИ
+      <em class="hero-title-accent">ЗА 1 ХВИЛИНУ</em>
+    </h1>
+    <p class="hero-desc">
+      Завантажте лого — і дивіться, як воно оживає на одязі.
+      Ціна та термін одразу.
+    </p>
+
+    <!-- Stage: hoodie with logo being embroidered in real time -->
+    <div class="hero-stage-wrap">
+      <div class="hero-stage">
+        <img class="hero-hoodie" src="p2.png" alt="Худі з вишитим лого">
+        <div class="hero-emb">
+          <div class="emb-needle"></div>
+          <span class="emb-logo">Loomiq</span>
+          <span class="emb-sheen" aria-hidden="true">Loomiq</span>
+        </div>
       </div>
     </div>
-    <!-- Description right below title -->
-    <p class="hero-desc">
-      Завантажте лого,<br>
-      оберіть одяг,<br>
-      кількість — і одразу<br>
-      бачите ціну та термін
-    </p>
-    <!-- Spacer fills center so photo shows through -->
-    <div class="hero-spacer"></div>
-    <!-- Button anchored at bottom -->
-    <a href="#catalog" class="btn btn-primary hero-cta">Створити мерч</a>
+
+    <a href="#catalog" class="btn btn-primary hero-cta">Створити мерч →</a>
   </div>
 </section>
 
