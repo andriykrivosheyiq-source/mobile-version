@@ -2633,7 +2633,8 @@ footer {
   width: 34%;
   left: 50%;
   top: 42%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translateZ(0);
+  backface-visibility: hidden;
   z-index: 5;
   cursor: grab;
   touch-action: none;
@@ -2646,7 +2647,6 @@ footer {
   height: auto;
   pointer-events: none;
   -webkit-user-drag: none;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
 }
 .pp-logo-del {
   position: absolute;
@@ -5164,6 +5164,9 @@ footer {
       s.y = curSide === 'front' ? 42 : 50;
       s.w = 34;
       renderSide();
+      // open the Фото tab so size / cut-out / delete controls are visible
+      const photoTab = document.querySelectorAll('.pp-tool-tab')[0];
+      if (photoTab) switchConfigTab(photoTab, 0);
     };
     reader.readAsDataURL(file);
     e.target.value = '';
@@ -5189,14 +5192,19 @@ footer {
       try { data = ctx.getImageData(0, 0, c.width, c.height); }
       catch (err) { alert('Не вдалося обробити це зображення'); return; }
       const d = data.data;
-      const corners = [0, (c.width - 1) * 4, (c.height - 1) * c.width * 4, (c.height * c.width - 1) * 4];
-      let br = 0, bg = 0, bb = 0;
-      corners.forEach(i => { br += d[i]; bg += d[i + 1]; bb += d[i + 2]; });
-      br /= 4; bg /= 4; bb /= 4;
-      const tol = 48;
+      const W = c.width, H = c.height;
+      // average the whole border as the background color (more robust than 4 corners)
+      let br = 0, bg = 0, bb = 0, n = 0;
+      const sample = (x, y) => { const i = (y * W + x) * 4; br += d[i]; bg += d[i + 1]; bb += d[i + 2]; n++; };
+      for (let x = 0; x < W; x++) { sample(x, 0); sample(x, H - 1); }
+      for (let y = 0; y < H; y++) { sample(0, y); sample(W - 1, y); }
+      br /= n; bg /= n; bb /= n;
+      const tol = 70;          // base threshold
+      const soft = 30;         // feathered edge band
       for (let i = 0; i < d.length; i += 4) {
         const dist = Math.sqrt((d[i] - br) ** 2 + (d[i + 1] - bg) ** 2 + (d[i + 2] - bb) ** 2);
         if (dist < tol) d[i + 3] = 0;
+        else if (dist < tol + soft) d[i + 3] = Math.round(((dist - tol) / soft) * 255);
       }
       ctx.putImageData(data, 0, 0);
       s.src = c.toDataURL('image/png');
