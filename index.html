@@ -313,199 +313,157 @@ header.scrolled {
 .hero-buy:active { background: var(--blue-dark); transform: scale(0.97); }
 
 /* Video showcase — rounded frame below CTA, Apple product-shot style */
-/* ===== HERO DEMO SHOWCASE — 3 animated panels ===== */
-.hero-demo {
+/* ===== HERO VIDEO FRAME ===== */
+.hero-video-wrap {
   flex: 1;
   width: 100%;
   margin-top: 20px;
   position: relative;
   overflow: hidden;
   border-radius: 32px 32px 0 0;
-  background: #ebebed;
-  min-height: 320px;
+  background: #111;
+  min-height: 300px;
   animation: heroVidIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s both;
 }
 @keyframes heroVidIn {
   from { transform: translateY(48px); opacity: 0; }
   to   { transform: none; opacity: 1; }
 }
-/* Fade at top blends into page bg */
-.hero-demo::before {
+.hero-video-wrap video {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 20%;
+  display: block;
+}
+.hero-video-wrap::before {
   content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 48px;
+  position: absolute; top: 0; left: 0; right: 0; height: 56px;
   background: linear-gradient(to bottom, var(--bg), transparent);
-  z-index: 5; pointer-events: none;
-}
-
-/* Panel tab dots */
-.demo-tabs {
-  position: absolute;
-  bottom: 14px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; gap: 6px; z-index: 10;
-}
-.demo-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.2);
-  transition: all 0.3s; cursor: pointer;
-}
-.demo-dot.active { width: 20px; border-radius: 3px; background: #1d1d1f; }
-
-/* Panel base */
-.demo-panel {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.55s ease; pointer-events: none;
-}
-.demo-panel.active { opacity: 1; pointer-events: auto; }
-
-/* Frosted label tag */
-.demo-tag {
-  position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
-  font-size: 10px; font-weight: 700; color: #1d1d1f;
-  text-transform: uppercase; letter-spacing: 0.09em; white-space: nowrap;
-  background: rgba(255,255,255,0.72);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  padding: 5px 14px; border-radius: 999px; z-index: 4;
-}
-
-/* ---- Panel 1: Clothing Swipe Carousel ---- */
-.cloth-viewport {
-  width: 100%; height: 100%; overflow: hidden; position: relative;
-}
-.cloth-track {
-  display: flex; height: 100%;
-  will-change: transform;
-  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-}
-.cloth-item {
-  min-width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 10px; padding: 52px 20px 44px;
-  box-sizing: border-box;
-}
-.cloth-item img {
-  height: 195px; width: auto; max-width: 78%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: contrast(1.04);
-}
-.cloth-name {
-  font-family: var(--font-display);
-  font-size: 22px; font-weight: 700;
-  color: var(--ink); letter-spacing: -0.02em;
-}
-.cloth-sub { font-size: 12px; color: var(--muted); }
-
-/* ---- Panel 2: Logo Drag Placement ---- */
-.logo-scene {
-  position: relative; width: 210px; height: 270px; flex-shrink: 0;
-}
-.logo-scene img {
-  width: 100%; height: 100%; object-fit: contain;
-  mix-blend-mode: multiply; filter: contrast(1.04);
-}
-.logo-badge {
-  position: absolute;
-  background: rgba(255,255,255,0.92);
-  border: 1.5px dashed var(--blue);
-  border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 11px; font-weight: 700; color: var(--blue);
-  letter-spacing: 0.06em; white-space: nowrap;
-  pointer-events: none;
-  transition: top 0.85s cubic-bezier(0.4,0,0.2,1),
-              left 0.85s cubic-bezier(0.4,0,0.2,1);
-}
-.logo-cursor {
-  position: absolute; width: 18px; height: 22px;
-  pointer-events: none;
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.28));
-  transition: top 0.85s cubic-bezier(0.4,0,0.2,1),
-              left 0.85s cubic-bezier(0.4,0,0.2,1);
-}
-.logo-pos-hint {
-  position: absolute; bottom: -30px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px; font-weight: 600; color: var(--blue);
-  white-space: nowrap; opacity: 0;
-  transition: opacity 0.3s;
-}
-.logo-pos-hint.show { opacity: 1; }
-
-/* ---- Panel 3: Box Opening ---- */
-.box-stage {
-  perspective: 520px; perspective-origin: 50% 20%;
-  display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 100%; padding-top: 20px;
-}
-.box-wrap {
-  position: relative; width: 150px;
-  transform-style: preserve-3d;
-  transform: rotateX(-8deg) rotateY(16deg);
-}
-.box-body {
-  width: 150px; height: 100px;
-  background: linear-gradient(150deg, #fff 0%, #e8e8ed 100%);
-  border: 2px solid rgba(0,0,0,0.09);
-  border-top: none; border-radius: 0 0 6px 6px;
-  position: relative; overflow: hidden;
-  box-shadow: inset 0 -6px 16px rgba(0,0,0,0.06);
-}
-.box-brand-text {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 18px; font-weight: 800;
-  color: rgba(0,113,227,0.18); letter-spacing: -0.02em;
-}
-.box-contents {
-  position: absolute; bottom: 92%; left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.35s ease 0.25s, bottom 0.5s ease 0.15s;
-}
-.box-contents img { width: 78px; mix-blend-mode: multiply; }
-.box-contents.open { opacity: 1; bottom: 96%; }
-.box-lid {
-  width: 150px; height: 60px;
-  background: linear-gradient(150deg, #fff 0%, #ededf0 100%);
-  border: 2px solid rgba(0,0,0,0.09);
-  border-radius: 6px 6px 0 0;
-  transform-origin: bottom center;
-  transform-style: preserve-3d;
-  animation: boxLidOpen 4.2s ease-in-out 0.5s infinite;
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.06);
-  position: relative;
-}
-.box-lid-brand {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 13px; font-weight: 800; color: var(--blue);
-  letter-spacing: -0.01em;
-}
-.box-side-l, .box-side-r {
-  position: absolute; top: 0; width: 12px; height: 100%;
-  background: #d8d8dc;
-}
-.box-side-l { right: -14px; transform: skewY(-45deg); transform-origin: left; }
-.box-side-r { left: -14px; transform: skewY(45deg); transform-origin: right; }
-.box-bottom-shade {
-  position: absolute; bottom: -14px; left: 0; right: 0; height: 12px;
-  background: #c8c8cc; transform: skewX(-45deg); transform-origin: top left;
-}
-@keyframes boxLidOpen {
-  0%,18%  { transform: rotateX(0deg); }
-  32%,72% { transform: rotateX(-118deg); }
-  86%,100%{ transform: rotateX(0deg); }
+  z-index: 2; pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-demo { animation: none; }
-  .cloth-track { transition: none; }
-  .logo-badge, .logo-cursor { transition: none; }
-  .box-lid { animation: none; transform: rotateX(-118deg); }
+  .hero-video-wrap { animation: none; }
+}
+
+/* ===== STEP ANIMATIONS (inside .step-image) ===== */
+
+/* Step 1 — clothing swipe carousel */
+.step-cloth-wrap {
+  width: 100%; height: 100%;
+  overflow: hidden; position: relative;
+  background: var(--fog);
+}
+.step-cloth-track {
+  display: flex; height: 100%;
+  will-change: transform;
+  transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.step-cloth-slide {
+  min-width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 8px;
+}
+.step-cloth-slide img {
+  max-height: 90%; max-width: 90%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* Step 2 — logo drag */
+.step-logo-wrap {
+  width: 100%; height: 100%; position: relative;
+  overflow: hidden; background: var(--fog);
+  display: flex; align-items: center; justify-content: center;
+}
+.step-logo-shirt {
+  max-height: 90%; max-width: 90%;
+  object-fit: contain; mix-blend-mode: multiply;
+}
+.step-logo-badge {
+  position: absolute;
+  background: rgba(255,255,255,0.93);
+  border: 1.5px dashed var(--blue);
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 9px; font-weight: 700; color: var(--blue);
+  letter-spacing: 0.06em; white-space: nowrap;
+  pointer-events: none;
+  transition: top 0.9s cubic-bezier(0.4,0,0.2,1),
+              left 0.9s cubic-bezier(0.4,0,0.2,1);
+}
+.step-logo-cursor {
+  position: absolute; width: 14px; height: 17px;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+  transition: top 0.9s cubic-bezier(0.4,0,0.2,1),
+              left 0.9s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Step 3 — box opening */
+.step-box-wrap {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--fog);
+  perspective: 380px; perspective-origin: 50% 30%;
+}
+.step-box-inner {
+  position: relative; width: 100px;
+  transform: rotateX(-6deg) rotateY(14deg);
+  transform-style: preserve-3d;
+}
+.step-box-body {
+  width: 100px; height: 66px;
+  background: linear-gradient(150deg, #fff 0%, #e8e8ed 100%);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-top: none; border-radius: 0 0 5px 5px;
+  position: relative;
+}
+.step-box-body::before {
+  content: 'Loomiq';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 11px; font-weight: 800;
+  color: rgba(0,113,227,0.2); letter-spacing: -0.01em;
+}
+.step-box-side-r {
+  position: absolute; top: 0; left: -9px; width: 9px; height: 100%;
+  background: #d0d0d4; transform: skewY(45deg); transform-origin: right;
+}
+.step-box-bottom {
+  position: absolute; bottom: -9px; left: 0; right: 0; height: 9px;
+  background: #c4c4c8; transform: skewX(-45deg); transform-origin: top left;
+}
+.step-box-lid {
+  width: 100px; height: 40px;
+  background: linear-gradient(150deg, #fff 0%, #ededf0 100%);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 5px 5px 0 0;
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  animation: stepLidOpen 4s ease-in-out 0.4s infinite;
+  position: relative;
+}
+.step-box-lid::after {
+  content: 'Loomiq';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 10px; font-weight: 800; color: var(--blue);
+}
+.step-box-lid-side {
+  position: absolute; top: 0; left: -9px; width: 9px; height: 100%;
+  background: #d0d0d4; transform: skewY(45deg); transform-origin: right;
+}
+.step-box-merch {
+  position: absolute; bottom: 100%; left: 50%;
+  transform: translateX(-50%);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease 0.2s;
+}
+.step-box-merch img { width: 52px; mix-blend-mode: multiply; }
+.step-box-merch.open { opacity: 1; }
+@keyframes stepLidOpen {
+  0%,16%   { transform: rotateX(0deg); }
+  30%,70%  { transform: rotateX(-120deg); }
+  84%,100% { transform: rotateX(0deg); }
 }
 
 /* ===== LOGOS SECTION ===== */
@@ -3279,81 +3237,11 @@ footer {
     </a>
   </div>
 
-  <!-- 3-panel animated showcase -->
-  <div class="hero-demo" id="heroDemo">
-
-    <!-- Dot indicators -->
-    <div class="demo-tabs">
-      <div class="demo-dot active" data-panel="0"></div>
-      <div class="demo-dot" data-panel="1"></div>
-      <div class="demo-dot" data-panel="2"></div>
-    </div>
-
-    <!-- Panel 1: Clothing swipe carousel -->
-    <div class="demo-panel active" id="dPanel0">
-      <span class="demo-tag">Оберіть тип одягу</span>
-      <div class="cloth-viewport">
-        <div class="cloth-track" id="clothTrack">
-          <div class="cloth-item">
-            <img src="p1.png" alt="Світшот">
-            <span class="cloth-name">Світшот</span>
-            <span class="cloth-sub">Легкий · унісекс</span>
-          </div>
-          <div class="cloth-item">
-            <img src="p2.png" alt="Худі">
-            <span class="cloth-name">Худі</span>
-            <span class="cloth-sub">Преміум фліс · щільне</span>
-          </div>
-          <div class="cloth-item">
-            <img src="p3.png" alt="Футболка">
-            <span class="cloth-name">Футболка</span>
-            <span class="cloth-sub">100% котон · унісекс</span>
-          </div>
-          <div class="cloth-item">
-            <img src="p4.png" alt="Кепка">
-            <span class="cloth-name">Кепка</span>
-            <span class="cloth-sub">5-панельна · регульована</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel 2: Logo drag placement -->
-    <div class="demo-panel" id="dPanel1">
-      <span class="demo-tag">Розмістіть логотип</span>
-      <div class="logo-scene" id="logoScene">
-        <img src="p2.png" alt="Худі">
-        <div class="logo-badge" id="logoBadge">LOGO</div>
-        <svg class="logo-cursor" id="logoCursor" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2L14.5 10L9 11.5L6.5 18.5L2 2Z" fill="#1d1d1f" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/>
-        </svg>
-        <div class="logo-pos-hint" id="logoPosHint"></div>
-      </div>
-    </div>
-
-    <!-- Panel 3: Box opening -->
-    <div class="demo-panel" id="dPanel2">
-      <span class="demo-tag">Отримайте замовлення</span>
-      <div class="box-stage">
-        <div class="box-wrap">
-          <div class="box-lid">
-            <div class="box-side-l"></div>
-            <div class="box-side-r"></div>
-            <span class="box-lid-brand">Loomiq</span>
-          </div>
-          <div class="box-body">
-            <span class="box-brand-text">Loomiq</span>
-            <div class="box-side-l"></div>
-            <div class="box-side-r"></div>
-            <div class="box-bottom-shade"></div>
-          </div>
-          <div class="box-contents" id="boxContents">
-            <img src="p2.png" alt="Мерч">
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <!-- Video showcase — text top, video frame bottom -->
+  <div class="hero-video-wrap">
+    <video id="heroVid" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <source src="hero-bg.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
@@ -3402,7 +3290,14 @@ footer {
         <div class="step-text">Оберіть з каталогу улюблений предмет</div>
       </div>
       <div class="step-image">
-        <img src="IMG_9702.PNG" alt="Виберіть товар">
+        <div class="step-cloth-wrap">
+          <div class="step-cloth-track" id="stepClothTrack">
+            <div class="step-cloth-slide"><img src="p1.png" alt="Світшот"></div>
+            <div class="step-cloth-slide"><img src="p2.png" alt="Худі"></div>
+            <div class="step-cloth-slide"><img src="p3.png" alt="Футболка"></div>
+            <div class="step-cloth-slide"><img src="p4.png" alt="Кепка"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -3422,7 +3317,13 @@ footer {
         <div class="step-text">Додайте логотип вашої команди</div>
       </div>
       <div class="step-image">
-        <img src="IMG_9703.PNG" alt="Завантажте дизайн">
+        <div class="step-logo-wrap">
+          <img src="p2.png" alt="Худі" class="step-logo-shirt">
+          <div class="step-logo-badge" id="stepLogoBadge">LOGO</div>
+          <svg class="step-logo-cursor" id="stepLogoCursor" viewBox="0 0 18 22" fill="none">
+            <path d="M2 2L14.5 10L9 11.5L6.5 18.5L2 2Z" fill="#1d1d1f" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
     </div>
 
@@ -3442,7 +3343,20 @@ footer {
         <div class="step-text">Оплатіть та дочекайтесь доставки</div>
       </div>
       <div class="step-image">
-        <img src="IMG_9704.PNG" alt="Підтвердіть замовлення">
+        <div class="step-box-wrap">
+          <div class="step-box-inner">
+            <div class="step-box-lid">
+              <div class="step-box-lid-side"></div>
+            </div>
+            <div class="step-box-body">
+              <div class="step-box-side-r"></div>
+              <div class="step-box-bottom"></div>
+            </div>
+            <div class="step-box-merch" id="stepBoxMerch">
+              <img src="p2.png" alt="Мерч">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -4770,93 +4684,58 @@ footer {
 </div>
 
 <script>
-  // ===== HERO DEMO SHOWCASE =====
+  // ===== HERO VIDEO autoplay (iOS fix) =====
   (function() {
-    const demo = document.getElementById('heroDemo');
-    if (!demo) return;
+    const vid = document.getElementById('heroVid');
+    if (!vid) return;
+    vid.muted = true; vid.defaultMuted = true;
+    const tryPlay = () => vid.play().catch(() => {});
+    tryPlay();
+    document.addEventListener('touchstart', tryPlay, { once: true });
+  })();
 
-    // --- Panel cycling ---
-    const panels = demo.querySelectorAll('.demo-panel');
-    const dots   = demo.querySelectorAll('.demo-dot');
-    let cur = 0, cycleTimer;
-
-    function goPanel(n) {
-      panels[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = ((n % panels.length) + panels.length) % panels.length;
-      panels[cur].classList.add('active');
-      dots[cur].classList.add('active');
-    }
-
-    function startCycle() {
-      cycleTimer = setInterval(() => goPanel(cur + 1), 5000);
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        clearInterval(cycleTimer);
-        goPanel(+dot.dataset.panel);
-        startCycle();
-      });
-    });
-    startCycle();
-
-    // --- Panel 1: Clothing carousel auto-swipe ---
-    const track = document.getElementById('clothTrack');
-    if (track) {
-      const items = track.querySelectorAll('.cloth-item');
-      let idx = 0;
+  // ===== STEP ANIMATIONS =====
+  (function() {
+    // Step 1 — clothing carousel
+    const clothTrack = document.getElementById('stepClothTrack');
+    if (clothTrack) {
+      const slides = clothTrack.querySelectorAll('.step-cloth-slide');
+      let ci = 0;
       setInterval(() => {
-        idx = (idx + 1) % items.length;
-        track.style.transform = `translateX(-${idx * 100}%)`;
-      }, 2400);
+        ci = (ci + 1) % slides.length;
+        clothTrack.style.transform = `translateX(-${ci * 100}%)`;
+      }, 2200);
     }
 
-    // --- Panel 2: Logo drag positions ---
-    const badge    = document.getElementById('logoBadge');
-    const cursor   = document.getElementById('logoCursor');
-    const posHint  = document.getElementById('logoPosHint');
+    // Step 2 — logo drag
+    const badge  = document.getElementById('stepLogoBadge');
+    const cursor = document.getElementById('stepLogoCursor');
     if (badge && cursor) {
-      // [top%, left%] of the logo-scene container
-      const positions = [
-        { top: 28, left: 38, label: 'Груди' },
-        { top: 26, left: 20, label: 'Рукав' },
-        { top: 30, left: 40, label: 'Груди' },
-        { top: 52, left: 36, label: 'Низ' },
-        { top: 26, left: 52, label: 'Рукав' },
+      const pts = [
+        { top: 30, left: 40 },
+        { top: 27, left: 22 },
+        { top: 48, left: 38 },
+        { top: 27, left: 54 },
       ];
       let li = 0;
-      function moveLogo() {
-        const p = positions[li % positions.length];
-        badge.style.top    = p.top  + '%';
+      const mv = () => {
+        const p = pts[li++ % pts.length];
+        badge.style.top    = p.top + '%';
         badge.style.left   = p.left + '%';
-        cursor.style.top   = (p.top  + 7)  + '%';
-        cursor.style.left  = (p.left + 14) + '%';
-        if (posHint) {
-          posHint.textContent = p.label;
-          posHint.classList.add('show');
-          setTimeout(() => posHint.classList.remove('show'), 900);
-        }
-        li++;
-      }
-      moveLogo();
-      setInterval(moveLogo, 2600);
+        cursor.style.top   = (p.top + 8) + '%';
+        cursor.style.left  = (p.left + 13) + '%';
+      };
+      mv();
+      setInterval(mv, 2500);
     }
 
-    // --- Panel 3: Box contents reveal sync with lid CSS animation ---
-    const boxContents = document.getElementById('boxContents');
-    if (boxContents) {
-      // lid animation: 0-18% closed, 32-72% open, 86-100% closed. period = 4.2s
-      const period = 4200;
-      function syncBox() {
-        const t = (Date.now() % period) / period;
-        if (t > 0.30 && t < 0.74) {
-          boxContents.classList.add('open');
-        } else {
-          boxContents.classList.remove('open');
-        }
-      }
-      setInterval(syncBox, 80);
+    // Step 3 — box merch reveal (sync with CSS lid animation period=4s)
+    const merch = document.getElementById('stepBoxMerch');
+    if (merch) {
+      setInterval(() => {
+        const t = (Date.now() % 4000) / 4000;
+        merch.classList.toggle('open', t > 0.28 && t < 0.72);
+      }, 80);
     }
   })();
 
