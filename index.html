@@ -3372,6 +3372,42 @@ footer {
   .case-tile, .forwho-visual { animation: none; }
 }
 
+/* ===== COMPARISON WITH COMPETITORS ===== */
+.vs-section { background: var(--white); }
+.vs-table {
+  border: 1px solid var(--border, #e2e2e2);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white);
+}
+.vs-row {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  align-items: center;
+  border-top: 1px solid var(--border, #ececec);
+}
+.vs-row:first-child { border-top: none; }
+.vs-feature {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--black);
+  padding: 12px 10px;
+  line-height: 1.3;
+}
+.vs-col {
+  padding: 12px 10px;
+  font-size: 11.5px;
+  line-height: 1.3;
+  text-align: left;
+}
+.vs-col.vs-us { background: var(--blue-light, #EEF4FF); color: var(--black); font-weight: 600; }
+.vs-col.vs-them { color: var(--muted); }
+.vs-col b { color: #1a9f5a; font-weight: 800; margin-right: 2px; }
+.vs-col i { color: #d33; font-style: normal; font-weight: 800; margin-right: 2px; }
+.vs-head .vs-feature { font-size: 11px; color: var(--muted); }
+.vs-head .vs-col { font-family: var(--font-display); font-weight: 700; font-size: 13px; text-align: left; }
+.vs-head .vs-us { color: var(--blue); }
+
 /* ===== PROBLEM ===== */
 .problem-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .problem-card {
@@ -3798,6 +3834,27 @@ footer {
         <div class="adv-text">Рахунок, документи та безготівкова оплата</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- COMPARISON WITH COMPETITORS -->
+<section class="vs-section section">
+  <div class="sec-label reveal r-still">ЧОМУ LOOMIQ</div>
+  <h2 class="reveal r-still">LoomiQ vs звичайний підрядник</h2>
+  <p class="sec-sub reveal r-still">Подивись різницю — і більше не витрачай час на переписки</p>
+  <div class="vs-table reveal r-still">
+    <div class="vs-row vs-head">
+      <div class="vs-feature"></div>
+      <div class="vs-col vs-us">LoomiQ</div>
+      <div class="vs-col vs-them">Підрядник</div>
+    </div>
+    <div class="vs-row"><div class="vs-feature">Ціна замовлення</div><div class="vs-col vs-us"><b>✓</b> Онлайн, одразу</div><div class="vs-col vs-them"><i>✗</i> Чекай 1–3 дні</div></div>
+    <div class="vs-row"><div class="vs-feature">Мінімальний тираж</div><div class="vs-col vs-us"><b>✓</b> Від 1 штуки</div><div class="vs-col vs-them"><i>✗</i> Від 50–100 шт</div></div>
+    <div class="vs-row"><div class="vs-feature">Макет до оплати</div><div class="vs-col vs-us"><b>✓</b> В конфігураторі</div><div class="vs-col vs-them"><i>✗</i> Після передоплати</div></div>
+    <div class="vs-row"><div class="vs-feature">Час на оформлення</div><div class="vs-col vs-us"><b>✓</b> 10 хвилин</div><div class="vs-col vs-them"><i>✗</i> 2–5 днів переписок</div></div>
+    <div class="vs-row"><div class="vs-feature">Точна дата готовності</div><div class="vs-col vs-us"><b>✓</b> Одразу онлайн</div><div class="vs-col vs-them"><i>✗</i> Уточнюй окремо</div></div>
+    <div class="vs-row"><div class="vs-feature">Рахунок для ФОП</div><div class="vs-col vs-us"><b>✓</b> Автоматично</div><div class="vs-col vs-them"><i>✗</i> Домовляйся окремо</div></div>
+    <div class="vs-row"><div class="vs-feature">Оплата онлайн</div><div class="vs-col vs-us"><b>✓</b> Карткою одразу</div><div class="vs-col vs-them"><i>✗</i> Переказ на картку</div></div>
   </div>
 </section>
 
