@@ -1387,7 +1387,18 @@ h2 {
   background: var(--white);
 }
 
-.ct1, .ct2, .ct3, .ct4 { background: var(--white); }
+.ct1 { background: #0D1B4B url('case1.jpg') center/cover; }
+.ct2 { background: #0D2B0D url('case2.jpg') center/cover; }
+.ct3 { background: #1B0D4B url('case3.jpg') center/cover; }
+.ct4 { background: #2B0D0D url('case4.jpg') center/cover; }
+
+.case-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+}
 
 .case-tile-info {
   position: relative;
@@ -1400,7 +1411,7 @@ h2 {
   font-family: var(--font-display);
   font-size: 10px;
   font-weight: 700;
-  color: var(--muted);
+  color: rgba(255,255,255,0.85);
   letter-spacing: 0.07em;
   margin-bottom: 2px;
 }
@@ -1408,7 +1419,7 @@ h2 {
 .case-tile-sub {
   font-size: 13px;
   font-weight: 600;
-  color: var(--ink);
+  color: #fff;
 }
 
 /* ===== CLIENT CASES ===== */
@@ -1627,9 +1638,9 @@ h2 {
   justify-content: center;
 }
 
-.fv-biz { background: #ededf0; }
-.fv-event { background: #e6e6ea; }
-.fv-sport { background: #ededf0; }
+.fv-biz { background: #0D1B4B url('fw-biz.jpg') center/cover; }
+.fv-event { background: #0D2B0D url('fw-event.jpg') center/cover; }
+.fv-sport { background: #2B0D0D url('fw-sport.jpg') center/cover; }
 
 .forwho-body {
   padding: 16px;
@@ -3258,6 +3269,36 @@ footer {
 .theme-dark .comp-title { color: #fff !important; }
 .theme-dark .comp-text { color: rgba(255,255,255,0.6) !important; }
 .theme-dark .comp-tag { background: rgba(255,255,255,0.08) !important; color: rgba(255,255,255,0.8) !important; border-color: rgba(255,255,255,0.12) !important; }
+
+/* ===== IMAGE ANIMATIONS ===== */
+/* Slow ken-burns on photo tiles */
+.case-tile, .forwho-visual {
+  background-size: cover;
+  background-position: center;
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+@keyframes kenBurns {
+  from { background-size: 104%; }
+  to   { background-size: 118%; }
+}
+/* Reveal zoom + hover zoom for photo cards */
+.cat-photo img,
+.for-who-photo img,
+.case-item-chip img,
+.about-photo-img,
+.case-detail-photo img {
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.cat-card:active .cat-photo img,
+.for-who-item:active .for-who-photo img,
+.case-detail-card:active .case-detail-photo img { transform: scale(1.05); }
+.reveal.visible .case-detail-photo img,
+.reveal.visible .about-photo-img { animation: photoReveal 1s cubic-bezier(0.22,1,0.36,1); }
+@keyframes photoReveal { from { transform: scale(1.12); } to { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .case-tile, .forwho-visual { animation: none; }
+}
 </style>
 </head>
 <body>
@@ -3265,7 +3306,7 @@ footer {
 <!-- HEADER -->
 <header id="hdr">
   <div class="header-inner">
-    <a href="#" class="logo">Loomiq</a>
+    <a href="#top" class="logo">Loomiq</a>
     <div class="header-actions">
       <button class="hdr-icon-btn" aria-label="Кошик" onclick="openSubPage('cartPage')">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.97 1.61H19a2 2 0 001.97-1.68l1.38-7.7H5.46"/></svg>
@@ -3278,7 +3319,7 @@ footer {
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <!-- Text block — clean fog background, Apple-style -->
   <div class="hero-inner">
     <p class="hero-eyebrow reveal r-still">Loomiq</p>
@@ -3329,7 +3370,7 @@ footer {
 </section>
 
 <!-- HOW — redesigned premium white -->
-<section class="how-section theme-dark">
+<section class="how-section theme-dark" id="how">
   <div class="sec-label reveal r-still">ЯК ЦЕ ПРАЦЮЄ</div>
   <h2 class="reveal r-still">Від лого до готового мерчу — за 3 кроки</h2>
   <p class="sec-sub reveal r-still">Без переписок і тижнів очікування</p>
@@ -3714,7 +3755,7 @@ footer {
         </div>
       </div>
 
-      <button class="case-more-btn">
+      <button class="case-more-btn" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">
         Дивитись інші кейси
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
@@ -3723,7 +3764,7 @@ footer {
 </section>
 
 <!-- ABOUT SECTION -->
-<section class="about-section">
+<section class="about-section" id="about">
   <div class="about-label">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
     ПРО НАС
@@ -3880,33 +3921,33 @@ footer {
 </section>
 
 <!-- CASES -->
-<section class="cases-section section">
+<section class="cases-section section" id="cases">
   <div class="sec-label reveal r-still">ПОРТФОЛІО</div>
   <h2 class="reveal r-still">Наші роботи</h2>
   <p class="sec-sub reveal r-still">Дивіться приклади проектів, які ми вже завершили</p>
   <div class="cases-mosaic" data-stagger="0.08">
     <div class="case-tile ct1 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">ПроектАльфа</div>
+        <div class="case-tile-label">ФУТБОЛКИ · DTF PRINT</div>
+        <div class="case-tile-sub">80 шт · IT-компанія</div>
       </div>
     </div>
     <div class="case-tile ct2 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">DevTeam</div>
+        <div class="case-tile-label">КЕПКИ · ВИШИВКА</div>
+        <div class="case-tile-sub">50 шт · спорт-клуб</div>
       </div>
     </div>
     <div class="case-tile ct3 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">StartupHub</div>
+        <div class="case-tile-label">ХУДІ · DTF PRINT</div>
+        <div class="case-tile-sub">120 шт · стартап</div>
       </div>
     </div>
     <div class="case-tile ct4 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">TechCrew</div>
+        <div class="case-tile-label">ШОПЕРИ · DTF PRINT</div>
+        <div class="case-tile-sub">200 шт · event</div>
       </div>
     </div>
   </div>
@@ -3940,7 +3981,7 @@ footer {
     <div class="forwho-card fade-up">
       <div class="forwho-visual fv-event"></div>
       <div class="forwho-body">
-        <div class="forwho-title">События</div>
+        <div class="forwho-title">Івенти та заходи</div>
         <div class="forwho-text">Запам'ятайте учасників пам'ятним мерчем</div>
       </div>
     </div>
@@ -3955,7 +3996,7 @@ footer {
 </section>
 
 <!-- FAQ -->
-<section class="faq-section section">
+<section class="faq-section section" id="faq">
   <div class="faq-wrap">
     <div class="faq-left">
       <h2 class="reveal r-still">Питання та відповіді</h2>
@@ -3982,11 +4023,11 @@ footer {
       </div>
       <div class="faq-item reveal">
         <button class="faq-q">
-          <span>Який мінімальний замовлення?</span>
+          <span>Яка мінімальна кількість замовлення?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Мінімальне замовлення — 5 одиниць. Але ми можемо розглянути менші замовлення за спеціальною ціною.
+          Від 1 одиниці. Без мінімального тиражу — хочеш одну футболку, замовляй одну.
         </div>
       </div>
       <div class="faq-item reveal">
@@ -4006,12 +4047,12 @@ footer {
 <section class="cta-section section">
   <div class="bg-orb" style="width:320px;height:320px;background:radial-gradient(circle,#0071e3,transparent 70%);top:-80px;left:-60px;--orb-dur:12s;--orb-delay:1s;--orb-dx:30px;--orb-dy:20px;--orb-opacity:0.15;"></div>
   <div class="cta-inner">
-    <span class="cta-tag reveal r-still">Готові почати?</span>
-    <h2 class="cta-title reveal r-still">Створіть мерч своєї команди сьогодні</h2>
+    <span class="cta-tag reveal r-still">Починай прямо зараз</span>
+    <h2 class="cta-title reveal r-still">Готовий зробити мерч для своєї команди?</h2>
     <p class="cta-sub reveal r-still">Це займе всього <strong>1 хвилину</strong></p>
     <div class="cta-actions reveal">
       <a href="#catalog" class="btn btn-primary">Розпочати</a>
-      <a href="#" class="btn btn-ghost">Дізнатися більше</a>
+      <a href="#how" class="btn btn-ghost">Дізнатися більше</a>
     </div>
   </div>
 </section>
@@ -4021,30 +4062,30 @@ footer {
   <div class="footer-inner">
     <div>
       <div class="footer-logo">LOOMIQ</div>
-      <p class="footer-desc">Мерч для команд — просто, дешево, швидко</p>
+      <p class="footer-desc">Мерч для команди онлайн, без менеджерів і очікувань</p>
     </div>
     <div>
-      <div class="footer-col-title">Компанія</div>
+      <div class="footer-col-title">Сервіс</div>
       <div class="footer-links">
-        <a href="#">Про нас</a>
-        <a href="#">Блог</a>
-        <a href="#">Кар'єра</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#how">Як це працює</a>
+        <a href="#about">Про нас</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Допомога</div>
+      <div class="footer-col-title">Контакти</div>
       <div class="footer-links">
-        <a href="#">Контакти</a>
-        <a href="#">FAQ</a>
-        <a href="#">Доставка</a>
+        <a href="mailto:hello@loomiq.com">Email</a>
+        <a href="https://t.me/loomiq" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://instagram.com/loomiq" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Слідкуйте</div>
+      <div class="footer-col-title">Документи</div>
       <div class="footer-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
+        <a href="#">Публічна оферта</a>
+        <a href="#">Політика конфіденційності</a>
       </div>
     </div>
   </div>
