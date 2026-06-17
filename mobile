@@ -1398,8 +1398,8 @@ footer {
     <!-- Title at top -->
     <div class="hero-title-block">
       <div class="hero-title">
-        МЕРЧ ДЛЯ КОМАНДИ
-        <em class="hero-title-accent">ЗА 1 ХВИЛИНУ</em>
+        МЕРЧ ДЛЯ КОМАНДИ —
+        <em class="hero-title-accent">ЦІНА І ТЕРМІНИ ЗА 1 ХВИЛИНУ</em>
       </div>
     </div>
     <!-- Spacer: photo shows through this area -->
@@ -1408,10 +1408,11 @@ footer {
     <div class="hero-spacer-top"></div>
     <!-- Description centered between title and button -->
     <p class="hero-desc">
-      Завантажте лого,<br>
-      оберіть одяг,<br>
-      кількість — і одразу<br>
-      бачите ціну та термін
+      Завантажте лого, оберіть одяг<br>
+      і тип нанесення — і одразу<br>
+      бачите вартість та дату<br>
+      готовності. Без менеджерів<br>
+      і мінімальних тиражів
     </p>
     <!-- Spacer bottom: breathing room above button -->
     <div class="hero-spacer-bottom"></div>
@@ -1423,7 +1424,7 @@ footer {
 <!-- LOGOS -->
 <section class="logos-section">
   <div class="logos-inner">
-    <span class="logos-label">Партнери</span>
+    <span class="logos-label">Нам довіряють</span>
     <span class="marquee-item">ПроектАльфа</span>
     <span class="marquee-item">DevTeam</span>
     <span class="marquee-item">StartupHub</span>
@@ -1437,15 +1438,15 @@ footer {
   <div class="stats-grid">
     <div class="stat-item fade-up">
       <div class="stat-num"><span>500+</span></div>
-      <div class="stat-label">Команд вже замовили</div>
+      <div class="stat-label">Задоволених компаній</div>
     </div>
     <div class="stat-item fade-up">
-      <div class="stat-num"><span>1000+</span></div>
-      <div class="stat-label">Одиниць мерчу</div>
+      <div class="stat-num"><span>110K+</span></div>
+      <div class="stat-label">Одиниць виготовлено</div>
     </div>
     <div class="stat-item fade-up">
-      <div class="stat-num"><span>15</span></div>
-      <div class="stat-label">Днів на доставку</div>
+      <div class="stat-num"><span>від 1</span></div>
+      <div class="stat-label">Штуки без мінімального тиражу</div>
     </div>
   </div>
 </section>
@@ -1453,16 +1454,16 @@ footer {
 <!-- HOW — redesigned premium white -->
 <section class="how-section">
   <div class="sec-label">ЯК ЦЕ ПРАЦЮЄ</div>
-  <h2>3 кроки до ідеального мерчу</h2>
-  <p class="sec-sub">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
+  <h2>Від лого до готового мерчу — за 3 кроки</h2>
+  <p class="sec-sub">Без переписок і тижнів очікування</p>
 
   <div class="steps-list">
     <!-- Card 1 -->
     <div class="step-card fade-up">
       <div class="step-card-left">
         <div class="step-badge">1</div>
-        <div class="step-title">Виберіть товар</div>
-        <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+        <div class="step-title">Налаштуй онлайн</div>
+        <div class="step-text">Обери одяг, колір і розмір, завантаж лого та тип нанесення — ціна і дата оновлюються миттєво</div>
       </div>
       <div class="step-image">
         <img src="IMG_9702.PNG" alt="Виберіть товар">
@@ -1481,8 +1482,8 @@ footer {
     <div class="step-card fade-up">
       <div class="step-card-left">
         <div class="step-badge">2</div>
-        <div class="step-title">Завантажте дизайн</div>
-        <div class="step-text">Додайте логотип вашої команди</div>
+        <div class="step-title">Оплати онлайн</div>
+        <div class="step-text">Бачиш фінальну ціну і дату готовності ще до оплати. Карткою або рахунок для ФОП</div>
       </div>
       <div class="step-image">
         <img src="IMG_9703.PNG" alt="Завантажте дизайн">
@@ -1501,8 +1502,8 @@ footer {
     <div class="step-card fade-up">
       <div class="step-card-left">
         <div class="step-badge">3</div>
-        <div class="step-title">Підтвердіть замовлення</div>
-        <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+        <div class="step-title">Отримай вчасно</div>
+        <div class="step-text">Виготовляємо і відправляємо у зазначений термін. Трекінг номер — одразу після відправки</div>
       </div>
       <div class="step-image">
         <img src="IMG_9704.PNG" alt="Підтвердіть замовлення">
@@ -1522,7 +1523,7 @@ footer {
         </div>
       </div>
       <div class="steps-cta-title">
-        Мерч, який говорить<br>про <em>вашу команду</em>
+        Завантаж лого — і знаєш<br><em>точну ціну свого мерчу</em>
       </div>
     </div>
     <a href="#catalog" class="steps-cta-btn">
@@ -1535,8 +1536,8 @@ footer {
 <!-- CATALOG — premium minimal -->
 <section class="catalog-section" id="catalog">
   <div class="sec-label">КАТАЛОГ</div>
-  <h2>Що замовити?</h2>
-  <p class="sec-sub">Виберіть товар, який найбільше підходить вашій команді</p>
+  <h2>Обери, що хочеш забрендувати</h2>
+  <p class="sec-sub">Понад 50 позицій — налаштуй онлайн прямо зараз</p>
 
   <div class="catalog-grid">
     <!-- 1 — Футболка -->
@@ -1547,7 +1548,7 @@ footer {
       <div class="cat-info">
         <div class="cat-info-text">
           <div class="cat-name">Футболка</div>
-          <div class="cat-price">від 99 грн</div>
+          <div class="cat-price">від 180 грн</div>
         </div>
         <div class="cat-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1563,7 +1564,7 @@ footer {
       <div class="cat-info">
         <div class="cat-info-text">
           <div class="cat-name">Світшот</div>
-          <div class="cat-price">від 199 грн</div>
+          <div class="cat-price">від 420 грн</div>
         </div>
         <div class="cat-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1579,7 +1580,7 @@ footer {
       <div class="cat-info">
         <div class="cat-info-text">
           <div class="cat-name">Худі</div>
-          <div class="cat-price">від 299 грн</div>
+          <div class="cat-price">від 420 грн</div>
         </div>
         <div class="cat-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1595,7 +1596,7 @@ footer {
       <div class="cat-info">
         <div class="cat-info-text">
           <div class="cat-name">Кепка</div>
-          <div class="cat-price">від 149 грн</div>
+          <div class="cat-price">від 220 грн</div>
         </div>
         <div class="cat-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1614,29 +1615,29 @@ footer {
 <!-- ADVANTAGES -->
 <section class="adv-section section">
   <div class="sec-label">ПЕРЕВАГИ</div>
-  <h2>Чому LoomiQ?</h2>
-  <p class="sec-sub">Ми робимо мерч простим, дешевим і швидким</p>
+  <h2>Чому LoomiQ — це інакше</h2>
+  <p class="sec-sub">Те, чого немає у звичайних підрядників</p>
   <div class="adv-grid">
     <div class="adv-card fade-up">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
       </div>
-      <div class="adv-title">Швидко</div>
-      <div class="adv-text">Замовлення за лічені хвилини, доставка за 15 днів</div>
+      <div class="adv-title">Ціна в реальному часі</div>
+      <div class="adv-text">Міняєш лого, розмір чи тип нанесення — ціна перераховується миттєво</div>
     </div>
     <div class="adv-card fade-up">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
       </div>
-      <div class="adv-title">Дешево</div>
-      <div class="adv-text">Прямі ціни без посередників і надбавок</div>
+      <div class="adv-title">Бачиш мерч до оплати</div>
+      <div class="adv-text">Конфігуратор показує точний макет на товарі. Жодних сюрпризів після передоплати</div>
     </div>
     <div class="adv-card fade-up">
       <div class="adv-icon">
         <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
       </div>
-      <div class="adv-title">Легко</div>
-      <div class="adv-text">Інтуїтивний интерфейс для кожного</div>
+      <div class="adv-title">Від 1 штуки</div>
+      <div class="adv-text">Треба одну футболку — замовляй одну. Без мінімальних тиражів</div>
     </div>
   </div>
 </section>
@@ -1648,38 +1649,38 @@ footer {
       <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
     </div>
     <div>
-      <div class="g-title">100% гарантія якості</div>
-      <div class="g-sub">Якщо вам не сподобалось, повернемо всі гроші без питань</div>
+      <div class="g-title">Не сподобається якість — повернемо гроші</div>
+      <div class="g-sub">Ми впевнені в кожному замовленні. Якщо щось пішло не так — повертаємо кошти повністю, без зайвих питань</div>
     </div>
   </div>
 </section>
 
 <!-- COMPARISON -->
 <section class="comparison-section section">
-  <div class="sec-label">СПОСОБИ</div>
-  <h2>DTF vs Вишивка</h2>
-  <p class="sec-sub">Виберіть оптимальний метод нанесення для вашого проекту</p>
+  <div class="sec-label">ЧОМУ LOOMIQ</div>
+  <h2>LoomiQ vs звичайний підрядник</h2>
+  <p class="sec-sub">Подивись різницю — і більше не витрачай час на переписки</p>
   <div class="comp-grid">
     <div class="comp-card dtf fade-up">
       <div class="comp-visual"></div>
-      <div class="comp-badge">Популярно</div>
+      <div class="comp-badge">Рекомендуємо</div>
       <div class="comp-body">
-        <div class="comp-title">DTF Принт</div>
-        <div class="comp-text">Яскраві кольори, детальні зображення, довговічність</div>
+        <div class="comp-title">LoomiQ</div>
+        <div class="comp-text">Ціна онлайн одразу, макет до оплати, оформлення за 10 хвилин</div>
         <div class="comp-tags">
-          <span class="comp-tag">Прямо на тканину</span>
-          <span class="comp-tag">Ярко</span>
+          <span class="comp-tag">Від 1 штуки</span>
+          <span class="comp-tag">Рахунок для ФОП</span>
         </div>
       </div>
     </div>
     <div class="comp-card emb fade-up">
       <div class="comp-visual"></div>
       <div class="comp-body">
-        <div class="comp-title">Вишивка</div>
-        <div class="comp-text">Класичний вид, об'єм, преміум відчуття</div>
+        <div class="comp-title">Звичайний підрядник</div>
+        <div class="comp-text">Прорахунок 1–3 дні, макет після передоплати, дні переписок</div>
         <div class="comp-tags">
-          <span class="comp-tag">3D ефект</span>
-          <span class="comp-tag">Преміум</span>
+          <span class="comp-tag">Від 50–100 шт</span>
+          <span class="comp-tag">Уточнюй окремо</span>
         </div>
       </div>
     </div>
@@ -1688,44 +1689,44 @@ footer {
 
 <!-- CASES -->
 <section class="cases-section section">
-  <div class="sec-label">ПОРТФОЛІО</div>
-  <h2>Наші роботи</h2>
-  <p class="sec-sub">Дивіться приклади проектів, які ми вже завершили</p>
+  <div class="sec-label">ПРИКЛАДИ РОБІТ</div>
+  <h2>Мерч, який ми вже зробили</h2>
+  <p class="sec-sub">Реальні замовлення команд по всій Україні</p>
   <div class="cases-mosaic">
     <div class="case-tile ct1 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">ПроектАльфа</div>
+        <div class="case-tile-label">ФУТБОЛКИ · DTF PRINT</div>
+        <div class="case-tile-sub">80 одиниць · IT-компанія</div>
       </div>
     </div>
     <div class="case-tile ct2 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">DevTeam</div>
+        <div class="case-tile-label">КЕПКИ · ВИШИВКА</div>
+        <div class="case-tile-sub">50 штук · спорт-клуб</div>
       </div>
     </div>
     <div class="case-tile ct3 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">StartupHub</div>
+        <div class="case-tile-label">ХУДІ · DTF PRINT</div>
+        <div class="case-tile-sub">120 одиниць · стартап</div>
       </div>
     </div>
     <div class="case-tile ct4 fade-up">
       <div class="case-tile-info">
-        <div class="case-tile-label">ПРОЕКТ</div>
-        <div class="case-tile-sub">TechCrew</div>
+        <div class="case-tile-label">ШОПЕРИ · DTF PRINT</div>
+        <div class="case-tile-sub">200 штук · event</div>
       </div>
     </div>
   </div>
 
   <div class="review-card fade-up">
     <div class="review-q">"</div>
-    <div class="review-text"><strong>LoomiQ</strong> — це саме те, що нам потрібно було! Якість мерчу відмінна, а процес замовлення дуже простий.</div>
+    <div class="review-text">Треба було 30 футболок для конференції за тиждень. Інші підрядники казали «мінімум 50» або «не встигнемо». На <strong>LoomiQ</strong> оформила за 15 хвилин, отримала за 5 днів. Врятували мені івент.</div>
     <div class="review-author">
-      <div class="review-avatar">АВ</div>
+      <div class="review-avatar">МК</div>
       <div>
-        <div class="review-name">Андрій Бережний</div>
-        <div class="review-role">Керівник ПроектАльфа</div>
+        <div class="review-name">Марія К.</div>
+        <div class="review-role">Офіс-менеджер, IT-компанія</div>
       </div>
     </div>
   </div>
@@ -1734,28 +1735,28 @@ footer {
 <!-- FOR WHO -->
 <section class="forwho-section section">
   <div class="sec-label">ДЛЯ КОГО</div>
-  <h2>Це для вас?</h2>
-  <p class="sec-sub">Мерч LoomiQ підходить для будь-яких команд</p>
+  <h2>LoomiQ підходить для</h2>
+  <p class="sec-sub">Від одного комплекту до тисячі — для будь-якого запиту</p>
   <div class="forwho-grid">
     <div class="forwho-card fade-up">
       <div class="forwho-visual fv-biz"></div>
       <div class="forwho-body">
-        <div class="forwho-title">Стартапи</div>
-        <div class="forwho-text">Укріпіть корпоративну культуру з якісним мерчем</div>
+        <div class="forwho-title">Бізнес і стартапи</div>
+        <div class="forwho-text">Корпоративний мерч для команди, подарунки партнерам, одяг для виставок і конференцій</div>
       </div>
     </div>
     <div class="forwho-card fade-up">
       <div class="forwho-visual fv-event"></div>
       <div class="forwho-body">
-        <div class="forwho-title">События</div>
-        <div class="forwho-text">Запам'ятайте учасників пам'ятним мерчем</div>
+        <div class="forwho-title">Events і агентства</div>
+        <div class="forwho-text">Мерч для корпоративів, форумів і заходів. Великі і малі тиражі в стислі терміни</div>
       </div>
     </div>
     <div class="forwho-card fade-up">
       <div class="forwho-visual fv-sport"></div>
       <div class="forwho-body">
         <div class="forwho-title">Спортивні команди</div>
-        <div class="forwho-text">Підтримайте командний дух якісним екіпіруванням</div>
+        <div class="forwho-text">Форма, худі і кепки з логотипом клубу. Від 1 комплекту — без переплат за малий тираж</div>
       </div>
     </div>
   </div>
@@ -1765,44 +1766,44 @@ footer {
 <section class="faq-section section">
   <div class="faq-wrap">
     <div class="faq-left">
-      <h2>Питання та відповіді</h2>
-      <p>Знайдіть відповіді на найпоширеніші запитання про LoomiQ</p>
+      <h2>Маєш питання? Ми вже відповіли</h2>
+      <p>Найпоширеніші запитання про замовлення мерчу в LoomiQ</p>
     </div>
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">
-          <span>Які розміри доступні?</span>
+          <span>Яка мінімальна кількість замовлення?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Ми пропонуємо розміри XS, S, M, L, XL, XXL для більшості товарів. Всі розміри розраховані за міжнародними стандартами.
+          Від 1 одиниці. Без мінімального тиражу. Хочеш одну футболку — замовляй одну.
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <span>Як довго обробляється замовлення?</span>
+          <span>В якому форматі завантажувати лого?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Замовлення обробляється 1-3 дні, доставка займає 10-15 днів залежно від регіону України.
+          PNG або SVG. Завантажуй — і розміщуй де зручно на товарі.
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <span>Який мінімальний замовлення?</span>
+          <span>Чи є оплата для ФОП і юридичних осіб?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Мінімальне замовлення — 5 одиниць. Але ми можемо розглянути менші замовлення за спеціальною ціною.
+          Так. Обери «Безготівкова оплата» — виставимо рахунок з усіма реквізитами.
         </div>
       </div>
       <div class="faq-item">
         <button class="faq-q">
-          <span>Як завантажити дизайн?</span>
+          <span>Як побачу макет перед оплатою?</span>
           <div class="faq-icon">+</div>
         </button>
         <div class="faq-a">
-          Просто натисніть кнопку «Завантажити» на нашому сайті й виберіть файл у форматі PNG, JPG або SVG.
+          Конфігуратор показує превʼю в реальному часі ще до оплати. Менеджер надсилає фінальний макет на затвердження перед запуском у виробництво.
         </div>
       </div>
     </div>
@@ -1812,12 +1813,12 @@ footer {
 <!-- CTA -->
 <section class="cta-section section">
   <div class="cta-inner">
-    <span class="cta-tag">Готові почати?</span>
-    <h2 class="cta-title">Створіть мерч своєї команди сьогодні</h2>
-    <p class="cta-sub">Це займе всього <strong>1 хвилину</strong></p>
+    <span class="cta-tag">Починай прямо зараз</span>
+    <h2 class="cta-title">Готовий зробити мерч для своєї команди?</h2>
+    <p class="cta-sub">Заходь у каталог і за кілька хвилин знатимеш точну ціну і дату готовності. Без менеджерів і мінімальних тиражів</p>
     <div class="cta-actions">
-      <a href="#catalog" class="btn btn-primary">Розпочати</a>
-      <a href="#" class="btn btn-ghost">Дізнатися більше</a>
+      <a href="#catalog" class="btn btn-primary">Створити мерч</a>
+      <a href="#" class="btn btn-ghost">Написати менеджеру</a>
     </div>
   </div>
 </section>
@@ -1827,7 +1828,7 @@ footer {
   <div class="footer-inner">
     <div>
       <div class="footer-logo">LOOMIQ</div>
-      <p class="footer-desc">Мерч для команд — просто, дешево, швидко</p>
+      <p class="footer-desc">Мерч для команди онлайн, без менеджерів і очікувань</p>
     </div>
     <div>
       <div class="footer-col-title">Компанія</div>
