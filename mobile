@@ -294,6 +294,15 @@ header.scrolled {
   border-radius: 14px;
   box-sizing: border-box;
   letter-spacing: 0.01em;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.hero-micro {
+  font-size: 12px;
+  color: #444;
+  font-weight: 600;
+  text-align: center;
   margin-bottom: calc(24px + var(--safe-bottom, 20px));
   flex-shrink: 0;
 }
@@ -1376,6 +1385,232 @@ footer {
 
 /* safe-area padding only on sections, not body — keeps hero full-width */
 
+/* ===== APPLE-STYLE ALTERNATING DARK/LIGHT THEME ===== */
+.dark { background: #0A0A0A !important; }
+.dark h2 { color: #fff !important; }
+.dark .sec-sub { color: rgba(255,255,255,0.55) !important; }
+.dark .sec-label { color: #6E9BFF !important; }
+.dark .sec-label::before { background: #6E9BFF !important; }
+
+.dark .cat-card,
+.dark .adv-card,
+.dark .forwho-card,
+.dark .step-card {
+  background: #161616 !important;
+  border-color: rgba(255,255,255,0.08) !important;
+  box-shadow: none !important;
+}
+.dark .cat-info { background: #161616 !important; }
+.dark .cat-name,
+.dark .adv-title,
+.dark .forwho-title,
+.dark .step-title { color: #fff !important; }
+.dark .adv-text,
+.dark .forwho-text,
+.dark .step-text { color: rgba(255,255,255,0.6) !important; }
+.dark .cat-price { color: #6E9BFF !important; }
+.dark .cat-photo { background: #0A0A0A !important; }
+.dark .cat-arrow { background: rgba(255,255,255,0.08) !important; }
+.dark .cat-arrow svg { color: #fff !important; }
+.dark .catalog-more { background: #161616 !important; border-color: rgba(255,255,255,0.1) !important; color: #fff !important; }
+.dark .logos-label { color: rgba(255,255,255,0.4) !important; }
+.dark .marquee-item { color: rgba(255,255,255,0.85) !important; }
+.dark .steps-cta-wrap { background: #0A0A0A !important; }
+.dark .step-badge { background: rgba(110,155,255,0.15) !important; color: #6E9BFF !important; }
+
+/* ===== IMAGE REVEAL & FLOAT ANIMATIONS ===== */
+.fade-up img {
+  transform: scale(1.1);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible img { transform: scale(1); }
+
+.case-tile, .forwho-visual, .comp-visual { background-position: center; }
+.case-tile::after, .forwho-visual::after, .comp-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  opacity: 0;
+}
+.float-soft { animation: floatSoft 5s ease-in-out infinite; }
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up img { transform: none; transition: none; }
+  .float-soft { animation: none; }
+}
+
+/* ===== TRY-ON (LOGO ON CLOTHING) ===== */
+.tryon-section { background: var(--bg); }
+.tryon-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.tryon-shirt {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #F4F4F5;
+  border: 1px solid var(--border);
+  touch-action: none;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+.tryon-base {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+.tryon-logo {
+  position: absolute;
+  width: 90px;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.3));
+  touch-action: none;
+}
+.tryon-logo.dragging { cursor: grabbing; }
+.tryon-empty {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border: 2px dashed rgba(26,86,219,0.45);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  color: var(--blue);
+  padding: 8px;
+  pointer-events: none;
+}
+.tryon-controls {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tryon-upload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.tryon-upload:active { transform: scale(0.98); background: var(--blue-dark); }
+.tryon-size {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.tryon-size input[type=range] { flex: 1; accent-color: var(--blue); }
+.tryon-hint { font-size: 12px; color: var(--muted); text-align: center; }
+
+/* ===== PROBLEM ===== */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.problem-card {
+  background: #161616;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px 16px;
+}
+.problem-emoji { font-size: 24px; margin-bottom: 10px; }
+.problem-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.problem-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.problem-final {
+  margin-top: 22px;
+  text-align: center;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #6E9BFF;
+}
+
+/* ===== TEAM ===== */
+.team-section { background: var(--white); }
+.team-principles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.team-principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+}
+.team-principle-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-light);
+  border-radius: 12px;
+}
+.team-principle-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+.team-principle-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 /* ===== IMAGE MICRO-ANIMATIONS ===== */
 .cat-photo img {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1481,6 +1716,7 @@ footer {
     <div class="hero-spacer-bottom"></div>
     <!-- Button anchored at bottom -->
     <a href="#catalog" class="btn btn-primary hero-cta">Створити мерч</a>
+    <div class="hero-micro">✓ від 1 штуки&nbsp;&nbsp;·&nbsp;&nbsp;✓ ціна онлайн&nbsp;&nbsp;·&nbsp;&nbsp;✓ рахунок для ФОП</div>
   </div>
 </section>
 
@@ -1494,6 +1730,31 @@ footer {
     <span class="marquee-item">TechCrew</span>
     <span class="marquee-item">DreamTeam</span>
   </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section section dark">
+  <div class="sec-label">ЗНАЙОМА СИТУАЦІЯ?</div>
+  <h2>Замовляти мерч буває боляче</h2>
+  <p class="sec-sub">З чим стикаються команди у звичайних підрядників</p>
+  <div class="problem-grid">
+    <div class="problem-card fade-up">
+      <div class="problem-emoji">⏳</div>
+      <div class="problem-title">Написав підряднику — і чекаєш</div>
+      <div class="problem-text">Прорахунок 1–2 дні, потім уточнення, потім ще день погодження. А подія вже скоро.</div>
+    </div>
+    <div class="problem-card fade-up">
+      <div class="problem-emoji">📦</div>
+      <div class="problem-title">Треба 15 штук — а мінімум 50</div>
+      <div class="problem-text">Більшість підрядників не беруться за малі тиражі. Або накручують ціну за «дрібний тираж».</div>
+    </div>
+    <div class="problem-card fade-up">
+      <div class="problem-emoji">🙈</div>
+      <div class="problem-title">Заплатив — а макет побачиш потім</div>
+      <div class="problem-text">Спочатку передоплата. Тільки потім дізнаєшся, як насправді виглядатиме твій лого на одязі.</div>
+    </div>
+  </div>
+  <div class="problem-final">З LoomiQ так не буває.</div>
 </section>
 
 <!-- STATS -->
@@ -1515,7 +1776,7 @@ footer {
 </section>
 
 <!-- HOW — redesigned premium white -->
-<section class="how-section" id="how">
+<section class="how-section dark" id="how">
   <div class="sec-label">ЯК ЦЕ ПРАЦЮЄ</div>
   <h2>Від лого до готового мерчу — за 3 кроки</h2>
   <p class="sec-sub">Без переписок і тижнів очікування</p>
@@ -1576,7 +1837,7 @@ footer {
 </section>
 
 <!-- CTA block — replaces old hook -->
-<div class="steps-cta-wrap">
+<div class="steps-cta-wrap dark">
   <div class="steps-cta-card">
     <div class="steps-cta-top">
       <div class="steps-cta-icon">
@@ -1596,8 +1857,34 @@ footer {
   </div>
 </div>
 
+<!-- TRY-ON -->
+<section class="tryon-section section" id="tryon">
+  <div class="sec-label">ПРИМІРЯЙ ОНЛАЙН</div>
+  <h2>Завантаж лого — і побач його на одязі</h2>
+  <p class="sec-sub">Завантаж PNG, SVG або JPG і подивись, як твоє лого виглядатиме на футболці. Перетягни його та зміни розмір — прямо тут.</p>
+  <div class="tryon-stage">
+    <div class="tryon-shirt" id="tryonShirt">
+      <img src="tryon-base.jpg" alt="Футболка" class="tryon-base">
+      <div class="tryon-empty" id="tryonEmpty">Тут зʼявиться<br>твоє лого</div>
+      <img id="tryonLogo" class="tryon-logo" alt="Ваше лого" hidden>
+    </div>
+    <div class="tryon-controls">
+      <label class="tryon-upload">
+        <input type="file" id="tryonInput" accept="image/png,image/svg+xml,image/jpeg,image/jpg,image/webp" hidden>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        <span id="tryonBtnLabel">Завантажити лого</span>
+      </label>
+      <div class="tryon-size" id="tryonSizeWrap" hidden>
+        <span>Розмір</span>
+        <input type="range" id="tryonSize" min="40" max="200" value="90">
+      </div>
+      <div class="tryon-hint">Перетягни лого пальцем, щоб розмістити його на одязі</div>
+    </div>
+  </div>
+</section>
+
 <!-- CATALOG — premium minimal -->
-<section class="catalog-section" id="catalog">
+<section class="catalog-section dark" id="catalog">
   <div class="sec-label">КАТАЛОГ</div>
   <h2>Обери, що хочеш забрендувати</h2>
   <p class="sec-sub">Понад 50 позицій — налаштуй онлайн прямо зараз</p>
@@ -1702,11 +1989,32 @@ footer {
       <div class="adv-title">Від 1 штуки</div>
       <div class="adv-text">Треба одну футболку — замовляй одну. Без мінімальних тиражів</div>
     </div>
+    <div class="adv-card fade-up">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="adv-title">Точна дата готовності</div>
+      <div class="adv-text">Не «3–7 днів» абстрактно, а конкретна дата ще до замовлення. Плануй без стресу</div>
+    </div>
+    <div class="adv-card fade-up">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="adv-title">Доставка по всій Україні</div>
+      <div class="adv-text">Відправляємо у зазначений термін. Трекінг номер одразу після відправки</div>
+    </div>
+    <div class="adv-card fade-up">
+      <div class="adv-icon">
+        <svg viewBox="0 0 24 24" fill="#1A56DB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="adv-title">Рахунок для ФОП і юросіб</div>
+      <div class="adv-text">Безготівка і документи для бухгалтерії — автоматично, без зайвих питань</div>
+    </div>
   </div>
 </section>
 
 <!-- GUARANTEE -->
-<section class="guarantee-section section">
+<section class="guarantee-section section dark">
   <div class="guarantee-card">
     <div class="g-icon">
       <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -1751,7 +2059,7 @@ footer {
 </section>
 
 <!-- CASES -->
-<section class="cases-section section" id="cases">
+<section class="cases-section section dark" id="cases">
   <div class="sec-label">ПРИКЛАДИ РОБІТ</div>
   <h2>Мерч, який ми вже зробили</h2>
   <p class="sec-sub">Реальні замовлення команд по всій Україні</p>
@@ -1795,8 +2103,38 @@ footer {
   </div>
 </section>
 
+<!-- TEAM -->
+<section class="team-section section" id="team">
+  <div class="sec-label">НАША КОМАНДА</div>
+  <h2>Люди за LoomiQ</h2>
+  <p class="sec-sub">Ми створили LoomiQ, бо самі втомились замовляти мерч по тижню</p>
+  <div class="team-principles">
+    <div class="team-principle fade-up">
+      <div class="team-principle-icon">🔍</div>
+      <div>
+        <div class="team-principle-title">Прозорість</div>
+        <div class="team-principle-text">Ціна і терміни одразу, без прихованих платежів і сюрпризів після оплати</div>
+      </div>
+    </div>
+    <div class="team-principle fade-up">
+      <div class="team-principle-icon">🛡️</div>
+      <div>
+        <div class="team-principle-title">Якість або гроші назад</div>
+        <div class="team-principle-text">Контролюємо кожне замовлення від макету до доставки</div>
+      </div>
+    </div>
+    <div class="team-principle fade-up">
+      <div class="team-principle-icon">⚡</div>
+      <div>
+        <div class="team-principle-title">Швидкість</div>
+        <div class="team-principle-text">Від замовлення до доставки максимум 7 днів, бо дедлайни є у всіх</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOR WHO -->
-<section class="forwho-section section">
+<section class="forwho-section section dark">
   <div class="sec-label">ДЛЯ КОГО</div>
   <h2>LoomiQ підходить для</h2>
   <p class="sec-sub">Від одного комплекту до тисячі — для будь-якого запиту</p>
@@ -1869,12 +2207,30 @@ footer {
           Конфігуратор показує превʼю в реальному часі ще до оплати. Менеджер надсилає фінальний макет на затвердження перед запуском у виробництво.
         </div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Скільки часу займає виготовлення?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          Точну дату побачиш у конфігураторі при оформленні — залежить від типу товару і кількості.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Можна змінити або скасувати замовлення?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">
+          До запуску у виробництво — так. Напиши менеджеру в Telegram, і ми все вирішимо.
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section section" id="cta">
+<section class="cta-section section dark" id="cta">
   <div class="cta-inner">
     <span class="cta-tag">Починай прямо зараз</span>
     <h2 class="cta-title">Готовий зробити мерч для своєї команди?</h2>
@@ -2029,6 +2385,86 @@ footer {
     vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
+
+  // ===== Hero parallax (subtle) =====
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y < window.innerHeight) {
+            heroBg.style.transform = `translateY(${y * 0.18}px) scale(1.05)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ===== Try-on: upload logo and place it on the t-shirt =====
+  (function () {
+    const input = document.getElementById('tryonInput');
+    const logo = document.getElementById('tryonLogo');
+    const empty = document.getElementById('tryonEmpty');
+    const shirt = document.getElementById('tryonShirt');
+    const sizeWrap = document.getElementById('tryonSizeWrap');
+    const sizeSlider = document.getElementById('tryonSize');
+    const btnLabel = document.getElementById('tryonBtnLabel');
+    if (!input || !logo || !shirt) return;
+
+    input.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        logo.src = ev.target.result;
+        logo.hidden = false;
+        if (empty) empty.hidden = true;
+        if (sizeWrap) sizeWrap.hidden = false;
+        if (btnLabel) btnLabel.textContent = 'Змінити лого';
+        // reset to chest center
+        logo.style.left = '50%';
+        logo.style.top = '44%';
+        logo.style.width = sizeSlider ? sizeSlider.value + 'px' : '90px';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    if (sizeSlider) {
+      sizeSlider.addEventListener('input', () => {
+        logo.style.width = sizeSlider.value + 'px';
+      });
+    }
+
+    // Drag to position (pointer events = mouse + touch)
+    let dragging = false;
+    logo.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      logo.classList.add('dragging');
+      logo.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    logo.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const rect = shirt.getBoundingClientRect();
+      let x = ((e.clientX - rect.left) / rect.width) * 100;
+      let y = ((e.clientY - rect.top) / rect.height) * 100;
+      x = Math.max(8, Math.min(92, x));
+      y = Math.max(8, Math.min(92, y));
+      logo.style.left = x + '%';
+      logo.style.top = y + '%';
+    });
+    const endDrag = (e) => {
+      dragging = false;
+      logo.classList.remove('dragging');
+      try { logo.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+    logo.addEventListener('pointerup', endDrag);
+    logo.addEventListener('pointercancel', endDrag);
+  })();
 </script>
 
 </body>
