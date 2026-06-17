@@ -104,6 +104,21 @@ body {
   }
 }
 
+/* Floating background orbs */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: orbFloat var(--orb-dur, 8s) ease-in-out var(--orb-delay, 0s) infinite;
+  opacity: var(--orb-opacity, 0.12);
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(var(--orb-dx, 15px), var(--orb-dy, -18px)) scale(1.04); }
+  66% { transform: translate(calc(var(--orb-dx, 15px) * -0.6), calc(var(--orb-dy, -18px) * 0.5)) scale(0.97); }
+}
+
 /* ===== HEADER ===== */
 header {
   position: fixed;
@@ -258,6 +273,16 @@ header.scrolled {
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--black);
+  background: linear-gradient(92deg, var(--ink) 0%, var(--ink) 55%, var(--blue) 75%, var(--ink) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleShimmer 6s linear 1.2s infinite;
+}
+@keyframes titleShimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 
 .hero-sub {
@@ -613,6 +638,14 @@ h2 {
   display: flex;
   align-items: center;
   padding: 4px 0 4px 28px;
+}
+.step-arrow svg line {
+  stroke-dasharray: 22 3;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s ease 0.3s;
+}
+.step-arrow.visible svg line {
+  stroke-dashoffset: 0;
 }
 
 /* ===== CTA BLOCK (replacing old hook) ===== */
@@ -1061,14 +1094,23 @@ h2 {
 }
 
 .guarantee-card {
-  background: var(--white);
+  background: #000;
   border-radius: 28px;
-  padding: 24px 20px;
+  padding: 28px 20px;
   display: flex;
   align-items: center;
   gap: 18px;
   box-shadow: none;
   border: none;
+  position: relative;
+  overflow: hidden;
+}
+.guarantee-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(0,113,227,0.25) 0%, transparent 65%);
+  pointer-events: none;
 }
 
 .g-icon {
@@ -1100,6 +1142,54 @@ h2 {
   font-size: 12px;
   color: var(--muted);
   line-height: 1.55;
+}
+.guarantee-card .g-title { color: #fff; }
+.guarantee-card .g-sub { color: rgba(255,255,255,0.6); }
+.guarantee-card .g-icon svg { color: #fff; }
+
+/* Comparison section animated demos */
+.dtf-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 90px;
+  height: 90px;
+  position: relative;
+}
+.dtf-layer {
+  width: 70px;
+  height: 14px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: dtfLayerIn 0.5s ease forwards;
+}
+.dtf-layer:nth-child(1) { background: #ff6b6b; animation-delay: 0.3s; }
+.dtf-layer:nth-child(2) { background: #4ecdc4; animation-delay: 0.5s; }
+.dtf-layer:nth-child(3) { background: #45b7d1; animation-delay: 0.7s; }
+.dtf-layer:nth-child(4) { background: #f9ca24; animation-delay: 0.9s; }
+@keyframes dtfLayerIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.emb-demo {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emb-demo svg { width: 80px; height: 60px; }
+.emb-demo-path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: embDraw 2s ease 0.5s forwards;
+}
+@keyframes embDraw {
+  to { stroke-dashoffset: 0; }
 }
 
 /* ===== COMPARISON ===== */
@@ -1313,7 +1403,8 @@ h2 {
   font-family: var(--font-display); font-size: 30px;
   font-weight: 700; letter-spacing: -0.03em; color: var(--ink); line-height: 1.08; margin-bottom: 10px;
 }
-.about-underline { width: 40px; height: 3px; background: var(--ink); border-radius: 2px; margin-bottom: 18px; }
+.about-underline { width: 0; height: 3px; background: var(--ink); border-radius: 2px; margin-bottom: 18px; transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) 0.4s; }
+.about-underline.visible { width: 40px; }
 .about-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; }
 .about-photo-wrap { position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 20px; }
 .about-photo-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
@@ -3064,6 +3155,8 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="bg-orb" style="width:260px;height:260px;background:radial-gradient(circle,#0071e3,transparent 70%);top:-60px;right:-80px;--orb-dur:9s;--orb-delay:0s;--orb-dx:20px;--orb-dy:-15px;"></div>
+    <div class="bg-orb" style="width:180px;height:180px;background:radial-gradient(circle,#a8d3fb,transparent 70%);bottom:10%;left:-60px;--orb-dur:11s;--orb-delay:2s;--orb-dx:-12px;--orb-dy:20px;--orb-opacity:0.08;"></div>
     <p class="hero-eyebrow reveal r-still">Loomiq</p>
     <h1 class="hero-title reveal r-still" style="--rd:.05s">Мерч, що<br>об'єднує команду</h1>
     <p class="hero-sub reveal r-still" style="--rd:.12s">Завантажте лого — і за хвилину бачите ціну та термін. Вишивка та DTF на худі, футболках і кепках.</p>
@@ -3153,7 +3246,7 @@ footer {
     </div>
 
     <!-- Arrow -->
-    <div class="step-arrow">
+    <div class="step-arrow fade-up">
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
         <line x1="10" y1="0" x2="10" y2="22" stroke="#1d1d1f" stroke-width="2" stroke-dasharray="4 3"/>
         <path d="M4 18 L10 25 L16 18" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3173,7 +3266,7 @@ footer {
     </div>
 
     <!-- Arrow -->
-    <div class="step-arrow">
+    <div class="step-arrow fade-up">
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
         <line x1="10" y1="0" x2="10" y2="22" stroke="#1d1d1f" stroke-width="2" stroke-dasharray="4 3"/>
         <path d="M4 18 L10 25 L16 18" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3508,7 +3601,7 @@ footer {
     ПРО НАС
   </div>
   <div class="about-title">Наша команда</div>
-  <div class="about-underline"></div>
+  <div class="about-underline reveal r-still"></div>
   <p class="about-desc">Ми — команда професіоналів, які створюють якісний мерч та допомагають бізнесам і командам досягати своїх цілей.</p>
 
   <div class="about-photo-wrap reveal r-scale">
@@ -3633,7 +3726,7 @@ footer {
   <p class="sec-sub reveal r-still">Виберіть оптимальний метод нанесення для вашого проекту</p>
   <div class="comp-grid" data-stagger="0.08">
     <div class="comp-card dtf fade-up">
-      <div class="comp-visual"></div>
+      <div class="comp-visual"><div class="dtf-demo"><div class="dtf-layer"></div><div class="dtf-layer"></div><div class="dtf-layer"></div><div class="dtf-layer"></div></div></div>
       <div class="comp-badge">Популярно</div>
       <div class="comp-body">
         <div class="comp-title">DTF Принт</div>
@@ -3645,7 +3738,7 @@ footer {
       </div>
     </div>
     <div class="comp-card emb fade-up">
-      <div class="comp-visual"></div>
+      <div class="comp-visual"><div class="emb-demo"><svg viewBox="0 0 80 60" fill="none"><path class="emb-demo-path" d="M8 30 Q20 10 40 30 Q60 50 72 30" stroke="#5d75ff" stroke-width="3" stroke-linecap="round" fill="none"/><path class="emb-demo-path" d="M8 38 Q20 18 40 38 Q60 58 72 38" stroke="#2236ff" stroke-width="2.5" stroke-linecap="round" fill="none" style="animation-delay:0.8s"/><path class="emb-demo-path" d="M8 22 Q20 2 40 22 Q60 42 72 22" stroke="#9fb0ff" stroke-width="2" stroke-linecap="round" fill="none" style="animation-delay:1.2s"/></svg></div></div>
       <div class="comp-body">
         <div class="comp-title">Вишивка</div>
         <div class="comp-text">Класичний вид, об'єм, преміум відчуття</div>
@@ -3783,6 +3876,7 @@ footer {
 
 <!-- CTA -->
 <section class="cta-section section">
+  <div class="bg-orb" style="width:320px;height:320px;background:radial-gradient(circle,#0071e3,transparent 70%);top:-80px;left:-60px;--orb-dur:12s;--orb-delay:1s;--orb-dx:30px;--orb-dy:20px;--orb-opacity:0.15;"></div>
   <div class="cta-inner">
     <span class="cta-tag reveal r-still">Готові почати?</span>
     <h2 class="cta-title reveal r-still">Створіть мерч своєї команди сьогодні</h2>
@@ -4557,6 +4651,42 @@ footer {
 
   document.querySelectorAll('.fade-up, .reveal').forEach(el => {
     observer.observe(el);
+  });
+
+  // Stat counter animation
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateCounter(el) {
+    const span = el.querySelector('.stat-num span');
+    if (!span) return;
+    const text = span.textContent.trim();
+    const hasSuffix = text.endsWith('+');
+    const target = parseInt(text.replace('+', ''), 10);
+    if (isNaN(target)) return;
+    const duration = 1200;
+    const startTime = performance.now();
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.round(easeOutCubic(progress) * target);
+      span.textContent = value + (hasSuffix ? '+' : '');
+      if (progress < 1) requestAnimationFrame(update);
+      else span.textContent = text;
+    }
+    requestAnimationFrame(update);
+  }
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        entry.target.classList.add('counted');
+        animateCounter(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stat-item').forEach(el => {
+    statObserver.observe(el);
   });
 
   // FAQ accordion
