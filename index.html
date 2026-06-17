@@ -252,24 +252,24 @@ header.scrolled {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: calc(52px + var(--safe-top) + 20px) 22px 0;
+  padding: calc(52px + var(--safe-top) + 10px) 22px 0;
   box-sizing: border-box;
 }
 
 .hero-eyebrow {
   font-family: var(--font-text);
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--blue);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 12vw, 62px);
+  font-size: clamp(30px, 8.5vw, 46px);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.06;
   letter-spacing: -0.03em;
   color: var(--ink);
   background: linear-gradient(92deg, var(--ink) 0%, var(--ink) 50%, var(--blue) 74%, var(--ink) 100%);
@@ -286,17 +286,17 @@ header.scrolled {
 
 .hero-sub {
   font-family: var(--font-text);
-  font-size: clamp(15px, 4vw, 19px);
+  font-size: clamp(13px, 3.6vw, 15px);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.4;
   letter-spacing: -0.01em;
   color: var(--muted);
-  margin: 12px auto 0;
-  max-width: 320px;
+  margin: 9px auto 0;
+  max-width: 300px;
 }
 
 .hero-buy {
-  margin: 22px auto 0;
+  margin: 16px auto 0;
   background: var(--blue);
   color: #fff;
   font-family: var(--font-text);
@@ -3371,6 +3371,35 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .case-tile, .forwho-visual { animation: none; }
 }
+
+/* ===== PROBLEM ===== */
+.problem-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.problem-card {
+  background: #161616; border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.problem-emoji { font-size: 20px; margin-bottom: 4px; }
+.problem-card b { font-family: var(--font-display); font-size: 14px; color: #fff; }
+.problem-card span:not(.problem-emoji) { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.45; }
+.problem-final { margin-top: 16px; text-align: center; font-family: var(--font-display); font-size: 15px; font-weight: 700; color: #6E9BFF; }
+
+/* ===== TEAM ===== */
+.team-section { background: var(--white); }
+.team-principles { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.team-principle {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--fog); border: 1px solid var(--border, #e2e2e2);
+  border-radius: 14px; padding: 14px;
+}
+.team-pr-ic {
+  font-size: 18px; flex-shrink: 0; width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue-light, #EEF4FF); border-radius: 10px;
+}
+.team-principle > div { display: flex; flex-direction: column; gap: 2px; }
+.team-principle b { font-family: var(--font-display); font-size: 13.5px; color: var(--black); }
+.team-principle span { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -3421,6 +3450,19 @@ footer {
     <span class="marquee-item">TechCrew</span>
     <span class="marquee-item">DreamTeam</span>
   </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section section theme-dark">
+  <div class="sec-label reveal r-still">ЗНАЙОМА СИТУАЦІЯ?</div>
+  <h2 class="reveal r-still">Замовляти мерч буває боляче</h2>
+  <p class="sec-sub reveal r-still">З чим стикаються команди у звичайних підрядників</p>
+  <div class="problem-grid" data-stagger="0.06">
+    <div class="problem-card fade-up"><span class="problem-emoji">⏳</span><b>Написав — і чекаєш</b><span>Прорахунок 1–2 дні, потім ще день погодження. А подія вже скоро.</span></div>
+    <div class="problem-card fade-up"><span class="problem-emoji">📦</span><b>Треба 15 — а мінімум 50</b><span>Малі тиражі не беруть або накручують ціну за «дрібний тираж».</span></div>
+    <div class="problem-card fade-up"><span class="problem-emoji">🙈</span><b>Заплатив — макет потім</b><span>Спершу передоплата. Як виглядатиме лого — дізнаєшся вже після.</span></div>
+  </div>
+  <div class="problem-final reveal r-still">З LoomiQ так не буває.</div>
 </section>
 
 <!-- STATS -->
@@ -3960,38 +4002,6 @@ footer {
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section class="comparison-section section theme-dark">
-  <div class="sec-label reveal r-still">СПОСОБИ</div>
-  <h2 class="reveal r-still">DTF vs Вишивка</h2>
-  <p class="sec-sub reveal r-still">Виберіть оптимальний метод нанесення для вашого проекту</p>
-  <div class="comp-grid" data-stagger="0.08">
-    <div class="comp-card dtf fade-up">
-      <div class="comp-visual"></div>
-      <div class="comp-badge">Популярно</div>
-      <div class="comp-body">
-        <div class="comp-title">DTF Принт</div>
-        <div class="comp-text">Яскраві кольори, детальні зображення, довговічність</div>
-        <div class="comp-tags">
-          <span class="comp-tag">Прямо на тканину</span>
-          <span class="comp-tag">Ярко</span>
-        </div>
-      </div>
-    </div>
-    <div class="comp-card emb fade-up">
-      <div class="comp-visual"></div>
-      <div class="comp-body">
-        <div class="comp-title">Вишивка</div>
-        <div class="comp-text">Класичний вид, об'єм, преміум відчуття</div>
-        <div class="comp-tags">
-          <span class="comp-tag">3D ефект</span>
-          <span class="comp-tag">Преміум</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CASES -->
 <section class="cases-section section" id="cases">
   <div class="sec-label reveal r-still">ПОРТФОЛІО</div>
@@ -4023,47 +4033,17 @@ footer {
       </div>
     </div>
   </div>
-
-  <div class="review-card fade-up">
-    <div class="review-q">"</div>
-    <div class="review-text"><strong>LoomiQ</strong> — це саме те, що нам потрібно було! Якість мерчу відмінна, а процес замовлення дуже простий.</div>
-    <div class="review-author">
-      <div class="review-avatar">АВ</div>
-      <div>
-        <div class="review-name">Андрій Бережний</div>
-        <div class="review-role">Керівник ПроектАльфа</div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- FOR WHO -->
-<section class="forwho-section section">
-  <div class="sec-label reveal r-still">ДЛЯ КОГО</div>
-  <h2 class="reveal r-still">LoomiQ підходить для</h2>
-  <p class="sec-sub reveal r-still">Від одного комплекту до тисячі — для будь-якого запиту</p>
-  <div class="forwho-grid" data-stagger="0.08">
-    <div class="forwho-card fade-up">
-      <div class="forwho-visual fv-biz"></div>
-      <div class="forwho-body">
-        <div class="forwho-title">Стартапи</div>
-        <div class="forwho-text">Укріпіть корпоративну культуру з якісним мерчем</div>
-      </div>
-    </div>
-    <div class="forwho-card fade-up">
-      <div class="forwho-visual fv-event"></div>
-      <div class="forwho-body">
-        <div class="forwho-title">Івенти та заходи</div>
-        <div class="forwho-text">Запам'ятайте учасників пам'ятним мерчем</div>
-      </div>
-    </div>
-    <div class="forwho-card fade-up">
-      <div class="forwho-visual fv-sport"></div>
-      <div class="forwho-body">
-        <div class="forwho-title">Спортивні команди</div>
-        <div class="forwho-text">Підтримайте командний дух якісним екіпіруванням</div>
-      </div>
-    </div>
+<!-- TEAM -->
+<section class="team-section section">
+  <div class="sec-label reveal r-still">НАША КОМАНДА</div>
+  <h2 class="reveal r-still">Люди за LoomiQ</h2>
+  <p class="sec-sub reveal r-still">Ми створили LoomiQ, бо самі втомились замовляти мерч по тижню</p>
+  <div class="team-principles" data-stagger="0.06">
+    <div class="team-principle fade-up"><span class="team-pr-ic">🔍</span><div><b>Прозорість</b><span>Ціна і терміни одразу, без прихованих платежів</span></div></div>
+    <div class="team-principle fade-up"><span class="team-pr-ic">🛡️</span><div><b>Якість або гроші назад</b><span>Контролюємо кожне замовлення від макету до доставки</span></div></div>
+    <div class="team-principle fade-up"><span class="team-pr-ic">⚡</span><div><b>Швидкість</b><span>Від замовлення до доставки максимум 7 днів</span></div></div>
   </div>
 </section>
 
