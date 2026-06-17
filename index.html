@@ -238,12 +238,41 @@ header.scrolled {
 /* ===== HERO (Apple centered stack) ===== */
 .hero {
   min-height: 100svh;
-  background: var(--bg);
+  background: #000;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+/* Fullscreen video background */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-video.loaded { opacity: 1; }
+
+/* Gradient overlay: dark at top for text readability, lighter in middle */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(0,0,0,0.62) 0%,
+      rgba(0,0,0,0.32) 40%,
+      rgba(0,0,0,0.18) 65%,
+      rgba(0,0,0,0.52) 100%
+    );
+  pointer-events: none;
 }
 
 .hero-inner {
@@ -253,7 +282,8 @@ header.scrolled {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: calc(52px + var(--safe-top) + 24px) 22px calc(16px + var(--safe-bottom, 20px));
+  justify-content: center;
+  padding: calc(52px + var(--safe-top) + 24px) 22px calc(48px + var(--safe-bottom, 20px));
   box-sizing: border-box;
 }
 
@@ -262,7 +292,7 @@ header.scrolled {
   font-size: 19px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--blue);
+  color: rgba(255,255,255,0.7);
   margin-bottom: 6px;
 }
 
@@ -272,8 +302,8 @@ header.scrolled {
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  color: var(--black);
-  background: linear-gradient(92deg, var(--ink) 0%, var(--ink) 55%, var(--blue) 75%, var(--ink) 100%);
+  color: #fff;
+  background: linear-gradient(92deg, #fff 0%, #fff 50%, #a8d3fb 72%, #fff 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -291,7 +321,7 @@ header.scrolled {
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: var(--muted);
+  color: rgba(255,255,255,0.78);
   margin: 13px auto 0;
   max-width: 340px;
 }
@@ -313,85 +343,9 @@ header.scrolled {
 }
 .hero-buy:active { background: var(--blue-dark); transform: scale(0.97); }
 
-/* Product stage */
-.hero-stage-wrap {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 12px 0 0;
-}
-.hero-stage {
-  position: relative;
-  display: inline-block;
-  animation: heroFloat 7s ease-in-out 0.8s infinite;
-}
-.hero-stage::before {
-  content: '';
-  position: absolute;
-  left: 50%; top: 60%;
-  width: 76%; height: 26%;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(0,0,0,0.18), transparent 70%);
-  filter: blur(7px);
-  z-index: -1;
-}
-.hero-hoodie {
-  display: block;
-  height: 44svh;
-  max-height: 404px;
-  width: auto;
-  max-width: 88vw;
-  object-fit: contain;
-  filter: drop-shadow(0 30px 42px rgba(0,0,0,0.16));
-}
-
-/* Embroidered Loomiq on the chest — clean, with periodic shimmer */
-.hero-emb {
-  position: absolute;
-  top: 33%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  max-width: 212px;
-}
-.emb-svg { width: 100%; height: auto; display: block; overflow: visible; }
-.emb-fill,
-.emb-stitch {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 56px;
-  letter-spacing: -0.02em;
-}
-.emb-fill { fill: url(#satin); }
-.emb-stitch {
-  fill: none;
-  stroke: #9fb0ff;
-  stroke-width: 1.4;
-  stroke-dasharray: 2.4 2.6;
-  stroke-linecap: round;
-}
-.emb-glint {
-  fill: url(#glintGrad);
-  transform: translateX(-170px);
-  animation: embGlint 4.6s ease-in-out 1.6s infinite;
-}
-
-@keyframes embGlint {
-  0%, 56% { transform: translateX(-170px); }
-  80%     { transform: translateX(400px); }
-  100%    { transform: translateX(400px); }
-}
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-stage { animation: none !important; }
-  .emb-glint { animation: none !important; transform: translateX(400px) !important; }
+  .hero-video { display: none; }
+  .hero { background: var(--bg); }
 }
 
 /* ===== LOGOS SECTION ===== */
@@ -3154,9 +3108,16 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
+  <!-- Video background -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+         oncanplay="this.classList.add('loaded')"
+         onloadeddata="this.classList.add('loaded')">
+    <source src="hero-bg.mp4" type="video/mp4">
+  </video>
+  <!-- Dark gradient overlay -->
+  <div class="hero-overlay"></div>
+
   <div class="hero-inner">
-    <div class="bg-orb" style="width:260px;height:260px;background:radial-gradient(circle,#0071e3,transparent 70%);top:-60px;right:-80px;--orb-dur:9s;--orb-delay:0s;--orb-dx:20px;--orb-dy:-15px;"></div>
-    <div class="bg-orb" style="width:180px;height:180px;background:radial-gradient(circle,#a8d3fb,transparent 70%);bottom:10%;left:-60px;--orb-dur:11s;--orb-delay:2s;--orb-dx:-12px;--orb-dy:20px;--orb-opacity:0.08;"></div>
     <p class="hero-eyebrow reveal r-still">Loomiq</p>
     <h1 class="hero-title reveal r-still" style="--rd:.05s">Мерч, що<br>об'єднує команду</h1>
     <p class="hero-sub reveal r-still" style="--rd:.12s">Завантажте лого — і за хвилину бачите ціну та термін. Вишивка та DTF на худі, футболках і кепках.</p>
@@ -3164,35 +3125,6 @@ footer {
       Створити мерч
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-
-    <div class="hero-stage-wrap reveal r-scale" style="--rd:.24s">
-      <div class="hero-stage">
-        <img class="hero-hoodie" src="p2.png" alt="Худі Loomiq з вишивкою">
-        <div class="hero-emb">
-          <svg class="emb-svg" viewBox="0 0 340 110" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <defs>
-              <pattern id="satin" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(48)">
-                <rect width="7" height="7" fill="#2236ff"/>
-                <rect width="2.7" height="7" fill="#5d75ff"/>
-              </pattern>
-              <linearGradient id="glintGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-                <stop offset="0.5" stop-color="#fff" stop-opacity="0.9"/>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-              </linearGradient>
-              <clipPath id="embClip">
-                <text x="170" y="76" text-anchor="middle" class="emb-fill">Loomiq</text>
-              </clipPath>
-            </defs>
-            <text x="170" y="76" text-anchor="middle" class="emb-fill">Loomiq</text>
-            <text x="170" y="76" text-anchor="middle" class="emb-stitch">Loomiq</text>
-            <g clip-path="url(#embClip)">
-              <rect class="emb-glint" x="0" y="0" width="78" height="110"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
