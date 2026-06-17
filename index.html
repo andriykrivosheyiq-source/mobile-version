@@ -1296,11 +1296,11 @@ h2 {
 }
 
 .comp-card.dtf .comp-visual {
-  background: var(--fog);
+  background: #1A56DB url('dtf-print.jpg') center/cover;
 }
 
 .comp-card.emb .comp-visual {
-  background: #ededf0;
+  background: #1a2a1a url('embroidery.jpg') center/cover;
 }
 
 .comp-badge {
@@ -2628,20 +2628,92 @@ footer {
   line-height: 1.4;
 }
 .pp-design-box { cursor: pointer; pointer-events: auto; }
-.pp-user-logo {
+.pp-logo-layer {
   position: absolute;
   width: 34%;
   left: 50%;
   top: 42%;
   transform: translate(-50%, -50%);
+  z-index: 5;
   cursor: grab;
   touch-action: none;
   user-select: none;
+}
+.pp-logo-layer.dragging { cursor: grabbing; }
+.pp-user-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
   -webkit-user-drag: none;
-  z-index: 5;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
 }
-.pp-user-logo.dragging { cursor: grabbing; }
+.pp-logo-del {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #d33;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 6;
+}
+.pp-side-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 4;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.pp-side-toggle {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding: 12px 0 4px;
+}
+.pp-side-btn {
+  background: var(--fog);
+  border: 1px solid var(--border, #e2e2e2);
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pp-side-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.pp-logo-bgremove {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  background: var(--fog);
+  border: 1px solid var(--border, #e2e2e2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  cursor: pointer;
+}
+.pp-logo-bgremove:active { background: #e8e8ec; }
+.pp-logo-bgremove[disabled] { opacity: 0.5; }
 .pp-logo-controls { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 .pp-logo-size-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--black); font-weight: 600; }
 .pp-logo-size-row input[type=range] { flex: 1; accent-color: var(--blue); }
@@ -3895,7 +3967,7 @@ footer {
   <p class="sec-sub reveal r-still">Виберіть оптимальний метод нанесення для вашого проекту</p>
   <div class="comp-grid" data-stagger="0.08">
     <div class="comp-card dtf fade-up">
-      <div class="comp-visual"><div class="dtf-demo"><div class="dtf-layer"></div><div class="dtf-layer"></div><div class="dtf-layer"></div><div class="dtf-layer"></div></div></div>
+      <div class="comp-visual"></div>
       <div class="comp-badge">Популярно</div>
       <div class="comp-body">
         <div class="comp-title">DTF Принт</div>
@@ -3907,7 +3979,7 @@ footer {
       </div>
     </div>
     <div class="comp-card emb fade-up">
-      <div class="comp-visual"><div class="emb-demo"><svg viewBox="0 0 80 60" fill="none"><path class="emb-demo-path" d="M8 30 Q20 10 40 30 Q60 50 72 30" stroke="#5d75ff" stroke-width="3" stroke-linecap="round" fill="none"/><path class="emb-demo-path" d="M8 38 Q20 18 40 38 Q60 58 72 38" stroke="#2236ff" stroke-width="2.5" stroke-linecap="round" fill="none" style="animation-delay:0.8s"/><path class="emb-demo-path" d="M8 22 Q20 2 40 22 Q60 42 72 22" stroke="#9fb0ff" stroke-width="2" stroke-linecap="round" fill="none" style="animation-delay:1.2s"/></svg></div></div>
+      <div class="comp-visual"></div>
       <div class="comp-body">
         <div class="comp-title">Вишивка</div>
         <div class="comp-text">Класичний вид, об'єм, преміум відчуття</div>
@@ -4119,21 +4191,23 @@ footer {
     <!-- Mockup image -->
     <div class="pp-mockup" id="ppMockup">
       <img class="pp-mockup-img" id="ppMockupImg" src="" alt="Продукт">
+      <div class="pp-side-badge" id="ppSideBadge">ПЕРЕД</div>
       <div class="pp-design-overlay" id="ppDesignOverlay">
         <div class="pp-design-box" onclick="triggerLogoUpload()">
           <div class="pp-design-plus">+</div>
           <div class="pp-design-label">Додайте свій дизайн</div>
         </div>
       </div>
-      <img id="ppUserLogo" class="pp-user-logo" alt="Ваше лого" hidden>
+      <div class="pp-logo-layer" id="ppLogoLayer" hidden>
+        <img id="ppUserLogo" class="pp-user-logo" alt="Ваше лого">
+        <button class="pp-logo-del" id="ppLogoDel" onclick="removeLogo()" onpointerdown="event.stopPropagation()" aria-label="Видалити лого">✕</button>
+      </div>
       <input type="file" id="ppLogoInput" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden onchange="handleLogoUpload(event)">
     </div>
-    <!-- Pagination dots -->
-    <div class="pp-dots">
-      <div class="pp-dot active"></div>
-      <div class="pp-dot"></div>
-      <div class="pp-dot"></div>
-      <div class="pp-dot"></div>
+    <!-- Side toggle (front / back) -->
+    <div class="pp-side-toggle">
+      <button class="pp-side-btn active" id="ppSideFront" onclick="setSide('front')">Перед</button>
+      <button class="pp-side-btn" id="ppSideBack" onclick="setSide('back')">Спина</button>
     </div>
 
     <!-- Tool tabs -->
@@ -4175,9 +4249,13 @@ footer {
       <div class="pp-logo-controls" id="ppLogoControls" hidden>
         <div class="pp-logo-size-row">
           <span>Розмір лого</span>
-          <input type="range" id="ppLogoSize" min="15" max="70" value="34">
+          <input type="range" id="ppLogoSize" min="12" max="75" value="34">
         </div>
-        <div class="pp-logo-hint">Перетягни лого на товарі, щоб розмістити його точно</div>
+        <div class="pp-logo-hint">Перетягни лого пальцем, щоб розмістити. Двома пальцями — збільшуй або зменшуй.</div>
+        <button class="pp-logo-bgremove" id="ppBgRemoveBtn" onclick="removeLogoBg()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M9 5h10a2 2 0 012 2v10M5 9v10a2 2 0 002 2h10"/></svg>
+          Вирізати фон
+        </button>
         <button class="pp-logo-remove" onclick="removeLogo()">Видалити лого</button>
       </div>
     </div>
@@ -5007,13 +5085,17 @@ footer {
     if (!p) return;
     lastProdKey = key;
     document.getElementById('ppName').textContent = p.name;
-    document.getElementById('ppPrice').textContent = p.price;
     document.getElementById('ppDelivery').textContent = p.delivery;
     const img = document.getElementById('ppMockupImg');
     img.src = p.img || '';
     img.style.opacity = p.img ? '1' : '0';
     document.getElementById('ppSpecsBody').innerHTML = p.specs.map(([l,v])=>`<div class="pp-spec-row"><span class="pp-spec-l">${l}</span><span class="pp-spec-v">${v}</span></div>`).join('');
     document.querySelectorAll('.pp-type-card').forEach(el => el.classList.toggle('active', el.dataset.key === key));
+    // reset logo state for this product
+    baseUnitPrice = p.price;
+    sideState.front = { src:null, x:50, y:42, w:34 };
+    sideState.back  = { src:null, x:50, y:50, w:34 };
+    setSide('front');
     // close catalog modal
     document.getElementById('catModal').classList.remove('open');
     document.getElementById('ppPage').classList.add('open');
@@ -5025,71 +5107,180 @@ footer {
     document.body.style.overflow = '';
   }
 
-  // ===== Logo upload & placement on the product =====
+  // ===== Logo: upload, side (front/back), drag, pinch-zoom, bg-removal, live price =====
+  const sideState = {
+    front: { src:null, x:50, y:42, w:34 },
+    back:  { src:null, x:50, y:50, w:34 }
+  };
+  let curSide = 'front';
+  let baseUnitPrice = 0;
+
+  function renderSide() {
+    const s = sideState[curSide];
+    const layer = document.getElementById('ppLogoLayer');
+    const logo = document.getElementById('ppUserLogo');
+    const overlay = document.getElementById('ppDesignOverlay');
+    const controls = document.getElementById('ppLogoControls');
+    const slider = document.getElementById('ppLogoSize');
+    const badge = document.getElementById('ppSideBadge');
+    if (badge) badge.textContent = curSide === 'front' ? 'ПЕРЕД' : 'СПИНА';
+    if (s.src) {
+      logo.src = s.src;
+      layer.hidden = false;
+      layer.style.left = s.x + '%';
+      layer.style.top = s.y + '%';
+      layer.style.width = s.w + '%';
+      if (overlay) overlay.style.display = 'none';
+      if (slider) slider.value = Math.round(s.w);
+    } else {
+      layer.hidden = true;
+      if (overlay) overlay.style.display = '';
+    }
+    if (controls) controls.hidden = !(sideState.front.src || sideState.back.src);
+    updatePrice();
+  }
+
+  function setSide(side) {
+    curSide = side;
+    const f = document.getElementById('ppSideFront');
+    const b = document.getElementById('ppSideBack');
+    if (f) f.classList.toggle('active', side === 'front');
+    if (b) b.classList.toggle('active', side === 'back');
+    renderSide();
+  }
+
   function triggerLogoUpload() {
     document.getElementById('ppLogoInput').click();
   }
+
   function handleLogoUpload(e) {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (ev) => {
-      const logo = document.getElementById('ppUserLogo');
-      const sizeSlider = document.getElementById('ppLogoSize');
-      logo.src = ev.target.result;
-      logo.hidden = false;
-      logo.style.left = '50%';
-      logo.style.top = '42%';
-      logo.style.width = (sizeSlider ? sizeSlider.value : 34) + '%';
-      const overlay = document.getElementById('ppDesignOverlay');
-      if (overlay) overlay.style.display = 'none';
-      const controls = document.getElementById('ppLogoControls');
-      if (controls) controls.hidden = false;
+      const s = sideState[curSide];
+      s.src = ev.target.result;
+      s.x = 50;
+      s.y = curSide === 'front' ? 42 : 50;
+      s.w = 34;
+      renderSide();
     };
     reader.readAsDataURL(file);
     e.target.value = '';
   }
+
   function removeLogo() {
-    const logo = document.getElementById('ppUserLogo');
-    logo.hidden = true;
-    logo.src = '';
-    const overlay = document.getElementById('ppDesignOverlay');
-    if (overlay) overlay.style.display = '';
-    const controls = document.getElementById('ppLogoControls');
-    if (controls) controls.hidden = true;
+    sideState[curSide].src = null;
+    renderSide();
   }
+
+  // Cut out background: make pixels close to the corner color transparent
+  function removeLogoBg() {
+    const s = sideState[curSide];
+    if (!s.src) return;
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = img.naturalWidth;
+      c.height = img.naturalHeight;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      let data;
+      try { data = ctx.getImageData(0, 0, c.width, c.height); }
+      catch (err) { alert('Не вдалося обробити це зображення'); return; }
+      const d = data.data;
+      const corners = [0, (c.width - 1) * 4, (c.height - 1) * c.width * 4, (c.height * c.width - 1) * 4];
+      let br = 0, bg = 0, bb = 0;
+      corners.forEach(i => { br += d[i]; bg += d[i + 1]; bb += d[i + 2]; });
+      br /= 4; bg /= 4; bb /= 4;
+      const tol = 48;
+      for (let i = 0; i < d.length; i += 4) {
+        const dist = Math.sqrt((d[i] - br) ** 2 + (d[i + 1] - bg) ** 2 + (d[i + 2] - bb) ** 2);
+        if (dist < tol) d[i + 3] = 0;
+      }
+      ctx.putImageData(data, 0, 0);
+      s.src = c.toDataURL('image/png');
+      renderSide();
+    };
+    img.src = s.src;
+  }
+
+  function updatePrice() {
+    const el = document.getElementById('ppPrice');
+    if (!el) return;
+    let extra = 0;
+    ['front', 'back'].forEach(side => {
+      if (sideState[side].src) extra += Math.round(sideState[side].w * 2.2);
+    });
+    el.textContent = baseUnitPrice + extra;
+  }
+
   (function initLogoTools() {
-    const sizeSlider = document.getElementById('ppLogoSize');
-    const logo = document.getElementById('ppUserLogo');
+    const layer = document.getElementById('ppLogoLayer');
     const stage = document.getElementById('ppMockup');
-    if (!logo || !stage) return;
-    if (sizeSlider) {
-      sizeSlider.addEventListener('input', () => { logo.style.width = sizeSlider.value + '%'; });
+    const slider = document.getElementById('ppLogoSize');
+    if (!layer || !stage) return;
+
+    if (slider) {
+      slider.addEventListener('input', () => {
+        sideState[curSide].w = parseFloat(slider.value);
+        layer.style.width = slider.value + '%';
+        updatePrice();
+      });
     }
-    let dragging = false;
-    logo.addEventListener('pointerdown', (e) => {
-      dragging = true;
-      logo.classList.add('dragging');
-      logo.setPointerCapture(e.pointerId);
+
+    const pointers = new Map();
+    let startDist = 0, startW = 0, dragStart = null;
+
+    layer.addEventListener('pointerdown', (e) => {
+      layer.setPointerCapture(e.pointerId);
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 1) {
+        layer.classList.add('dragging');
+        const s = sideState[curSide];
+        dragStart = { px: e.clientX, py: e.clientY, x: s.x, y: s.y };
+      } else if (pointers.size === 2) {
+        const pts = [...pointers.values()];
+        startDist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        startW = sideState[curSide].w;
+        dragStart = null;
+      }
       e.preventDefault();
     });
-    logo.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
+
+    layer.addEventListener('pointermove', (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
       const r = stage.getBoundingClientRect();
-      let x = ((e.clientX - r.left) / r.width) * 100;
-      let y = ((e.clientY - r.top) / r.height) * 100;
-      x = Math.max(10, Math.min(90, x));
-      y = Math.max(10, Math.min(90, y));
-      logo.style.left = x + '%';
-      logo.style.top = y + '%';
+      if (pointers.size >= 2 && startDist > 0) {
+        const pts = [...pointers.values()];
+        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        let w = startW * (dist / startDist);
+        w = Math.max(8, Math.min(90, w));
+        sideState[curSide].w = w;
+        layer.style.width = w + '%';
+        if (slider) slider.value = Math.round(w);
+        updatePrice();
+      } else if (dragStart) {
+        const dx = ((e.clientX - dragStart.px) / r.width) * 100;
+        const dy = ((e.clientY - dragStart.py) / r.height) * 100;
+        const x = Math.max(8, Math.min(92, dragStart.x + dx));
+        const y = Math.max(8, Math.min(92, dragStart.y + dy));
+        sideState[curSide].x = x;
+        sideState[curSide].y = y;
+        layer.style.left = x + '%';
+        layer.style.top = y + '%';
+      }
     });
+
     const end = (e) => {
-      dragging = false;
-      logo.classList.remove('dragging');
-      try { logo.releasePointerCapture(e.pointerId); } catch (_) {}
+      pointers.delete(e.pointerId);
+      if (pointers.size < 2) startDist = 0;
+      if (pointers.size === 0) { layer.classList.remove('dragging'); dragStart = null; }
+      try { layer.releasePointerCapture(e.pointerId); } catch (_) {}
     };
-    logo.addEventListener('pointerup', end);
-    logo.addEventListener('pointercancel', end);
+    layer.addEventListener('pointerup', end);
+    layer.addEventListener('pointercancel', end);
   })();
 
   function switchProdType(el, key) {
@@ -5134,9 +5325,10 @@ footer {
     }
 
     const totalQty   = sizes.reduce((s, x) => s + x.qty, 0);
-    const totalPrice = p.price * totalQty;
+    const unitPrice  = parseInt(document.getElementById('ppPrice').textContent) || p.price;
+    const totalPrice = unitPrice * totalQty;
 
-    cart.push({ id: Date.now(), key, name: p.name, img: p.img, price: p.price,
+    cart.push({ id: Date.now(), key, name: p.name, img: p.img, price: unitPrice,
                 colorName, colorHex, printType, sizes, totalQty, totalPrice });
     renderCart();
 
