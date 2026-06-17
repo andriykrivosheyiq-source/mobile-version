@@ -3481,39 +3481,53 @@ footer {
 .team-principle > div { display: flex; flex-direction: column; gap: 2px; }
 .team-principle b { font-family: var(--font-display); font-size: 13.5px; color: var(--black); }
 .team-principle span { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
-/* ===== COMPACT & MORE VARIED LAYOUT ===== */
+/* ===== SOFT MODERN OUTLINE DESIGN (grey / black / blue) ===== */
 .section { padding: 30px var(--safe-left); }
 .how-section { padding: 30px 16px 0; }
 
-/* How steps: tighter, smaller, color-varied */
+/* tighter sizes */
 .steps-list { gap: 12px; display: flex; flex-direction: column; }
-.step-card { border-radius: 18px !important; padding: 14px 0 14px 16px !important; }
+.step-card { padding: 14px 0 14px 16px !important; }
 .step-image { width: 116px !important; }
 .step-card-left { padding-right: 10px; }
 .step-title { font-size: 15px; margin-bottom: 4px; }
 .step-text { font-size: 12px; line-height: 1.45; }
-.step-badge {
-  width: 30px !important; height: 30px !important; font-size: 13px !important;
-  background: linear-gradient(135deg, #2f7bff, #1340B0) !important;
-  color: #fff !important; margin-bottom: 10px;
-}
-.steps-list .step-card:nth-of-type(1) .step-image > div { background: #EEF4FF !important; }
-.steps-list .step-card:nth-of-type(2) .step-image > div { background: #FFF2EA !important; }
-.steps-list .step-card:nth-of-type(3) .step-image > div { background: #EAF8F0 !important; }
-
-/* Hook block: soft blue tint instead of grey */
-.steps-cta-card { background: linear-gradient(135deg, #EAF1FF, #F4F8FF) !important; border-radius: 20px !important; padding: 20px !important; }
-
-/* Catalog: tighter cards, less rounding */
 .catalog-section { padding: 30px 16px 30px; }
-.cat-card { border-radius: 18px !important; }
-.cat-photo { aspect-ratio: 4 / 4.4 !important; }
+.cat-photo { aspect-ratio: 4 / 4.4 !important; background: #fff !important; }
 .catalog-grid { gap: 12px !important; }
 .cat-info { padding: 10px 12px !important; }
 
-/* Generic cards: smaller radius so blocks feel tighter */
-.adv-item, .vs-table, .team-principle, .problem-card, .guarantee-card,
-.case-detail-card, .for-who-item, .faq-item { border-radius: 16px !important; }
+/* White cards + soft contour outline (light sections) */
+.step-card, .cat-card, .steps-cta-card, .team-principle,
+.for-who-item, .faq-item, .guarantee-card, .vs-table, .case-detail-card {
+  background: #fff !important;
+  border: 1.5px solid rgba(13,13,13,0.14) !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;
+}
+
+/* Neutral step visuals (no colored tints) + contour divider */
+.step-image > div { background: #F5F6F8 !important; }
+.step-image { border-left: 1.5px solid rgba(13,13,13,0.08) !important; }
+
+/* Outlined blue step badge (contour style) */
+.step-badge {
+  width: 30px !important; height: 30px !important; font-size: 13px !important;
+  background: #fff !important; border: 1.6px solid var(--blue) !important;
+  color: var(--blue) !important; margin-bottom: 10px;
+}
+
+/* Catalog: white cards, soft outline; featured = blue outline */
+.cat-card { border-radius: 16px !important; }
+.cat-card.cat-feature { border-color: rgba(26,86,219,0.45) !important; }
+.cat-arrow { background: #fff !important; border: 1.5px solid rgba(13,13,13,0.16) !important; }
+
+/* Hook block: white + blue contour */
+.steps-cta-card { border-color: rgba(26,86,219,0.40) !important; padding: 20px !important; }
+
+/* Dark-section cards: keep dark, soft blue contour */
+.problem-card { background: #101010 !important; border: 1.5px solid rgba(110,155,255,0.32) !important; }
+.theme-dark .adv-item { background: #101010 !important; border: 1.5px solid rgba(110,155,255,0.28) !important; box-shadow: none !important; }
 </style>
 </head>
 <body>
