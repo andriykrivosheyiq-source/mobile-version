@@ -2616,6 +2616,35 @@ footer {
   text-align: center;
   line-height: 1.4;
 }
+.pp-design-box { cursor: pointer; pointer-events: auto; }
+.pp-user-logo {
+  position: absolute;
+  width: 34%;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+}
+.pp-user-logo.dragging { cursor: grabbing; }
+.pp-logo-controls { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.pp-logo-size-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--black); font-weight: 600; }
+.pp-logo-size-row input[type=range] { flex: 1; accent-color: var(--blue); }
+.pp-logo-hint { font-size: 12px; color: #888; }
+.pp-logo-remove {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #d33;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+}
 .pp-dots {
   display: flex;
   align-items: center;
@@ -3278,16 +3307,16 @@ footer {
 <!-- HOW — redesigned premium white -->
 <section class="how-section">
   <div class="sec-label reveal r-still">ЯК ЦЕ ПРАЦЮЄ</div>
-  <h2 class="reveal r-still">3 кроки до ідеального мерчу</h2>
-  <p class="sec-sub reveal r-still">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
+  <h2 class="reveal r-still">Від лого до готового мерчу — за 3 кроки</h2>
+  <p class="sec-sub reveal r-still">Без переписок і тижнів очікування</p>
 
   <div class="steps-list" data-stagger="0.08">
     <!-- Card 1 -->
     <div class="step-card fade-up">
       <div class="step-card-left">
         <div class="step-badge">1</div>
-        <div class="step-title">Виберіть товар</div>
-        <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+        <div class="step-title">Налаштуй онлайн</div>
+        <div class="step-text">Обери одяг, колір і розмір, завантаж лого та тип нанесення — ціна і дата оновлюються миттєво</div>
       </div>
       <div class="step-image">
         <div class="step-cloth-wrap">
@@ -3313,8 +3342,8 @@ footer {
     <div class="step-card fade-up">
       <div class="step-card-left">
         <div class="step-badge">2</div>
-        <div class="step-title">Завантажте дизайн</div>
-        <div class="step-text">Додайте логотип вашої команди</div>
+        <div class="step-title">Оплати онлайн</div>
+        <div class="step-text">Бачиш фінальну ціну і дату готовності ще до оплати. Карткою або рахунок для ФОП</div>
       </div>
       <div class="step-image">
         <div class="step-logo-wrap">
@@ -3339,8 +3368,8 @@ footer {
     <div class="step-card fade-up">
       <div class="step-card-left">
         <div class="step-badge">3</div>
-        <div class="step-title">Підтвердіть замовлення</div>
-        <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+        <div class="step-title">Отримай вчасно</div>
+        <div class="step-text">Виготовляємо і відправляємо у зазначений термін. Трекінг номер — одразу після відправки</div>
       </div>
       <div class="step-image">
         <div class="step-box-wrap">
@@ -4023,14 +4052,16 @@ footer {
   <div class="pp-scroll">
 
     <!-- Mockup image -->
-    <div class="pp-mockup">
+    <div class="pp-mockup" id="ppMockup">
       <img class="pp-mockup-img" id="ppMockupImg" src="" alt="Продукт">
-      <div class="pp-design-overlay">
-        <div class="pp-design-box">
+      <div class="pp-design-overlay" id="ppDesignOverlay">
+        <div class="pp-design-box" onclick="triggerLogoUpload()">
           <div class="pp-design-plus">+</div>
           <div class="pp-design-label">Додайте свій дизайн</div>
         </div>
       </div>
+      <img id="ppUserLogo" class="pp-user-logo" alt="Ваше лого" hidden>
+      <input type="file" id="ppLogoInput" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden onchange="handleLogoUpload(event)">
     </div>
     <!-- Pagination dots -->
     <div class="pp-dots">
@@ -4073,8 +4104,16 @@ footer {
           </div>
           <div class="pp-photo-upload-title">Завантажте логотип або дизайн</div>
           <div class="pp-photo-upload-sub">PNG, JPG, SVG до 20 МБ</div>
-          <button class="pp-photo-upload-btn">Вибрати файл</button>
+          <button class="pp-photo-upload-btn" onclick="triggerLogoUpload()">Вибрати файл</button>
         </div>
+      </div>
+      <div class="pp-logo-controls" id="ppLogoControls" hidden>
+        <div class="pp-logo-size-row">
+          <span>Розмір лого</span>
+          <input type="range" id="ppLogoSize" min="15" max="70" value="34">
+        </div>
+        <div class="pp-logo-hint">Перетягни лого на товарі, щоб розмістити його точно</div>
+        <button class="pp-logo-remove" onclick="removeLogo()">Видалити лого</button>
       </div>
     </div>
 
@@ -4920,6 +4959,73 @@ footer {
     document.getElementById('ppPage').classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  // ===== Logo upload & placement on the product =====
+  function triggerLogoUpload() {
+    document.getElementById('ppLogoInput').click();
+  }
+  function handleLogoUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const logo = document.getElementById('ppUserLogo');
+      const sizeSlider = document.getElementById('ppLogoSize');
+      logo.src = ev.target.result;
+      logo.hidden = false;
+      logo.style.left = '50%';
+      logo.style.top = '42%';
+      logo.style.width = (sizeSlider ? sizeSlider.value : 34) + '%';
+      const overlay = document.getElementById('ppDesignOverlay');
+      if (overlay) overlay.style.display = 'none';
+      const controls = document.getElementById('ppLogoControls');
+      if (controls) controls.hidden = false;
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  }
+  function removeLogo() {
+    const logo = document.getElementById('ppUserLogo');
+    logo.hidden = true;
+    logo.src = '';
+    const overlay = document.getElementById('ppDesignOverlay');
+    if (overlay) overlay.style.display = '';
+    const controls = document.getElementById('ppLogoControls');
+    if (controls) controls.hidden = true;
+  }
+  (function initLogoTools() {
+    const sizeSlider = document.getElementById('ppLogoSize');
+    const logo = document.getElementById('ppUserLogo');
+    const stage = document.getElementById('ppMockup');
+    if (!logo || !stage) return;
+    if (sizeSlider) {
+      sizeSlider.addEventListener('input', () => { logo.style.width = sizeSlider.value + '%'; });
+    }
+    let dragging = false;
+    logo.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      logo.classList.add('dragging');
+      logo.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    logo.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const r = stage.getBoundingClientRect();
+      let x = ((e.clientX - r.left) / r.width) * 100;
+      let y = ((e.clientY - r.top) / r.height) * 100;
+      x = Math.max(10, Math.min(90, x));
+      y = Math.max(10, Math.min(90, y));
+      logo.style.left = x + '%';
+      logo.style.top = y + '%';
+    });
+    const end = (e) => {
+      dragging = false;
+      logo.classList.remove('dragging');
+      try { logo.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+    logo.addEventListener('pointerup', end);
+    logo.addEventListener('pointercancel', end);
+  })();
 
   function switchProdType(el, key) {
     openProdPage(key);
