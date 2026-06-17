@@ -36,11 +36,15 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -webkit-user-select: none;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--bg);
   color: var(--black);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
   font-family: 'Onest', sans-serif;
   font-size: 14px;
   line-height: 1.5;
@@ -176,151 +180,110 @@ header.scrolled {
 /* ===== HERO ===== */
 .hero {
   min-height: 100vh;
-  padding: 0;
+  min-height: 100svh;
   background: var(--bg);
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 
-.hero-bg {
+/* Photo: large background, right-aligned, full height */
+.hero-bg-wrap {
   position: absolute;
   right: 0;
   top: 0;
+  width: 88%;
   height: 100%;
-  width: 68%;
+  z-index: 0;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: right center;
   display: block;
 }
 
+/* Gradient: full-width overlay, solid left → transparent right */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background: linear-gradient(
     to right,
-    #F2F2F2 30%,
-    rgba(242, 242, 242, 0.90) 52%,
-    rgba(242, 242, 242, 0.25) 74%,
+    #F2F2F2 0%,
+    #F2F2F2 10%,
+    rgba(242, 242, 242, 0.85) 28%,
+    rgba(242, 242, 242, 0.38) 52%,
+    rgba(242, 242, 242, 0.05) 75%,
     transparent 100%
   );
 }
 
+/* Vertical flex: title top, spacer (shows photo), desc+btn bottom */
 .hero-inner {
   position: relative;
   z-index: 2;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: calc(56px + var(--safe-top) + 28px) var(--safe-left) 40px;
-  gap: 0;
-  max-width: 100%;
+  padding: calc(56px + var(--safe-top) + 20px) 20px 0;
+  box-sizing: border-box;
 }
 
-.hero-left {
-  width: 100%;
-  padding: 0;
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.hero-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-  margin-bottom: 12px;
+.hero-title-block {
+  /* title at top */
 }
 
 .hero-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(32px, 8vw, 48px);
+  font-size: clamp(32px, 8.5vw, 48px);
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   color: var(--black);
-  margin-bottom: 12px;
+  width: 86%;
 }
 
 .hero-title-accent {
   color: var(--blue);
   display: block;
+  font-style: italic;
   margin-top: 4px;
 }
 
+/* Two spacers sandwich the desc — centers it between title and button */
+.hero-spacer-top {
+  flex: 0.6;
+  min-height: 16px;
+}
+
+.hero-spacer-bottom {
+  flex: 1;
+  min-height: 16px;
+}
+
 .hero-desc {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-  margin: 16px 0 24px;
-  max-width: 100%;
-}
-
-.hero-features {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
-  width: 100%;
-}
-
-.hero-feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 10px 12px;
-  background: rgba(242, 242, 242, 0.82);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.hero-feature-icon {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.65;
+  width: 70%;
+  margin: 0;
   flex-shrink: 0;
-  background: var(--white);
 }
 
-.hero-feature-icon svg {
-  width: 18px;
-  height: 18px;
-}
-
-.hero-feature-title {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--black);
-  margin-bottom: 2px;
-}
-
-.hero-feature-text {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.4;
-}
-
-.hero-right {
-  display: none;
-}
-
-.hero .btn-primary {
+.hero-cta {
   width: 100%;
-  padding: 14px 16px;
-  font-size: 13px;
-  border-radius: 8px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 14px;
+  box-sizing: border-box;
+  letter-spacing: 0.01em;
+  margin-bottom: calc(24px + var(--safe-bottom, 20px));
+  flex-shrink: 0;
 }
 
 /* ===== LOGOS SECTION ===== */
@@ -441,191 +404,364 @@ h2 {
   padding: 40px var(--safe-left);
 }
 
-/* ===== HOW SECTION ===== */
+/* ===== HOW SECTION — premium white ===== */
 .how-section {
-  background: var(--black);
+  background: #fff;
   position: relative;
   overflow: hidden;
+  padding: 40px 20px 0;
 }
 
-.how-section::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(26, 86, 219, 0.1) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.how-section h2,
 .how-section .sec-label {
-  color: #fff;
+  color: #2563FF;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.how-section .sec-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: #2563FF;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.how-section h2 {
+  color: var(--black);
+  font-size: clamp(22px, 6vw, 30px);
+  margin-bottom: 6px;
 }
 
 .how-section .sec-sub {
-  color: rgba(255, 255, 255, 0.4);
+  color: #666;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+/* Step cards list */
+.steps-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .step-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 24px 16px;
-  transition: all 0.3s;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 18px 0 18px 18px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s;
 }
 
 .step-card:active {
-  background: rgba(26, 86, 219, 0.1);
-  border-color: rgba(26, 86, 219, 0.35);
-  transform: translateY(-2px);
+  transform: scale(0.99);
 }
 
-.step-num {
+.step-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 12px;
+}
+
+.step-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(37, 99, 255, 0.08);
+  color: #2563FF;
   font-family: 'Unbounded', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--blue);
-  background: rgba(26, 86, 219, 0.12);
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
-  border: 1px solid rgba(26, 86, 219, 0.2);
+  flex-shrink: 0;
 }
 
 .step-title {
   font-family: 'Unbounded', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: #fff;
+  color: var(--black);
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .step-text {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
-  line-height: 1.6;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.55;
 }
 
-/* ===== HOOK SECTION ===== */
-.hook-section {
-  background: var(--blue);
+.step-image {
+  width: 130px;
+  height: 110px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 0 18px 18px 0;
+}
+
+.step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Dashed arrow connector between cards */
+.step-arrow {
+  display: flex;
+  align-items: center;
+  padding: 4px 0 4px 28px;
+}
+
+/* ===== CTA BLOCK (replacing old hook) ===== */
+.steps-cta-wrap {
+  padding: 28px 20px 40px;
+  background: #fff;
+}
+
+.steps-cta-card {
+  background: linear-gradient(135deg, #f0f5ff 0%, #f8f9ff 100%);
+  border-radius: 20px;
+  padding: 24px 20px;
+  border: 1px solid rgba(37, 99, 255, 0.1);
+}
+
+.steps-cta-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.steps-cta-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 3px solid #2563FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(37,99,255,0.15);
+}
+
+.steps-cta-icon-inner {
   text-align: center;
-  padding: 40px var(--safe-left);
+  line-height: 1;
 }
 
-.hook-title {
+.steps-cta-num {
   font-family: 'Unbounded', sans-serif;
-  font-size: clamp(22px, 5vw, 36px);
+  font-size: 22px;
   font-weight: 900;
-  letter-spacing: -0.025em;
-  margin-bottom: 16px;
-  line-height: 1.2;
-  color: #fff;
+  color: #2563FF;
+  display: block;
+  line-height: 1.1;
 }
 
-.hook-title span {
-  opacity: 0.7;
+.steps-cta-unit {
+  font-size: 10px;
+  color: #2563FF;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.steps-cta-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.35;
+}
+
+.steps-cta-title em {
+  color: #2563FF;
+  font-style: normal;
+}
+
+.steps-cta-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 14px;
+  background: #2563FF;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Onest', sans-serif;
+  letter-spacing: 0.01em;
+  transition: background 0.2s;
+}
+
+.steps-cta-btn:active {
+  background: #1d4ed8;
 }
 
 /* ===== CATALOG ===== */
+/* ===== CATALOG — premium minimal ===== */
 .catalog-section {
-  background: var(--bg);
+  background: #fff;
+  padding: 40px 20px 40px;
+}
+
+.catalog-section .sec-label {
+  color: #2563FF;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 8px;
+}
+
+.catalog-section h2 {
+  font-size: clamp(26px, 7vw, 36px);
+  margin-bottom: 6px;
+}
+
+.catalog-section .sec-sub {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 24px;
 }
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
 
 .cat-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: #F4F4F5;
+  border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border: 1.5px solid #E8E8E8;
 }
 
 .cat-card:active {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: var(--blue);
+  transform: scale(0.98);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
 }
 
-.cat-visual {
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.cat-photo {
+  background: #F4F4F5;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  position: relative;
+  display: block;
+}
 }
 
-.cat-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 86, 219, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s;
-  z-index: 3;
-}
-
-.cat-card:active .cat-overlay {
-  opacity: 1;
-}
-
-.cat-overlay-btn {
-  color: #fff;
-  font-family: 'Unbounded', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  padding: 8px 16px;
-  border-radius: 6px;
+.cat-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .cat-info {
-  padding: 12px;
-  border-top: 1px solid var(--border);
+  padding: 12px 12px 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cat-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .cat-name {
   font-family: 'Unbounded', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  margin-bottom: 4px;
+  color: #0D0D0D;
+  line-height: 1.3;
 }
 
 .cat-price {
-  font-size: 12px;
-  color: var(--muted);
+  font-size: 11px;
+  color: #888;
+  font-weight: 400;
 }
 
-.cv-tshirt { background: linear-gradient(160deg, #E8E8EE, #D8D8E4); }
-.cv-hoodie { background: linear-gradient(160deg, #1a1a2e, #2a2a40); }
-.cv-cap { background: linear-gradient(160deg, #1a2a1a, #2a3a2a); }
-.cv-bag { background: linear-gradient(160deg, #2a1a3a, #3a2a50); }
-.cv-socks { background: linear-gradient(160deg, #2a1a1a, #3a2020); }
-.cv-all { background: linear-gradient(160deg, var(--blue), #3b6fd4); }
+.cat-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F4F4F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.cat-card:active .cat-arrow {
+  background: #2563FF;
+  color: #fff;
+}
+
+.cat-arrow svg {
+  width: 14px;
+  height: 14px;
+  color: #333;
+}
+
+.cat-card:active .cat-arrow svg {
+  color: #fff;
+}
+
+/* Catalog footer link */
+.catalog-more {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #E8E8E8;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+  background: #fff;
+}
+
+.catalog-more:active {
+  background: #F4F4F5;
+}
 
 /* ===== ADVANTAGES ===== */
 .adv-section {
@@ -1226,12 +1362,7 @@ footer {
   display: none;
 }
 
-@supports (padding: max(0px)) {
-  body {
-    padding-left: var(--safe-left);
-    padding-right: var(--safe-right);
-  }
-}
+/* safe-area padding only on sections, not body — keeps hero full-width */
 
 /* ===== ANIMATIONS ===== */
 @media (prefers-reduced-motion: reduce) {
@@ -1256,46 +1387,36 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="https://i.ibb.co.com/9kfp7Wpm/IMG-9651.jpg" alt="Мерч для команди">
+  <!-- Photo: large background, right-aligned -->
+  <div class="hero-bg-wrap">
+    <img class="hero-bg" src="IMG_7211.JPEG" alt="Мерч для команди">
+  </div>
+  <!-- Gradient: full-width, solid left → transparent right -->
   <div class="hero-bg-overlay"></div>
+  <!-- Content: title top, spacer, desc+btn bottom -->
   <div class="hero-inner">
-    <div class="hero-left fade-up">
+    <!-- Title at top -->
+    <div class="hero-title-block">
       <div class="hero-title">
-        МЕРЧ<br>ДЛЯ<br>КОМАНДИ
+        МЕРЧ ДЛЯ КОМАНДИ
         <em class="hero-title-accent">ЗА 1 ХВИЛИНУ</em>
       </div>
-      <p class="hero-desc">Оберіть одяг, завантажте лого, оберіть кількість — і одразу бачите вартість та термін.</p>
-      <div class="hero-features">
-        <div class="hero-feature fade-up">
-          <div class="hero-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8L6 7h12l-2-4z"/></svg>
-          </div>
-          <div>
-            <div class="hero-feature-title">Одяг на будь-який смак</div>
-            <div class="hero-feature-text">Підберіть те, що пасує вашій команді</div>
-          </div>
-        </div>
-        <div class="hero-feature fade-up">
-          <div class="hero-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
-          </div>
-          <div>
-            <div class="hero-feature-title">Ваше лого за 1 клік</div>
-            <div class="hero-feature-text">Завантажте лого та перегляньте результат</div>
-          </div>
-        </div>
-        <div class="hero-feature fade-up">
-          <div class="hero-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1A56DB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <div>
-            <div class="hero-feature-title">Ціна та термін одразу</div>
-            <div class="hero-feature-text">Прозоро і без очікувань</div>
-          </div>
-        </div>
-      </div>
-      <a href="#catalog" class="btn btn-primary">СТВОРИТИ МЕРЧ →</a>
     </div>
+    <!-- Spacer: photo shows through this area -->
+    <div class="hero-spacer"></div>
+    <!-- Spacer top: grows to push desc toward center -->
+    <div class="hero-spacer-top"></div>
+    <!-- Description centered between title and button -->
+    <p class="hero-desc">
+      Завантажте лого,<br>
+      оберіть одяг,<br>
+      кількість — і одразу<br>
+      бачите ціну та термін
+    </p>
+    <!-- Spacer bottom: breathing room above button -->
+    <div class="hero-spacer-bottom"></div>
+    <!-- Button anchored at bottom -->
+    <a href="#catalog" class="btn btn-primary hero-cta">Створити мерч</a>
   </div>
 </section>
 
@@ -1329,108 +1450,165 @@ footer {
   </div>
 </section>
 
-<!-- HOW -->
-<section class="how-section section">
-  <div class="sec-label">КАК ЦЕ ПРАЦЮЄ</div>
+<!-- HOW — redesigned premium white -->
+<section class="how-section">
+  <div class="sec-label">ЯК ЦЕ ПРАЦЮЄ</div>
   <h2>3 кроки до ідеального мерчу</h2>
   <p class="sec-sub">Просто, швидко, без морок. Створіть мерч за кілька хвилин.</p>
-  <div class="steps-grid">
+
+  <div class="steps-list">
+    <!-- Card 1 -->
     <div class="step-card fade-up">
-      <div class="step-num">1</div>
-      <div class="step-title">Виберіть товар</div>
-      <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+      <div class="step-card-left">
+        <div class="step-badge">1</div>
+        <div class="step-title">Виберіть товар</div>
+        <div class="step-text">Оберіть з каталогу улюблений предмет</div>
+      </div>
+      <div class="step-image">
+        <img src="IMG_9702.PNG" alt="Виберіть товар">
+      </div>
     </div>
-    <div class="step-card fade-up">
-      <div class="step-num">2</div>
-      <div class="step-title">Завантажте дизайн</div>
-      <div class="step-text">Додайте логотип вашої команди</div>
+
+    <!-- Arrow -->
+    <div class="step-arrow">
+      <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#2563FF" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
+
+    <!-- Card 2 -->
     <div class="step-card fade-up">
-      <div class="step-num">3</div>
-      <div class="step-title">Підтвердіть замовлення</div>
-      <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+      <div class="step-card-left">
+        <div class="step-badge">2</div>
+        <div class="step-title">Завантажте дизайн</div>
+        <div class="step-text">Додайте логотип вашої команди</div>
+      </div>
+      <div class="step-image">
+        <img src="IMG_9703.PNG" alt="Завантажте дизайн">
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="step-arrow">
+      <svg width="20" height="32" viewBox="0 0 20 32" fill="none">
+        <line x1="10" y1="0" x2="10" y2="22" stroke="#2563FF" stroke-width="2" stroke-dasharray="4 3"/>
+        <path d="M4 18 L10 25 L16 18" stroke="#2563FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="step-card fade-up">
+      <div class="step-card-left">
+        <div class="step-badge">3</div>
+        <div class="step-title">Підтвердіть замовлення</div>
+        <div class="step-text">Оплатіть та дочекайтесь доставки</div>
+      </div>
+      <div class="step-image">
+        <img src="IMG_9704.PNG" alt="Підтвердіть замовлення">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HOOK -->
-<section class="hook-section section">
-  <h2 class="hook-title">Мерч, який говорить <span>про вашу команду</span></h2>
-</section>
+<!-- CTA block — replaces old hook -->
+<div class="steps-cta-wrap">
+  <div class="steps-cta-card">
+    <div class="steps-cta-top">
+      <div class="steps-cta-icon">
+        <div class="steps-cta-icon-inner">
+          <span class="steps-cta-num">60</span>
+          <span class="steps-cta-unit">сек</span>
+        </div>
+      </div>
+      <div class="steps-cta-title">
+        Мерч, який говорить<br>про <em>вашу команду</em>
+      </div>
+    </div>
+    <a href="#catalog" class="steps-cta-btn">
+      Перейти до каталогу
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
 
-<!-- CATALOG -->
-<section class="catalog-section section" id="catalog">
+<!-- CATALOG — premium minimal -->
+<section class="catalog-section" id="catalog">
   <div class="sec-label">КАТАЛОГ</div>
   <h2>Що замовити?</h2>
   <p class="sec-sub">Виберіть товар, який найбільше підходить вашій команді</p>
+
   <div class="catalog-grid">
+    <!-- 1 — Футболка -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-tshirt">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="1.jpg" alt="Футболка">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Футболка</div>
-        <div class="cat-price">від 99 грн</div>
+        <div class="cat-info-text">
+          <div class="cat-name">Футболка</div>
+          <div class="cat-price">від 99 грн</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
+
+    <!-- 2 — Світшот -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-hoodie">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="2.jpg" alt="Світшот">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Худі</div>
-        <div class="cat-price">від 299 грн</div>
+        <div class="cat-info-text">
+          <div class="cat-name">Світшот</div>
+          <div class="cat-price">від 199 грн</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
+
+    <!-- 3 — Худі -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-cap">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="3.jpg" alt="Худі">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Кепка</div>
-        <div class="cat-price">від 149 грн</div>
+        <div class="cat-info-text">
+          <div class="cat-name">Худі</div>
+          <div class="cat-price">від 299 грн</div>
+        </div>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
+
+    <!-- 4 — Кепка -->
     <div class="cat-card fade-up">
-      <div class="cat-visual cv-bag">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
-        </div>
+      <div class="cat-photo">
+        <img src="4.jpg" alt="Кепка">
       </div>
       <div class="cat-info">
-        <div class="cat-name">Сумка</div>
-        <div class="cat-price">від 199 грн</div>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="cat-visual cv-socks">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
+        <div class="cat-info-text">
+          <div class="cat-name">Кепка</div>
+          <div class="cat-price">від 149 грн</div>
         </div>
-      </div>
-      <div class="cat-info">
-        <div class="cat-name">Шкарпетки</div>
-        <div class="cat-price">від 49 грн</div>
-      </div>
-    </div>
-    <div class="cat-card fade-up">
-      <div class="cat-visual cv-all">
-        <div class="cat-overlay">
-          <button class="cat-overlay-btn">Переглянути</button>
+        <div class="cat-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
-      </div>
-      <div class="cat-info">
-        <div class="cat-name">Комбо</div>
-        <div class="cat-price">від 599 грн</div>
       </div>
     </div>
   </div>
+
+  <!-- Footer link -->
+  <a href="#" class="catalog-more">
+    Перейти до каталогу
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
 </section>
 
 <!-- ADVANTAGES -->
