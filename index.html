@@ -3581,12 +3581,27 @@ footer {
 }
 
 /* Catalog bottom banner */
+.catalog-section .sec-label { color: var(--blue) !important; display: inline-flex; align-items: center; gap: 6px; }
+.catalog-section .sec-label::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); display: inline-block; }
 .catalog-banner {
+  position: relative; overflow: hidden;
   display: flex; align-items: center; gap: 14px;
   background: linear-gradient(120deg, #E9EFFB, #EEF1FC) !important;
   border-radius: 18px; padding: 16px 18px; margin-top: 16px;
   text-decoration: none;
 }
+.catalog-banner::after {
+  content: ''; position: absolute; top: 0; left: -65%;
+  width: 55%; height: 100%; pointer-events: none;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.75) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  animation: bannerShine 3.4s ease-in-out infinite;
+}
+@keyframes bannerShine {
+  0% { left: -65%; }
+  40%, 100% { left: 135%; }
+}
+@media (prefers-reduced-motion: reduce) { .catalog-banner::after { animation: none; } }
 .cb-icon {
   flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%;
   background: #fff; display: flex; align-items: center; justify-content: center;
@@ -3773,7 +3788,7 @@ footer {
 <section class="catalog-section" id="catalog">
   <div class="sec-label reveal r-still">КАТАЛОГ</div>
   <h2 class="reveal r-still">Обери, що хочеш<br>забрендувати</h2>
-  <p class="sec-sub reveal r-still">Понад 50 позицій —<br>налаштуй онлайн прямо зараз</p>
+  <p class="sec-sub reveal r-still">Понад 50 позицій — налаштуй онлайн прямо зараз</p>
 
   <div class="catalog-grid" data-stagger="0.08">
     <!-- 1 — Худі -->
