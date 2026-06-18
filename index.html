@@ -3620,6 +3620,30 @@ footer {
 /* Generic cards: smaller radius so blocks feel tighter */
 .adv-item, .vs-table, .team-principle, .problem-card, .guarantee-card,
 .case-detail-card, .for-who-item, .faq-item { border-radius: 16px !important; }
+
+/* Advantages — light reference style */
+.adv-item, .adv-item-yellow {
+  background: #fff !important;
+  border: 1px solid #EDEFF4 !important;
+  box-shadow: 0 6px 18px rgba(30,45,90,0.05) !important;
+  border-radius: 16px !important;
+}
+.adv-icon-box {
+  background: #EEF4FF !important;
+  color: var(--blue) !important;
+  border: none !important;
+  width: 46px !important; height: 46px !important; border-radius: 12px !important;
+}
+.adv-icon-box svg { color: var(--blue) !important; width: 22px; height: 22px; }
+.adv-divider { display: none !important; }
+.adv-title { color: var(--ink) !important; }
+.adv-text { color: var(--muted) !important; }
+.adv-header-img {
+  background: #FBFBFE url('fon.png') center/cover !important;
+  border-radius: 18px !important; overflow: hidden !important;
+  align-self: flex-start;
+}
+.adv-header-img img { width: 100% !important; height: 100% !important; object-fit: contain !important; }
 </style>
 </head>
 <body>
@@ -3875,7 +3899,7 @@ footer {
 </section>
 
 <!-- ADVANTAGES -->
-<section class="adv-section theme-dark">
+<section class="adv-section">
   <div class="adv-header">
     <div class="adv-header-text">
       <div class="sec-label reveal r-still">ПЕРЕВАГИ</div>
@@ -3883,7 +3907,7 @@ footer {
       <p class="sec-sub reveal r-still">Те, чого немає у звичайних підрядників</p>
     </div>
     <div class="adv-header-img">
-      <img src="adv-hero.png" alt="LoomiQ мерч">
+      <img src="adv-stack.jpg" alt="Мерч LoomiQ">
     </div>
   </div>
 
