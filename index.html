@@ -3411,9 +3411,9 @@ footer {
 .cat-price { font-size: 12px !important; }
 
 /* ===== COMPARISON WITH COMPETITORS ===== */
-.vs-section { background: #FBFBFE url('vs-bg.png') center/cover !important; }
-.vs-video { border-radius: 18px; overflow: hidden; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(30,45,90,0.08); }
-.vs-video video { width: 100%; height: auto; display: block; }
+.vs-section { background: var(--white); }
+.adv-video { border-radius: 18px; overflow: hidden; margin: 0 16px 16px; box-shadow: 0 8px 24px rgba(30,45,90,0.08); }
+.adv-video video { width: 100%; height: auto; display: block; }
 .vs-table {
   border: 1px solid var(--border, #e2e2e2);
   border-radius: 16px;
@@ -3624,6 +3624,7 @@ footer {
 .case-detail-card, .for-who-item, .faq-item { border-radius: 16px !important; }
 
 /* Advantages — full header banner image */
+.adv-section { background: #FBFBFE url('vs-bg.png') center/cover !important; }
 .adv-header-full { padding: 30px 16px 18px; }
 .adv-header-full img { width: 100%; height: auto; display: block; border-radius: 18px; }
 
@@ -3910,6 +3911,12 @@ footer {
     <img src="adv-header.jpg" alt="Чому LoomiQ — це інакше. Те, чого немає у звичайних підрядників">
   </div>
 
+  <div class="adv-video reveal r-scale">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <source src="vs-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <div class="adv-list" data-stagger="0.08">
     <div class="adv-item adv-item-yellow fade-up">
       <div class="adv-icon-box">
@@ -4022,11 +4029,6 @@ footer {
   <div class="sec-label reveal r-still">ЧОМУ LOOMIQ</div>
   <h2 class="reveal r-still">LoomiQ vs звичайний підрядник</h2>
   <p class="sec-sub reveal r-still">Подивись різницю — і більше не витрачай час на переписки</p>
-  <div class="vs-video reveal r-scale">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-      <source src="vs-video.mp4" type="video/mp4">
-    </video>
-  </div>
   <div class="vs-table reveal r-still">
     <div class="vs-row vs-head">
       <div class="vs-feature"></div>
