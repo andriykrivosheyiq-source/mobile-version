@@ -3485,24 +3485,40 @@ footer {
 .section { padding: 30px var(--safe-left); }
 .how-section { padding: 30px 16px 0; }
 
-/* How steps: tighter, smaller, color-varied */
-.steps-list { gap: 12px; display: flex; flex-direction: column; }
-.step-card { border-radius: 18px !important; padding: 14px 0 14px 16px !important; }
-.step-image { width: 116px !important; }
-.step-card-left { padding-right: 10px; }
-.step-title { font-size: 15px; margin-bottom: 4px; }
-.step-text { font-size: 12px; line-height: 1.45; }
-.step-badge {
-  width: 30px !important; height: 30px !important; font-size: 13px !important;
-  background: linear-gradient(135deg, #2f7bff, #1340B0) !important;
-  color: #fff !important; margin-bottom: 10px;
+/* How steps — reference design: white cards, STEP pill, chips, image right */
+.how-section { background: var(--fog) !important; }
+.steps-list { gap: 14px; display: flex; flex-direction: column; }
+.step-card {
+  border-radius: 22px !important;
+  padding: 18px 0 18px 18px !important;
+  background: #fff !important;
+  box-shadow: 0 6px 22px rgba(13,13,13,0.06) !important;
+  border: none !important;
+  align-items: center !important;
 }
-.steps-list .step-card:nth-of-type(1) .step-image > div { background: #EEF4FF !important; }
-.steps-list .step-card:nth-of-type(2) .step-image > div { background: #FFF2EA !important; }
-.steps-list .step-card:nth-of-type(3) .step-image > div { background: #EAF8F0 !important; }
+.step-image { width: 128px !important; }
+.step-image > div { background: #F5F6F8 !important; }
+.step-card-left { padding-right: 12px; }
+.step-pill {
+  display: inline-block;
+  font-family: var(--font-text);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--blue);
+  background: var(--blue-light, #EEF4FF);
+  padding: 5px 11px; border-radius: 999px;
+  margin-bottom: 10px;
+}
+.step-title { font-size: 16px; margin-bottom: 5px; }
+.step-text { font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+.step-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.step-chip {
+  font-size: 10.5px; font-weight: 600; color: #5b5b5f;
+  background: var(--fog); border: 1px solid rgba(13,13,13,0.08);
+  padding: 4px 9px; border-radius: 999px; white-space: nowrap;
+}
 
-/* Hook block: soft blue tint instead of grey */
-.steps-cta-card { background: linear-gradient(135deg, #EAF1FF, #F4F8FF) !important; border-radius: 20px !important; padding: 20px !important; }
+/* Hook block */
+.steps-cta-card { background: #fff !important; box-shadow: 0 6px 22px rgba(13,13,13,0.06) !important; border-radius: 22px !important; padding: 20px !important; }
 
 /* Catalog: tighter cards, less rounding */
 .catalog-section { padding: 30px 16px 30px; }
@@ -3587,13 +3603,17 @@ footer {
 <!-- HOW — compact, light, Apple-style -->
 <section class="how-section" id="how">
   <div class="sec-label reveal r-still">ЯК ЦЕ ПРАЦЮЄ</div>
-  <h2 class="reveal r-still">Від лого до мерчу — 3 кроки</h2>
+  <h2 class="reveal r-still">Від логотипу до мерчу<br>за 60 секунд</h2>
   <div class="steps-list" data-stagger="0.08">
     <div class="step-card fade-up">
       <div class="step-card-left">
-        <div class="step-badge">1</div>
+        <div class="step-pill">STEP 01</div>
         <div class="step-title">Обери і налаштуй</div>
         <div class="step-text">Одяг, колір, розмір і нанесення — вишивка або друк</div>
+        <div class="step-chips">
+          <span class="step-chip">Більше 50+ моделей</span>
+          <span class="step-chip">Різні кольори</span>
+        </div>
       </div>
       <div class="step-image">
         <div class="step-cloth-wrap">
@@ -3609,9 +3629,13 @@ footer {
 
     <div class="step-card fade-up">
       <div class="step-card-left">
-        <div class="step-badge">2</div>
+        <div class="step-pill">STEP 02</div>
         <div class="step-title">Додай лого</div>
         <div class="step-text">Розмісти його там, де тобі подобається</div>
+        <div class="step-chips">
+          <span class="step-chip">Зміна розміру</span>
+          <span class="step-chip">Зміна позиції</span>
+        </div>
       </div>
       <div class="step-image">
         <div class="step-logo-wrap">
@@ -3626,9 +3650,13 @@ footer {
 
     <div class="step-card fade-up">
       <div class="step-card-left">
-        <div class="step-badge">3</div>
-        <div class="step-title">Отримай вчасно</div>
-        <div class="step-text">Ціну й термін бачиш одразу — виготовляємо і відправляємо</div>
+        <div class="step-pill">STEP 03</div>
+        <div class="step-title">Отримай ціну і термін</div>
+        <div class="step-text">Бачиш вартість одразу — виготовляємо і відправляємо</div>
+        <div class="step-chips">
+          <span class="step-chip">Ціна онлайн</span>
+          <span class="step-chip">Точний термін</span>
+        </div>
       </div>
       <div class="step-image">
         <div class="step-box-wrap">
