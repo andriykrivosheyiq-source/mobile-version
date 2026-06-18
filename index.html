@@ -3649,8 +3649,11 @@ footer {
   aspect-ratio: 1 / 1;
 }
 .adv-hero-video video {
-  width: 100%; height: 100%; object-fit: contain; display: block;
+  width: 100%; height: 100%; object-fit: cover; display: block;
   mix-blend-mode: multiply;
+  transform: scale(1.12);
+  -webkit-mask-image: radial-gradient(ellipse 72% 72% at 50% 48%, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 72% 72% at 50% 48%, #000 52%, transparent 100%);
 }
 
 /* Advantages — light reference style */
