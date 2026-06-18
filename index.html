@@ -3490,19 +3490,26 @@ footer {
 .steps-list { gap: 14px; display: flex; flex-direction: column; }
 .step-card {
   border-radius: 22px !important;
-  padding: 18px 0 18px 18px !important;
+  padding: 14px !important;
   background: #fff !important;
   box-shadow: 0 8px 24px rgba(30,45,90,0.06) !important;
   border: none !important;
   align-items: center !important;
+  gap: 8px !important;
 }
-.step-image { width: 150px !important; }
+.step-image { width: 132px !important; align-self: center !important; }
 .step-image > div {
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
   background: radial-gradient(115% 100% at 46% 58%, #C9D8FA 0%, #DEE3F8 38%, #E9E6F6 68%, #F4F0FA 88%, #FAF6FB 100%) !important;
 }
-.step-card-left { padding-right: 12px; }
+.step-card-left { padding-right: 6px; }
 .step-pill {
   display: inline-block;
+  align-self: flex-start;
+  width: auto; max-width: max-content;
   font-family: var(--font-text);
   font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
   color: #5B79C0;
@@ -3636,7 +3643,7 @@ footer {
         <div class="step-text">Одяг, колір, розмір і нанесення — вишивка або друк</div>
         <div class="step-chips">
           <span class="step-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H7v10c0 1.1.9 2 2 2h6a2 2 0 002-2V10h3.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>Більше 50+ моделей</span>
-          <span class="step-chip"><span class="chip-dots"><i></i><i></i><i></i></span>Різні кольори</span>
+          <span class="step-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 000 20c1.1 0 2-.9 2-2 0-.5-.2-.95-.5-1.3-.3-.35-.5-.8-.5-1.2 0-1.1.9-2 2-2h2.5A4.5 4.5 0 0022 11c0-4.97-4.48-9-10-9z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1.2" fill="currentColor" stroke="none"/></svg>Різні кольори</span>
         </div>
       </div>
       <div class="step-image">
