@@ -3419,12 +3419,10 @@ footer {
   box-shadow: 0 8px 24px rgba(30,45,90,0.06); overflow: hidden;
 }
 .vs2-row {
-  display: grid; grid-template-columns: 1fr 0.82fr 1fr;
-  align-items: center; padding: 9px 11px;
-  border-top: 1px solid #F1F2F6;
+  display: grid; grid-template-columns: 1fr 0.74fr 1fr;
+  align-items: center; column-gap: 8px; padding: 4px 11px;
 }
-.vs2-row:first-child { border-top: none; }
-.vs2-head { padding: 13px 11px; background: #FAFBFD; }
+.vs2-head { padding: 13px 11px 6px; background: transparent; }
 .vs2-brand { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--ink); }
 .vs2-logo {
   display: inline-flex; width: 20px; height: 20px; border-radius: 6px;
@@ -3433,9 +3431,9 @@ footer {
 }
 .vs2-themhead { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: #9aa3b2; }
 .vs2-cell { display: flex; align-items: center; gap: 6px; font-size: 11px; line-height: 1.2; }
-.vs2-us { color: var(--ink); font-weight: 600; }
+.vs2-us { color: var(--ink); font-weight: 600; background: #F2F7FF; padding: 8px 10px; border-radius: 11px; }
 .vs2-feat { justify-content: center; text-align: center; color: #aeb4c0; font-size: 10px; }
-.vs2-them { color: #9aa3b2; }
+.vs2-them { color: #9aa3b2; background: #F6F7F9; padding: 8px 10px; border-radius: 11px; }
 .vs2-ic { width: 16px; height: 16px; flex-shrink: 0; }
 .vs2-foot {
   display: flex; align-items: center; gap: 12px;
