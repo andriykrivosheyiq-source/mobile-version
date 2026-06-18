@@ -3497,14 +3497,16 @@ footer {
   align-items: center !important;
 }
 .step-image { width: 150px !important; }
-.step-image > div { background: #fff !important; }
+.step-image > div {
+  background: radial-gradient(115% 100% at 46% 58%, #C9D8FA 0%, #DEE3F8 38%, #E9E6F6 68%, #F4F0FA 88%, #FAF6FB 100%) !important;
+}
 .step-card-left { padding-right: 12px; }
 .step-pill {
   display: inline-block;
   font-family: var(--font-text);
   font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
-  color: #6B7896;
-  background: #EDF0F7;
+  color: #5B79C0;
+  background: #EAF1FF;
   padding: 5px 11px; border-radius: 999px;
   margin-bottom: 10px;
 }
@@ -3512,12 +3514,12 @@ footer {
 .step-text { font-size: 12.5px; line-height: 1.45; color: var(--muted); }
 .step-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .step-chip {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 10.5px; font-weight: 600; color: #6b7280;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: #6b7280;
   background: #fff; border: 1px solid #E6E9F1;
-  padding: 4px 9px; border-radius: 999px; white-space: nowrap;
+  padding: 5px 11px; border-radius: 999px; white-space: nowrap;
 }
-.step-chip svg { width: 12px; height: 12px; color: #9aa3b2; }
+.step-chip svg { width: 13px; height: 13px; color: #9aa3b2; flex-shrink: 0; }
 .chip-aa { font-family: var(--font-display); font-size: 11px; color: #6b7280; }
 .chip-dots { display: inline-flex; gap: 2px; }
 .chip-dots i { width: 6px; height: 6px; border-radius: 50%; }
@@ -3655,8 +3657,8 @@ footer {
         <div class="step-title">Додай лого</div>
         <div class="step-text">Розмісти його там, де тобі подобається</div>
         <div class="step-chips">
-          <span class="step-chip"><b class="chip-aa">Aa</b>Зміна розміру</span>
-          <span class="step-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg>Зміна позиції</span>
+          <span class="step-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3H4a1 1 0 00-1 1v2M18 3h2a1 1 0 011 1v2M6 21H4a1 1 0 01-1-1v-2M18 21h2a1 1 0 001-1v-2"/></svg>Вибери місце</span>
+          <span class="step-chip"><b class="chip-aa">Aa</b>Зміни розмір</span>
         </div>
       </div>
       <div class="step-image">
@@ -3675,6 +3677,10 @@ footer {
         <div class="step-pill">STEP 03</div>
         <div class="step-title">Отримай ціну</div>
         <div class="step-text">Ціну й термін бачиш одразу — виготовляємо і відправляємо</div>
+        <div class="step-chips">
+          <span class="step-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-12H12l1-8z"/></svg>Швидке виробництво</span>
+          <span class="step-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v11H1zM14 8h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Доставка по Україні</span>
+        </div>
       </div>
       <div class="step-image">
         <div class="step-box-wrap">
