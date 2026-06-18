@@ -3412,6 +3412,41 @@ footer {
 
 /* ===== COMPARISON WITH COMPETITORS ===== */
 .vs-section { background: var(--white); }
+
+/* Comparison v2 — 3 columns: LoomiQ ✓ | feature | Підрядник ✗ */
+.vs2 {
+  background: #fff; border: 1px solid #EDEFF4; border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(30,45,90,0.06); overflow: hidden;
+}
+.vs2-row {
+  display: grid; grid-template-columns: 1fr 0.82fr 1fr;
+  align-items: center; padding: 9px 11px;
+  border-top: 1px solid #F1F2F6;
+}
+.vs2-row:first-child { border-top: none; }
+.vs2-head { padding: 13px 11px; background: #FAFBFD; }
+.vs2-brand { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--ink); }
+.vs2-logo {
+  display: inline-flex; width: 20px; height: 20px; border-radius: 6px;
+  background: var(--blue); color: #fff; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; margin-right: 7px;
+}
+.vs2-themhead { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: #9aa3b2; }
+.vs2-cell { display: flex; align-items: center; gap: 6px; font-size: 11px; line-height: 1.2; }
+.vs2-us { color: var(--ink); font-weight: 600; }
+.vs2-feat { justify-content: center; text-align: center; color: #aeb4c0; font-size: 10px; }
+.vs2-them { color: #9aa3b2; }
+.vs2-ic { width: 16px; height: 16px; flex-shrink: 0; }
+.vs2-foot {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 12px; background: #F4F6FB; border-top: 1px solid #EDEFF4;
+}
+.vs2-foot-ic { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(30,45,90,0.08); }
+.vs2-foot-ic svg { width: 20px; height: 20px; }
+.vs2-foot-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.vs2-foot-text b { font-size: 12.5px; color: var(--ink); }
+.vs2-foot-text span { font-size: 10.5px; color: var(--muted); }
+.vs2-foot-arrow { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(26,86,219,0.3); }
 .adv-video { border-radius: 18px; overflow: hidden; margin: 0 16px 16px; box-shadow: 0 8px 24px rgba(30,45,90,0.08); }
 .adv-video video { width: 100%; height: auto; display: block; }
 .vs-table {
@@ -4078,19 +4113,59 @@ footer {
   <div class="sec-label reveal r-still">ЧОМУ LOOMIQ</div>
   <h2 class="reveal r-still">LoomiQ vs звичайний підрядник</h2>
   <p class="sec-sub reveal r-still">Подивись різницю — і більше не витрачай час на переписки</p>
-  <div class="vs-table reveal r-still">
-    <div class="vs-row vs-head">
-      <div class="vs-feature"></div>
-      <div class="vs-col vs-us">LoomiQ</div>
-      <div class="vs-col vs-them">Підрядник</div>
+  <div class="vs2 reveal r-still">
+    <div class="vs2-row vs2-head">
+      <div class="vs2-cell vs2-brand"><span class="vs2-logo">L</span>LoomiQ</div>
+      <div class="vs2-cell"></div>
+      <div class="vs2-cell vs2-themhead">Підрядник</div>
     </div>
-    <div class="vs-row"><div class="vs-feature">Ціна замовлення</div><div class="vs-col vs-us"><b>✓</b> Онлайн, одразу</div><div class="vs-col vs-them"><i>✗</i> Чекай 1–3 дні</div></div>
-    <div class="vs-row"><div class="vs-feature">Мінімальний тираж</div><div class="vs-col vs-us"><b>✓</b> Від 1 штуки</div><div class="vs-col vs-them"><i>✗</i> Від 50–100 шт</div></div>
-    <div class="vs-row"><div class="vs-feature">Макет до оплати</div><div class="vs-col vs-us"><b>✓</b> В конфігураторі</div><div class="vs-col vs-them"><i>✗</i> Після передоплати</div></div>
-    <div class="vs-row"><div class="vs-feature">Час на оформлення</div><div class="vs-col vs-us"><b>✓</b> 10 хвилин</div><div class="vs-col vs-them"><i>✗</i> 2–5 днів переписок</div></div>
-    <div class="vs-row"><div class="vs-feature">Точна дата готовності</div><div class="vs-col vs-us"><b>✓</b> Одразу онлайн</div><div class="vs-col vs-them"><i>✗</i> Уточнюй окремо</div></div>
-    <div class="vs-row"><div class="vs-feature">Рахунок для ФОП</div><div class="vs-col vs-us"><b>✓</b> Автоматично</div><div class="vs-col vs-them"><i>✗</i> Домовляйся окремо</div></div>
-    <div class="vs-row"><div class="vs-feature">Оплата онлайн</div><div class="vs-col vs-us"><b>✓</b> Карткою одразу</div><div class="vs-col vs-them"><i>✗</i> Переказ на картку</div></div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Онлайн, одразу</span></div>
+      <div class="vs2-cell vs2-feat">Ціна замовлення</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>Чекай 1–3 дні</span></div>
+    </div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Від 1 штуки</span></div>
+      <div class="vs2-cell vs2-feat">Мінімальний тираж</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>Від 50–100 шт</span></div>
+    </div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>В конфігураторі</span></div>
+      <div class="vs2-cell vs2-feat">Макет до оплати</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>Після передоплати</span></div>
+    </div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10 хвилин</span></div>
+      <div class="vs2-cell vs2-feat">Час на оформлення</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>2–5 діб переписки</span></div>
+    </div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Одразу онлайн</span></div>
+      <div class="vs2-cell vs2-feat">Точна дата готовності</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>Уточнюй окремо</span></div>
+    </div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Автоматично</span></div>
+      <div class="vs2-cell vs2-feat">Розрахунок за ФОП</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>Дзвінок / email</span></div>
+    </div>
+    <div class="vs2-row">
+      <div class="vs2-cell vs2-us"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E4F6EC"/><path d="M8 12.5l2.5 2.5 5-5.5" stroke="#1FA463" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Карткою одразу</span></div>
+      <div class="vs2-cell vs2-feat">Оплата онлайн</div>
+      <div class="vs2-cell vs2-them"><svg class="vs2-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FBE6E6"/><path d="M9 9l6 6M15 9l-6 6" stroke="#D9453B" stroke-width="2" stroke-linecap="round"/></svg><span>Переказ на картку</span></div>
+    </div>
+    <div class="vs2-foot">
+      <span class="vs2-foot-ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z"/></svg>
+      </span>
+      <div class="vs2-foot-text">
+        <b>Економ твого часу та нервів</b>
+        <span>LoomiQ вже на сайті — нічого уточнювати</span>
+      </div>
+      <a href="#" onclick="openCatModal(); return false;" class="vs2-foot-arrow" aria-label="Перейти до каталогу">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
