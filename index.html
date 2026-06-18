@@ -3761,6 +3761,45 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .adv-item.visible .adv-icon-box { animation: none; }
 }
+
+/* ===== UNIFIED CTA ARROW BUTTONS (catalog / hook / comparison) ===== */
+.cb-arrow, .steps-cta-arrow, .vs2-foot-arrow {
+  position: relative !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  width: 48px !important; height: 48px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #2F7BFF, #1340B0) !important;
+  color: #fff !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  text-decoration: none !important;
+  animation: ctaPulse 2.4s ease-out infinite;
+}
+.cb-arrow svg, .steps-cta-arrow svg, .vs2-foot-arrow svg {
+  width: 19px !important; height: 19px !important; position: relative; z-index: 2;
+}
+/* shimmer sweep across the button */
+.cb-arrow::after, .steps-cta-arrow::after, .vs2-foot-arrow::after {
+  content: ''; position: absolute; top: 0; left: -130%;
+  width: 65%; height: 100%; z-index: 1;
+  background: linear-gradient(110deg, transparent, rgba(255,255,255,0.85), transparent);
+  transform: skewX(-20deg);
+  animation: ctaShine 3s ease-in-out infinite;
+}
+.cb-arrow:active, .steps-cta-arrow:active, .vs2-foot-arrow:active { transform: scale(0.94); }
+@keyframes ctaPulse {
+  0%   { box-shadow: 0 6px 18px rgba(26,86,219,0.45), 0 0 0 0 rgba(47,123,255,0.55); }
+  70%  { box-shadow: 0 6px 18px rgba(26,86,219,0.45), 0 0 0 12px rgba(47,123,255,0); }
+  100% { box-shadow: 0 6px 18px rgba(26,86,219,0.45), 0 0 0 0 rgba(47,123,255,0); }
+}
+@keyframes ctaShine {
+  0%   { left: -130%; }
+  45%, 100% { left: 165%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cb-arrow, .steps-cta-arrow, .vs2-foot-arrow { animation: none; }
+  .cb-arrow::after, .steps-cta-arrow::after, .vs2-foot-arrow::after { animation: none; display: none; }
+}
 </style>
 </head>
 <body>
