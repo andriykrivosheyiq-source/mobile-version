@@ -3487,6 +3487,15 @@ footer {
 
 /* How steps — reference design: white cards, STEP pill, chips, image right */
 .how-section { background: #F4F6FB !important; }
+.how-section .sec-label { color: var(--blue) !important; }
+.how-section .sec-label::before { background: var(--blue) !important; }
+
+/* Stats block: same soft gradient as step visual */
+.stats-grid {
+  background: radial-gradient(115% 130% at 50% 55%, #C9D8FA 0%, #DEE3F8 38%, #E9E6F6 68%, #F4F0FA 88%, #FAF6FB 100%) !important;
+}
+.stat-item { background: transparent !important; }
+
 .steps-list { gap: 14px; display: flex; flex-direction: column; }
 .step-card {
   border-radius: 22px !important;
