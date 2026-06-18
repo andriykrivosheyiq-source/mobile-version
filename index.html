@@ -3561,12 +3561,31 @@ footer {
 }
 .steps-cta-arrow:active { background: var(--blue-dark); }
 
-/* Catalog: tighter cards, less rounding */
-.catalog-section { padding: 30px 16px 30px; }
-.cat-card { border-radius: 18px !important; }
-.cat-photo { aspect-ratio: 4 / 4.4 !important; }
-.catalog-grid { gap: 12px !important; }
-.cat-info { padding: 10px 12px !important; }
+/* Catalog — reference style: gradient photo, uniform grid, soft cards */
+.catalog-section { padding: 30px 16px 30px; background: #F4F6FB !important; }
+.catalog-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+.cat-card {
+  border-radius: 18px !important; background: #fff !important;
+  box-shadow: 0 8px 24px rgba(30,45,90,0.06) !important; border: none !important;
+  grid-column: auto !important;
+}
+.cat-photo {
+  aspect-ratio: 1 / 1 !important;
+  background: radial-gradient(115% 115% at 50% 55%, #C9D8FA 0%, #DEE3F8 38%, #E9E6F6 68%, #F4F0FA 88%, #FAF6FB 100%) !important;
+}
+.cat-index { color: #8a93a6 !important; }
+.cat-info { padding: 12px 12px !important; }
+.cat-arrow {
+  width: 34px !important; height: 34px !important; border-radius: 50% !important;
+  background: #fff !important; border: 1.5px solid #E6E9F1 !important; color: var(--ink) !important;
+}
+
+/* Catalog bottom banner — light blue */
+.catalog-more {
+  background: #E9EFFB !important; border: none !important;
+  border-radius: 16px !important; padding: 16px 18px !important;
+  font-weight: 700 !important; color: var(--ink) !important;
+}
 
 /* Generic cards: smaller radius so blocks feel tighter */
 .adv-item, .vs-table, .team-principle, .problem-card, .guarantee-card,
@@ -3737,18 +3756,16 @@ footer {
   <p class="sec-sub reveal r-still">Понад 50 позицій — налаштуй онлайн прямо зараз</p>
 
   <div class="catalog-grid" data-stagger="0.08">
-    <!-- Featured — Худі -->
-    <div class="cat-card cat-feature fade-up" onclick="openProdPage('худі')">
+    <!-- 1 — Худі -->
+    <div class="cat-card fade-up" onclick="openProdPage('худі')">
       <div class="cat-photo">
         <span class="cat-index">01</span>
-        <span class="cat-tag">Хіт продажів</span>
         <img src="p2.png" alt="Худі">
         <span class="cat-sheen"></span>
       </div>
       <div class="cat-info">
         <div class="cat-info-text">
           <div class="cat-name">Худі</div>
-          <div class="cat-sub">Преміум фліс · щільне · унісекс</div>
           <div class="cat-price">від 299 грн</div>
         </div>
         <div class="cat-arrow">
@@ -3793,8 +3810,8 @@ footer {
       </div>
     </div>
 
-    <!-- 4 — Кепка (wide) -->
-    <div class="cat-card cat-feature fade-up" onclick="openProdPage('кепки')">
+    <!-- 4 — Кепка -->
+    <div class="cat-card fade-up" onclick="openProdPage('кепки')">
       <div class="cat-photo">
         <span class="cat-index">04</span>
         <img src="p4.png" alt="Кепка">
@@ -3803,7 +3820,6 @@ footer {
       <div class="cat-info">
         <div class="cat-info-text">
           <div class="cat-name">Кепка</div>
-          <div class="cat-sub">5-панельна · регульований розмір</div>
           <div class="cat-price">від 149 грн</div>
         </div>
         <div class="cat-arrow">
