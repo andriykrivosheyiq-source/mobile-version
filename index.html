@@ -3784,6 +3784,16 @@ footer {
   width: 19px !important; height: 19px !important;
 }
 .cb-arrow:active, .steps-cta-arrow:active, .vs2-foot-arrow:active { transform: scale(0.94); }
+/* pulsing side arrow (scale-based, not clipped by banner overflow) */
+.cb-arrow, .steps-cta-arrow, .vs2-foot-arrow { animation: arrowPulse 1.9s ease-in-out infinite; }
+@keyframes arrowPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }
+
+/* unify banner text size across all three CTA blocks */
+.cb-title, .vs2-foot-text b, .steps-cta-title { font-size: 14px !important; font-weight: 700 !important; line-height: 1.25 !important; }
+.cb-sub, .vs2-foot-text span { font-size: 11px !important; }
+@media (prefers-reduced-motion: reduce) {
+  .cb-arrow, .steps-cta-arrow, .vs2-foot-arrow { animation: none; }
+}
 </style>
 </head>
 <body>
