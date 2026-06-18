@@ -915,13 +915,8 @@ h2 {
   background: #fff; color: var(--ink);
   padding: 4px 8px; border-radius: 999px;
 }
-.cat-sheen {
-  position: absolute; inset: 0; z-index: 3; pointer-events: none;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 60%);
-  transform: translateX(-130%);
-  transition: transform 0.75s ease;
-}
-.cat-card:active .cat-sheen { transform: translateX(130%); }
+.cat-sheen { display: none !important; }
+.cat-card:active .cat-sheen { transform: none; }
 
 /* Featured (full-width) card */
 .cat-feature {
