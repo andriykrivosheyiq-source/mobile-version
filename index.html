@@ -3385,6 +3385,17 @@ footer {
 .rev-photo { aspect-ratio: 3 / 4; overflow: hidden; }
 .rev-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .rev-cap { padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--ink); font-family: var(--font-display); line-height: 1.3; }
+.rev-wrap { position: relative; }
+.rev-arrow {
+  position: absolute; right: 6px; top: 38%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, #2F7BFF, #1340B0); color: #fff;
+  border: 2px solid #fff; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(26,86,219,0.4); cursor: pointer; z-index: 3;
+  animation: revArrowPulse 1.9s ease-in-out infinite;
+}
+@keyframes revArrowPulse { 0%,100% { transform: translateY(-50%) scale(1); } 50% { transform: translateY(-50%) scale(1.09); } }
+.rev-arrow:active { transform: translateY(-50%) scale(0.94); }
 .rev-hint {
   margin-top: 14px; font-size: 12px; color: var(--muted);
   background: #fff; border: 1px solid #EDEFF4; border-radius: 12px;
@@ -4268,61 +4279,13 @@ footer {
   </div>
 </section>
 
-<!-- CASES (horizontal scroll) -->
-<section class="cases2-section section" id="cases">
-  <div class="sec-label reveal r-still">КЕЙСИ</div>
-  <h2 class="reveal r-still">Реальні замовлення команд</h2>
-  <p class="sec-sub reveal r-still">Гортай вбік, щоб побачити більше робіт →</p>
-  <div class="cases2-scroll">
-    <div class="cases2-card">
-      <div class="cases2-photo"><img src="IMG_7211.JPEG" alt="GitLab Ukraine"></div>
-      <div class="cases2-body">
-        <div class="cases2-title">GitLab Ukraine</div>
-        <div class="cases2-meta">275 шт · вишивка + DTF · 7 днів</div>
-        <div class="cases2-text">«Все з логотипом, якість відмінна — команда задоволена.»</div>
-      </div>
-    </div>
-    <div class="cases2-card">
-      <div class="cases2-photo"><img src="case1.jpg" alt="Футболки IT"></div>
-      <div class="cases2-body">
-        <div class="cases2-title">IT-компанія</div>
-        <div class="cases2-meta">80 шт · футболки · DTF</div>
-        <div class="cases2-text">Мерч для команди до конференції — за 5 днів.</div>
-      </div>
-    </div>
-    <div class="cases2-card">
-      <div class="cases2-photo"><img src="case3.jpg" alt="Худі стартап"></div>
-      <div class="cases2-body">
-        <div class="cases2-title">Стартап</div>
-        <div class="cases2-meta">120 шт · худі · DTF</div>
-        <div class="cases2-text">Брендовані худі для всієї команди на онбординг.</div>
-      </div>
-    </div>
-    <div class="cases2-card">
-      <div class="cases2-photo"><img src="case2.jpg" alt="Кепки спорт-клуб"></div>
-      <div class="cases2-body">
-        <div class="cases2-title">Спорт-клуб</div>
-        <div class="cases2-meta">50 шт · кепки · вишивка</div>
-        <div class="cases2-text">Кепки з вишитим логотипом клубу.</div>
-      </div>
-    </div>
-    <div class="cases2-card">
-      <div class="cases2-photo"><img src="case4.jpg" alt="Шопери event"></div>
-      <div class="cases2-body">
-        <div class="cases2-title">Event-агенція</div>
-        <div class="cases2-meta">200 шт · шопери · DTF</div>
-        <div class="cases2-text">Брендовані шопери для учасників заходу.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- REVIEWS / BRANDS GALLERY -->
-<section class="rev-section section">
+<section class="rev-section section" id="cases">
   <div class="sec-label reveal r-still">ВІДГУКИ</div>
   <h2 class="reveal r-still">Бренди, що нам довірились</h2>
   <p class="sec-sub reveal r-still">Гортай вбік — реальні замовлення з логотипами клієнтів →</p>
-  <div class="rev-scroll">
+  <div class="rev-wrap">
+  <div class="rev-scroll" id="revScroll">
     <figure class="rev-card fade-up"><div class="rev-photo"><img src="0b60d75a-4e50-4cdf-888f-f9bcfe053460.jpg" alt="AL-FARABI University" loading="lazy"></div><figcaption class="rev-cap">AL-FARABI University</figcaption></figure>
     <figure class="rev-card fade-up"><div class="rev-photo"><img src="25a42174-4e4d-450b-9759-a762a47dafb2.jpg" alt="mycar TEAM" loading="lazy"></div><figcaption class="rev-cap">mycar TEAM</figcaption></figure>
     <figure class="rev-card fade-up"><div class="rev-photo"><img src="295b8eb7-47ff-4c2c-9f4e-16ff31e6c48e.jpg" alt="Game of Thrones" loading="lazy"></div><figcaption class="rev-cap">House Stark · Game of Thrones</figcaption></figure>
@@ -4335,6 +4298,10 @@ footer {
     <figure class="rev-card fade-up"><div class="rev-photo"><img src="a4346b67-0283-4aa1-b1be-05230322e569.jpg" alt="Театралка Kitchen & Fun" loading="lazy"></div><figcaption class="rev-cap">Театралка · Kitchen &amp; Fun</figcaption></figure>
     <figure class="rev-card fade-up"><div class="rev-photo"><img src="ba3068a8-9947-4970-a571-16554e371424.jpg" alt="Make Periods Great Again" loading="lazy"></div><figcaption class="rev-cap">Make Periods Great Again</figcaption></figure>
     <figure class="rev-card fade-up"><div class="rev-photo"><img src="e8299263-9197-4210-9eab-7dcc3d3583c2.jpg" alt="Teeling Whiskey" loading="lazy"></div><figcaption class="rev-cap">Teeling Whiskey</figcaption></figure>
+  </div>
+  <button class="rev-arrow" onclick="document.getElementById('revScroll').scrollBy({left:210,behavior:'smooth'})" aria-label="Гортати далі">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
   </div>
   <p class="rev-hint">💡 Придивись, що вишито й надруковано на кожному виробі — це справжні бренди, які обрали LoomiQ</p>
 </section>
